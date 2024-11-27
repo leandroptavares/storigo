@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [:edit, :update, :destroy]
   resources :user_communities, only: [:destroy]
   resources :user_books, only: [:index, :destroy, :edit, :update]
+
+  get "discover", to: "books#discover", as: :discover
 end
