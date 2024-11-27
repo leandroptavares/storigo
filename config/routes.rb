@@ -24,4 +24,8 @@ Rails.application.routes.draw do
   resources :user_books, only: [:index, :destroy, :edit, :update]
 
   get "discover", to: "books#discover", as: :discover
+
+  resources :surveys, only: [:create] do
+    resources :answers, only: [:new, :create]
+  end
 end

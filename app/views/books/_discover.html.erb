@@ -1,15 +1,19 @@
-<div class="d-none" data-display-form-target="questionaire">
+<div class="d-none" data-controller="survey" data-display-form-target="questionaire">
   <div data-display-form-target="question_1">
-    <p>What emotion are you looking to experience?</p>
-    <ul>
-      <li>Inspired</li>
-      <li>Suspense</li>
-      <li>Somber</li>
-      <li>Joyful</li>
-    </ul>
+    <%= simple_form_for [@survey, @answer], data: { survey_target: "survey"}, html: { class: "d-none" } do |f| %>
+      <h3><%= @questions.first.content %></h3>
+      <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
+      <%= f.input :question_id, input_html: { value: @questions.first.id }%>
+    <% end %>
+
+    <button data-survey-target="answer" data-answer="<%= @questions.first.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_1 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.first.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_2 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.first.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_3 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.first.answer_4 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_4 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.first.answer_5 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_5 %></button>
   </div>
 
-  <div class="d-none" data-display-form-target="question_2">
+  <%# <div class="d-none" data-display-form-target="question_2">
     <p>Choose a book category</p>
     <ul>
       <li>Best-seller</li>
@@ -37,12 +41,11 @@
   </div>
 
   <div class="d-none" data-display-form-target="question_5">
-    <p>What type of reading pace do you prefer?</p>
+    <p>Any particular publish date?</p>
     <ul>
-      <li>Fast-paced</li>
-      <li>Slow and thoughtful</li>
-      <li>Balanced</li>
-      <li>Flexible</li>
-    </ul>
-  </div>
+      <li>New releases</li>
+      <li>Old but gold</li>
+      <li>It doesn't matter</li>
+
+  </div> %>
 </div>

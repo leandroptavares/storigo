@@ -154,3 +154,6 @@ isbn13_numbers.each do |isbn13|
     p "Book created!"
   end
 end
+
+
+question = Question.new(content: "What emotion are you looking to experience?", answer_1: "Inspired", answer_2: "Suspense", answer_3: "Somber", answer_4: "Joyful", answer_5: "Magical" )
