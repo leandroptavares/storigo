@@ -55,24 +55,41 @@
   background: rgba(99, 189, 242, 1);
 }
 
-.discover_button{
-  box-sizing: border-box;
+.discover_button {
+  display: flex; /* Ensures text inside the button is centered */
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
   width: 173px;
   height: 70px;
   flex-shrink: 0;
   border-radius: 10px;
   background: #B9D9EC;
   box-shadow: 0px 2.875px 2.875px 0px rgba(0, 0, 0, 0.25);
-}
-
-.discover_button text{
   color: #000;
-  // font-family: Inter;
+  font-family: "Inter", sans-serif; /* Ensure font is properly loaded */
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin: 150% auto 0; /* Centers button horizontally in its container */
+  border: none; /* Removes default button border */
+  // cursor: pointer; /* Makes the button interactive */
+  // transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.discover_button:hover {
+  transform: translateY(-2px); /* Adds a hover animation */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+// .discover_button text{
+//   color: #000;
+//   // font-family: Inter;
+//   font-size: 24px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: normal;
+// }
 
 .discover_button--variant2 {
   background: rgba(99, 189, 242, 1);

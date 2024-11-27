@@ -17,3 +17,25 @@ ul {
 li {
   margin: 0.2em;
 }
+
+#main-links {
+  color: #B9D9EC;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 500px;
+}
+
+svg.icon-home {
+  width: 2rem; // Adjust size
+  height: 2rem;
+  fill: $primary_color;
+  background-image: url('/assets/images/home_icon.svg');
+  margin-right: 0.5rem;
+}

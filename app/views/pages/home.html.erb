@@ -1,6 +1,8 @@
-<div data-controller="display-form">
-  <button class="btn btn-primary" data-action="click->display-form#render">Discover</button>
-  <%= render "books/discover" %>
+<div class="container">
+  <div data-controller="display-form">
+    <button class="btn btn-primary discover_button" data-action="click->display-form#render">Discover</button>
+    <%= render "books/discover" %>
+  </div>
   <template class="discover-book">
     <div>
       <p></p>
