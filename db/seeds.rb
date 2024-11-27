@@ -94,7 +94,7 @@
 # getISBN("Inspirational", "best seller", "250", "novel", "2010")
 
 # *****
-url = "https://api2.isbndb.com/books/#{'fantasy'}?page=1&pageSize=500&column=title&language=en&shouldMatchAll=0"
+url = "https://api2.isbndb.com/books/#{'fantasy'}?page=1&pageSize=2&column=title&language=en&shouldMatchAll=0"
 
 response = HTTP.headers("Content-Type": "application/json", "Authorization": ENV["ISBN_DB_API"]).get(url)
 book_data = JSON.parse(response.body)
