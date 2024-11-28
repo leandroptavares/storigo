@@ -185,3 +185,5 @@ question_4 = Question.new(content: "Pick one of your preference", answer_1: "Fic
 question_4.save
 question_5 = Question.new(content: "What's your preferred publication date?", answer_1: "New releases", answer_2: "Old but gold", answer_3: "It doesn't matter" )
 question_5.save
+
+puts "question created!"
