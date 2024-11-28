@@ -96,7 +96,7 @@ class BooksController < ApplicationController
       puts "Book already exists in the database"
     else
       title = book_data["book"]["title"] || book_data["book"]["title_long"]
-      description = book_data["book"]["synopsis"]
+      description = book_data["book"]["synopsis"] || "No description available"
       author =  if book_data["book"]["authors"] && !book_data["book"]["authors"].empty?
                     book_data["book"]["authors"].join(", ")
                 else
@@ -107,11 +107,11 @@ class BooksController < ApplicationController
                   else
                       "No categories available"
                   end
-      number_of_pages = book_data["book"]["pages"].to_i
-      publish_date = book_data["book"]["date_published"]
+      number_of_pages = book_data["book"]["pages"].to_i || "No information available"
+      publish_date = book_data["book"]["date_published"] || "No information available"
       cover_image = book_data["book"]["image"]
       api_id = book_data["book"]["isbn13"].to_s || book_data["book"]["isbn"].to_s
-      publisher = book_data["book"]["publisher"]
+      publisher = book_data["book"]["publisher"] || "No information available"
 
       new_book = Book.new(
         title: title,
