@@ -77,3 +77,4 @@ end
 
 gem "http"
 gem "ruby-openai"
+gem "cloudinary"
