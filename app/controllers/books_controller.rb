@@ -3,11 +3,11 @@ class BooksController < ApplicationController
     if params[:search].present?
       user_input = params[:search]
     # Search by title
-    url = "https://api2.isbndb.com/books/#{user_input}?page=1&pageSize=20&column=title&language=en&shouldMatchAll=0"
+    # url = "https://api2.isbndb.com/books/#{user_input}?page=1&pageSize=20&column=title&language=en&shouldMatchAll=0"
     #Search by category
-    #
-    #Search by page
-    #
+    # url = "https://api2.isbndb.com/subject/#{user_input}"
+    #Search by author
+    url = "https://api2.isbndb.com/author/#{user_input}?page=1&pageSize=20"
 
       response = HTTP.headers("Content-Type": "application/json", "Authorization": ENV["ISBN_DB_API"]).get(url)
       books = JSON.parse(response.body)
