@@ -176,7 +176,12 @@
 
 
 question_1 = Question.new(content: "What emotion are you looking to experience?", answer_1: "Inspired", answer_2: "Suspense", answer_3: "Somber", answer_4: "Joyful", answer_5: "Magical" )
+question_1.save
 question_2 = Question.new(content: "Choose a book category", answer_1: "Best-seller", answer_2: "Classic", answer_3: "Contemporary", answer_4: "Social media trend", answer_5: "Kids-friendly" )
+question_2.save
 question_3 = Question.new(content: "How much reading are you in the mood for?", answer_1: "Short book", answer_2: "Long book", answer_3: "Open to both")
+question_3.save
 question_4 = Question.new(content: "Pick one of your preference", answer_1: "Fiction", answer_2: "Non-fiction")
+question_4.save
 question_5 = Question.new(content: "What's your preferred publication date?", answer_1: "New releases", answer_2: "Old but gold", answer_3: "It doesn't matter" )
+question_5.save
