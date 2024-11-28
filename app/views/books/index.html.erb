@@ -1,0 +1,28 @@
+<% @books_ai.each do |book| %>
+<ul>
+  <% if book.is_a?(Book) %>
+    <li><%= book.title%></li>
+    <li><%= book.author%></li>
+    <% if book.number_of_pages.present? %>
+    <li><%= book.number_of_pages %></li>
+    <% end %>
+     <% if book.publish_date.present? %>
+        <li><%= book.publish_date %></li>
+        <% end %>
+    <%= image_tag book.cover_image, class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
+    </ul>
+  <% else%>
+      <% if book["image"].present? %>
+        <li><%= book["title"] %></li>
+        <li><%= book["authors"] %></li>
+        <% if book["pages"].present? %>
+        <li><%= book["pages"]  %></li>
+        <% end %>
+        <% if book["date_published"].present? %>
+        <li><%= book["date_published"] %></li>
+        <% end %>
+        <%= image_tag book["image"], class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
+      <% end%>
+    </ul>
+    <% end %>
+<% end %>
