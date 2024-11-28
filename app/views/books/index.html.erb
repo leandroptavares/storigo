@@ -1,35 +1,49 @@
 <%= render "shared/homesearch" %>
 
-<% @books_ai.each do |book| %>
-<ul>
-  <% if book.is_a?(Book) %>
-    <li><%= book.title%></li>
-     <% authors_array = JSON.parse(book.author)%>
-    <li><%= authors_array.join(",") %></li>
-    <% if book.number_of_pages.present? %>
-    <li><%= book.number_of_pages %></li>
+<div class="container mt-4">
+  <div class="row">
+    <% @books_ai.each_with_index do |book, index| %>
+      <% if index % 3 == 0 && index != 0 %>
+        </div><div class="row">
+      <% end %>
+
+      <% if book.is_a?(Book) %>
+        <div class="card col-md-4 mb-4">
+            <div class="card-footer text-center">
+            <%= image_tag book.cover_image, class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= book.title %></h5>
+            <% authors_array = book.author.is_a?(String) && book.author.start_with?("[") ? JSON.parse(book.author) : Array(book.author) %>
+            <p class="card-text"><strong>Author(s):</strong> <%= authors_array.join(",") %></p>
+
+            <% if book.number_of_pages.present? %>
+              <p class="card-text"><strong>Pages:</strong> <%= book.number_of_pages %></p>
+            <% end %>
+            <% if book.publish_date.present? %>
+              <p class="card-text"><strong>Published:</strong> <%= book.publish_date %></p>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <% if book["image"].present? %>
+          <div class="card col-md-4 mb-4">
+             <div class="card-footer text-center">
+              <%= image_tag book["image"], class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= book["title"] %></h5>
+              <p class="card-text"><strong>Author(s):</strong> <%= book["authors"].join(",")%></p>
+              <% if book["pages"].present? %>
+                <p class="card-text"><strong>Pages:</strong> <%= book["pages"] %></p>
+              <% end %>
+              <% if book["date_published"].present? %>
+                <p class="card-text"><strong>Published:</strong> <%= book["date_published"] %></p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
-     <% if book.publish_date.present? %>
-        <li><%= book.publish_date %></li>
-        <% end %>
-        <p>
-    <%= image_tag book.cover_image, class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
-    </p>
-    </ul>
-  <% else%>
-      <% if book["image"].present? %>
-        <li><%= book["title"] %></li>
-        <li><%= book["authors"][0] %></li>
-        <% if book["pages"].present? %>
-        <li><%= book["pages"]  %></li>
-        <% end %>
-        <% if book["date_published"].present? %>
-        <li><%= book["date_published"] %></li>
-        <% end %>
-        <p>
-        <%= image_tag book["image"], class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
-        </p>
-      <% end%>
-    </ul>
-    <% end %>
-<% end %>
+  </div>
+</div>
