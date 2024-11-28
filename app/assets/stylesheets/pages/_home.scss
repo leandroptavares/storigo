@@ -8,7 +8,7 @@
 
 .h2-home h2 {
   font-size: 3.2rem;
-  margin-top: 2rem;
+  margin-top: -4rem;
   margin-bottom: 2rem;
 }
 
@@ -31,7 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 8.5rem;
+  margin-top: 2rem;
 }
 
 .logo-container {
@@ -77,8 +77,9 @@
 }
 
 .trending-container {
-  padding-bottom: 10rem;
-  padding-top: 6rem;
+  padding-bottom: 6rem;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .trend {
@@ -90,7 +91,7 @@
   line-height: normal;
 }
 .fire-icon{
-
+  margin-top: 2.6rem;
 }
 
 .trend-container-2 {
@@ -98,4 +99,15 @@
   justify-content: center; /* Centers the content */
   align-items: center; /* Aligns text and icon vertically */
   // gap: 0.5rem; /* Adds space between the text and icon */
+}
+
+.trend-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #B9D9EC;
+}
+
+.trend-author{
+  color: rgba(185, 217, 236, 0.64);
+
 }
