@@ -1,1 +1,99 @@
-// Specific CSS for your home-page
+.h2-home {
+  margin: 2rem 0;
+  color: #B9D9EC;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+}
+
+.h2-home h2 {
+  font-size: 3.2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.home-button-container {
+  margin-bottom: 2rem 0;
+  // margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.image-class {
+  width: 30rem;
+  height: 23rem;
+  margin: 2rem 0;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8.5rem;
+}
+
+// .logo-container {
+//   display: flex;
+//   justify-content: flex-start;
+//   width: 100%;
+//   margin: 2rem;
+//   // position: fixed; /* Keep it at the top even when scrolling */
+//   top: 0; /* Pin it to the top of the page */
+//   left: 0; /* Ensure alignment with the right edge */
+// }
+
+.logo {
+  font-family: Italiana;
+  font-size: 3.2rem;
+}
+
+// .login-home-container {
+//   display: flex;
+//   justify-content: flex-end;
+//   width: 100%;
+//   margin: 2rem;
+//   // position: fixed; /* Keep it at the top even when scrolling */
+//   top: 0; /* Pin it to the top of the page */
+//   right: 0; /* Ensure alignment with the right edge */
+// }
+
+.header-container {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Push logo and login button to opposite sides */
+  align-items: center; /* Vertically align items */
+  width: 100%; /* Full width of the page */
+  padding: 1rem 2rem; /* Add spacing around the header */
+  position: fixed; /* Stick to the top of the page */
+  top: 0;
+  left: 0;
+  background-color: $background_color; /* Match page background or use a specific color */
+  z-index: 10; /* Ensure it's above other elements */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for separation */
+  padding-top: 2rem;
+}
+
+.trending-container {
+  padding-bottom: 10rem;
+  padding-top: 6rem;
+}
+
+.trend {
+  font-size: 3.2rem;
+  text-align: center;
+  color: #F1A3A3;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.fire-icon{
+
+}
+
+.trend-container-2 {
+  display: flex; /* Aligns the text and icon horizontally */
+  justify-content: center; /* Centers the content */
+  align-items: center; /* Aligns text and icon vertically */
+  gap: 0.5rem; /* Adds space between the text and icon */
+}

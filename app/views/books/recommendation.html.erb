@@ -1,0 +1,9 @@
+<button>See details</button>
+<%= image_tag(@books.first.cover_image) %>
+<h2><%= @books.first.title %></h2>
+<p>by <%= @books.first.author %></p>
+
+<button type="button" class="btn btn-danger">I'm not interested</button>
+<button type="button" class="btn btn-success">Like to read</button>
+
+<%# <%= @open_ai_recommendation %>

@@ -1,9 +1,42 @@
 <div class="navbar">
   <ul id="main-links">
-    <li><%= link_to "Home" %></li>
-    <li><%= link_to "Search" %></li>
-    <li><%= link_to "Discover"%></li>
-    <li><%= link_to "Community" %></li>
-    <li><%= link_to "Profile" %></li>
+<li>
+  <%= link_to root_path do %>
+  <div>
+    <%= image_tag "home-thin.svg", alt: "Home Icon", class: "icon" %>
+    </div>
+    <span>Home</span>
+  <% end %></li>
+</>
+    <li><%= link_to root_path do %>
+  <div>
+    <%= image_tag "search-thin.svg", alt: "Home Icon", class: "icon" %>
+  </div>
+    <span>Search</span>
+  <% end %></li>
+
+    <li><%= link_to root_path do %>
+  <div>
+    <%= image_tag "Component 1.svg", alt: "Additional Icon", class: "above-icon" %>
+  </div>
+
+  <div>
+    <%= image_tag "discover.svg", alt: "Discover Icon", class: "icon" %>
+  </div>
+        <span>Discover</span>
+      <% end %></li>
+
+    <li><%= link_to root_path do %>
+  <div>
+    <%= image_tag "community.svg", alt: "Home Icon", class: "icon" %>
+    </div>
+    <span>Community</span>
+  <% end %></li>
+    <li><%= link_to root_path do %>
+  <div>
+    <%= image_tag "profile.svg", alt: "Home Icon", class: "icon" %>
+    </div>
+    <span>Profile</span>
+  <% end %></li>
   </ul>
 </div>
