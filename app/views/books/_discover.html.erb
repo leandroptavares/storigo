@@ -1,51 +1,63 @@
 <div class="d-none" data-controller="survey" data-display-form-target="questionaire">
   <div data-display-form-target="question_1">
+    <div data-survey-target="question_1">
+      <%= simple_form_for [@survey, @answer], data: { survey_target: "survey"}, html: { class: "d-none" } do |f| %>
+        <p><%= @questions.first.content %></p>
+        <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
+        <%= f.input :question_id, input_html: { value: @questions.first.id }%>
+      <% end %>
+      <%= @questions.first.content  %>
+        <button data-survey-target="answer" data-answer="<%= @questions.first.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_1 %></button>
+        <button data-survey-target="answer" data-answer="<%= @questions.first.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_2 %></button>
+        <button data-survey-target="answer" data-answer="<%= @questions.first.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_3 %></button>
+        <button data-survey-target="answer" data-answer="<%= @questions.first.answer_4 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_4 %></button>
+        <button data-survey-target="answer" data-answer="<%= @questions.first.answer_5 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_5 %></button>
+      </div>
+  </div>
+
+  <div class="d-none" data-survey-target="question_2">
     <%= simple_form_for [@survey, @answer], data: { survey_target: "survey"}, html: { class: "d-none" } do |f| %>
-      <h3><%= @questions.first.content %></h3>
       <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
-      <%= f.input :question_id, input_html: { value: @questions.first.id }%>
+      <%= f.input :question_id, input_html: { value: @questions.second.id }%>
     <% end %>
-
-    <button data-survey-target="answer" data-answer="<%= @questions.first.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_1 %></button>
-    <button data-survey-target="answer" data-answer="<%= @questions.first.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_2 %></button>
-    <button data-survey-target="answer" data-answer="<%= @questions.first.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_3 %></button>
-    <button data-survey-target="answer" data-answer="<%= @questions.first.answer_4 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_4 %></button>
-    <button data-survey-target="answer" data-answer="<%= @questions.first.answer_5 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_5 %></button>
+    <%= @questions.second.content  %>
+    <button data-survey-target="answer" data-answer="<%= @questions.second.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.second.answer_1 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.second.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.second.answer_2 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.second.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.second.answer_3 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.second.answer_4 %>" data-action="click->survey#createAnswer"><%= @questions.second.answer_4 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.second.answer_5 %>" data-action="click->survey#createAnswer"><%= @questions.second.answer_5 %></button>
   </div>
 
-  <%# <div class="d-none" data-display-form-target="question_2">
-    <p>Choose a book category</p>
-    <ul>
-      <li>Best-seller</li>
-      <li>Classic</li>
-      <li>Contemporary</li>
-      <li>Kids-friendly</li>
-    </ul>
+  <div class="d-none" data-survey-target="question_3">
+    <%= simple_form_for [@survey, @answer], data: { survey_target: "survey"}, html: { class: "d-none" } do |f| %>
+      <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
+      <%= f.input :question_id, input_html: { value: @questions.third.id }%>
+    <% end %>
+    <%= @questions.third.content  %>
+    <button data-survey-target="answer" data-answer="<%= @questions.third.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.third.answer_1 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.third.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.third.answer_2 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.third.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.third.answer_3 %></button>
   </div>
 
-  <div class="d-none" data-display-form-target="question_3">
-    <p>How much reading are you in the mood for?</p>
-    <ul>
-      <li>Short book</li>
-      <li>Long book</li>
-      <li>Whatever</li>
-    </ul>
+  <div class="d-none" data-survey-target="question_4">
+    <%= simple_form_for [@survey, @answer], data: { survey_target: "survey"}, html: { class: "d-none" } do |f| %>
+      <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
+      <%= f.input :question_id, input_html: { value: @questions.fourth.id }%>
+    <% end %>
+    <%= @questions.fourth.content  %>
+    <button data-survey-target="answer" data-answer="<%= @questions.fourth.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.fourth.answer_1 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.fourth.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.fourth.answer_2 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.fourth.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.fourth.answer_3 %></button>
   </div>
 
-  <div class="d-none" data-display-form-target="question_4">
-    <p>What do you prefer?</p>
-    <ul>
-      <li>Non-fiction</li>
-      <li>Fiction</li>
-    </ul>
+  <div class="d-none" data-survey-target="question_5">
+    <%= simple_form_for [@survey, @answer], data: { survey_target: "survey"}, html: { class: "d-none" } do |f| %>
+      <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
+      <%= f.input :question_id, input_html: { value: @questions.fifth.id }%>
+    <% end %>
+    <%= @questions.fifth.content  %>
+    <button data-survey-target="answer" data-answer="<%= @questions.fifth.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.fifth.answer_1 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.fifth.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.fifth.answer_2 %></button>
+    <button data-survey-target="answer" data-answer="<%= @questions.fifth.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.fifth.answer_3 %></button>
   </div>
-
-  <div class="d-none" data-display-form-target="question_5">
-    <p>Any particular publish date?</p>
-    <ul>
-      <li>New releases</li>
-      <li>Old but gold</li>
-      <li>It doesn't matter</li>
-
-  </div> %>
 </div>
