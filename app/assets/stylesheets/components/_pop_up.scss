@@ -1,0 +1,52 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw; /* Full width of the viewport */
+  height: 50vw; /* Adjusted height to 50% of the viewport width */
+  background-color: #1C042E;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Dimming the background */
+.custom-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+  z-index: 999; /* Below the modal but above other content */
+  display: none; /* Initially hidden */
+}
+
+/* Show the background dim when modal is active */
+.custom-container.modal-visible::before {
+  display: block; /* Shows the background overlay when the modal is active */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 100vw; /* Full width of the viewport */
+    height: 60vw; /* Slightly larger height on medium screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal {
+    width: 100vw; /* Full width of the viewport */
+    height: 70vw; /* Larger height for smaller mobile screens */
+  }
+}
