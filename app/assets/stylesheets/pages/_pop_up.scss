@@ -18,6 +18,18 @@
   display: none;
 }
 
+.close-button {
+  position: absolute;
+  top: 2%;  /* Relative to the modal content height */
+  right: 2%; /* Relative to the modal content width */
+  background-color: transparent;
+  border: none;
+  color: #B9D9EC;
+  font-size: 1.5rem; /* Scales with the root font size */
+  cursor: pointer;
+}
+
+
 /* Dimming the background */
 .custom-container::before {
   content: "";
@@ -48,5 +60,21 @@
   .modal {
     width: 100vw; /* Full width of the viewport */
     height: 70vw; /* Larger height for smaller mobile screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .close-button {
+    font-size: 1.25rem; /* Slightly smaller on tablet */
+    top: 3%;
+    right: 3%;
+  }
+}
+
+@media (max-width: 480px) {
+  .close-button {
+    font-size: 1rem; /* Smaller for mobile */
+    top: 5%;
+    right: 5%;
   }
 }
