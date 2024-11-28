@@ -1,87 +1,104 @@
-// LOGIN BUTTONS! 👇🏻
+// // LOGIN BUTTONS! 👇🏻
 
 .login_button{
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 7px;
   background: #B9D9EC;
-  box-shadow: 0px 2.875px 2.875px 0px rgba(0, 0, 0, 0.25);
-  width: 56px;
-  height: 35px;
-  flex-shrink: 0;
-}
-
-.login_button text{
   color: #000;
-  // font-family: Inter;
-  font-size: 14px;
+  box-shadow: 0.1rem 0.2rem 0.2rem 0px rgba(0, 0, 0, 0.25);
+  width: 9.2rem;
+  height: 5.3rem;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
 
-.login_button:hover{
-  background: #F4F4F4;
+.login_button a {
+  text-decoration: none;
 }
 
-// Variant modifiers for different background colors and hover states 👇🏻
+// .login_button text{
+//   color: #000;
+//   // font-family: Inter;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: normal;
+// }
 
-.login_button--variant2 {
-  background: rgba(99, 189, 242, 1);
-}
+// .login_button:hover{
+//   background: #F4F4F4;
+// }
 
-// Join Buttons!!!👇🏻
+// // Variant modifiers for different background colors and hover states 👇🏻
+
+// .login_button--variant2 {
+//   background: rgba(99, 189, 242, 1);
+// }
+
+// // Join Buttons!!!👇🏻
 
 .join_button{
-  box-sizing: border-box;
-  width: 56px;
-  height: 35.19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5.6rem;
+  height: 3.5rem;
   flex-shrink: 0;
-  border-radius: 7px;
+  border-radius: 0.7rem;
   background: #B9D9EC;
-  box-shadow: 0px 2.875px 2.875px 0px rgba(0, 0, 0, 0.25);
-}
-
-.join_button text{
-  color: #000;
-  // font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
+  box-shadow: 0.1rem 0.2rem 0.2rem 0px rgba(0, 0, 0, 0.25);
   font-weight: 500;
-  line-height: normal;
-}
-// Variant modifiers for different background colors and hover states 👇🏻
 
-.login_button--variant2 {
-  background: rgba(99, 189, 242, 1);
 }
+
+
+
+// .join_button text{
+//   color: #000;
+//   // font-family: Inter;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: normal;
+// }
+// // Variant modifiers for different background colors and hover states 👇🏻
+
+// .login_button--variant2 {
+//   background: rgba(99, 189, 242, 1);
+// }
 
 .discover_button {
-  display: flex; /* Ensures text inside the button is centered */
-  justify-content: center; /* Horizontal centering */
-  align-items: center; /* Vertical centering */
-  width: 173px;
-  height: 70px;
-  flex-shrink: 0;
-  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17.3rem;
+  height: 7rem;
+  // flex-shrink: 0;
+  border-radius: 1rem;
   background: #B9D9EC;
-  box-shadow: 0px 2.875px 2.875px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0.1rem 0.2rem 0.2rem 0px rgba(0, 0, 0, 0.25);
   color: #000;
-  font-family: "Inter", sans-serif; /* Ensure font is properly loaded */
-  font-size: 24px;
-  font-style: normal;
+  font-size: 2.4rem;
   font-weight: 500;
-  line-height: normal;
-  margin: 150% auto 0; /* Centers button horizontally in its container */
-  border: none; /* Removes default button border */
-  // cursor: pointer; /* Makes the button interactive */
+  border: none;
+  cursor: pointer;
   // transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  /* Prevent movement on click */
+  margin: 0;
+  outline: none;
+  // position: relative; /* Allows absolute positioning of child elements */
 }
 
-.discover_button:hover {
-  transform: translateY(-2px); /* Adds a hover animation */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+.discover-icon {
+  // position: absolute;
+  // left: 0.7rem;
+  // bottom: 1.6rem;
 }
-
 // .discover_button text{
 //   color: #000;
 //   // font-family: Inter;
@@ -91,111 +108,111 @@
 //   line-height: normal;
 // }
 
-.discover_button--variant2 {
-  background: rgba(99, 189, 242, 1);
-}
+// .discover_button--variant2 {
+//   background: rgba(99, 189, 242, 1);
+// }
 
-.add_to_bookshelf_button{
-  width: 183px;
-  height: 50px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #B9D9EC;
-}
+// .add_to_bookshelf_button{
+//   width: 183px;
+//   height: 50px;
+//   flex-shrink: 0;
+//   border-radius: 10px;
+//   background: #B9D9EC;
+// }
 
-.add_to_bookshelf_button text{
-  width: 113.462px;
-  height: 17px;
-  flex-shrink: 0;
-  color: #1C042E;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
+// .add_to_bookshelf_button text{
+//   width: 113.462px;
+//   height: 17px;
+//   flex-shrink: 0;
+//   color: #1C042E;
+//   font-family: Inter;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: normal;
+// }
 
-.add_to_bookshelf_button--variant2 {
-  background: rgba(99, 189, 242, 1);
-}
+// .add_to_bookshelf_button--variant2 {
+//   background: rgba(99, 189, 242, 1);
+// }
 
-.go_button{width: 61px;
-  height: 40px;
-  flex-shrink: 0;
-  border-radius: 6.243px;
-  background: #B9D9EC;
-}
+// .go_button{width: 61px;
+//   height: 40px;
+//   flex-shrink: 0;
+//   border-radius: 6.243px;
+//   background: #B9D9EC;
+// }
 
-.go_button text{
-  color: #000;
-  // font-family: Inter;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
+// .go_button text{
+//   color: #000;
+//   // font-family: Inter;
+//   font-size: 18px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: normal;
+// }
 
-.added-to-bookshelf_button{
-  width: 183px;
-  height: 50px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #B9D9EC;
-}
+// .added-to-bookshelf_button{
+//   width: 183px;
+//   height: 50px;
+//   flex-shrink: 0;
+//   border-radius: 10px;
+//   background: #B9D9EC;
+// }
 
-.add-to-bookshelf-button text{
-  width: 244.267px;
-  height: 25px;
-  flex-shrink: 0;
-  color: #1C042E;
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
+// .add-to-bookshelf-button text{
+//   width: 244.267px;
+//   height: 25px;
+//   flex-shrink: 0;
+//   color: #1C042E;
+//   font-family: Inter;
+//   font-size: 24px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: normal;
+// }
 
-// Pop up buttons!!!👇🏻
+// // Pop up buttons!!!👇🏻
 
-.leave_button{
-  width: 67.889px;
-  height: 37.127px;
-  flex-shrink: 0;
-  border-radius: 5.304px;
-  background: #D9D9D9;
-  box-shadow: 0px 2.122px 2.122px 0px rgba(0, 0, 0, 0.25);
-}
+// .leave_button{
+//   width: 67.889px;
+//   height: 37.127px;
+//   flex-shrink: 0;
+//   border-radius: 5.304px;
+//   background: #D9D9D9;
+//   box-shadow: 0px 2.122px 2.122px 0px rgba(0, 0, 0, 0.25);
+// }
 
-.leave_button text{
-  width: 44.022px;
-  height: 15.381px;
-  flex-shrink: 0;
-  color: #000;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
+// .leave_button text{
+//   width: 44.022px;
+//   height: 15.381px;
+//   flex-shrink: 0;
+//   color: #000;
+//   font-family: Inter;
+//   font-size: 12px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: normal;
+// }
 
-.stay_button{
-  width: 53.396px;
-  height: 37.126px;
-  flex-shrink: 0;
-  border-radius: 5.304px;
-  background: #B9D9EC;
-  box-shadow: 0px 2.122px 2.122px 0px rgba(0, 0, 0, 0.25);
-}
+// .stay_button{
+//   width: 53.396px;
+//   height: 37.126px;
+//   flex-shrink: 0;
+//   border-radius: 5.304px;
+//   background: #B9D9EC;
+//   box-shadow: 0px 2.122px 2.122px 0px rgba(0, 0, 0, 0.25);
+// }
 
-.stay_button text{
-  width: 34.624px;
-  height: 15.381px;
-  flex-shrink: 0;
-  color: #000;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-// END!!!
+// .stay_button text{
+//   width: 34.624px;
+//   height: 15.381px;
+//   flex-shrink: 0;
+//   color: #000;
+//   font-family: Inter;
+//   font-size: 12px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: normal;
+// }
+// // END!!!

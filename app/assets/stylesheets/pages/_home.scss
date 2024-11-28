@@ -1,1 +1,78 @@
 // Specific CSS for your home-page
+
+.h2-home {
+  position: absolute; /* Allow explicit positioning */
+  display: flex;
+  justify-self: flex-end;
+  bottom: 22rem;
+  color: #B9D9EC;
+  text-align: center;
+  font-family: Inter;
+  // font-size: 200px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  // padding: 20px;
+  // width: 48rem;
+  // height: 7.6rem;
+  flex-shrink: 0;
+  justify-self: flex-start;
+}
+
+.h2-home h2 {
+  font-size: 3.2rem;
+}
+
+.home-button-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-end;
+  // margin-top: 50.7rem;
+  // top: 57.7rem;
+  bottom: 12rem
+}
+
+.image-class{
+  width: 30rem;
+  height: 23rem;
+}
+
+.image-container{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-end;
+  bottom: 32rem;
+}
+
+.logo{
+  font-family: Italiana;
+  font-size: 3.2rem;
+}
+
+.logo-container{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-end;
+  bottom: 58rem;
+  left: 2rem;
+}
+
+.login-home-container{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-end;
+  bottom: 58rem;
+  right: 2rem;
+}
+
+.login-home-container a {
+  text-decoration: none;
+}
