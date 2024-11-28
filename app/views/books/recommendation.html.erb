@@ -1,7 +1,12 @@
 <button>See details</button>
-<%= image_tag(@books.first.cover_image) %>
-<h2><%= @books.first.title %></h2>
-<p>by <%= @books.first.author %></p>
+
+<div class="book-container">
+  <%= image_tag(@books.first.cover_image) %>
+  <div class="book-txt">
+    <h2><%= @books.first.title %></h2>
+    <p>by <%= @books.first.author %></p>
+  </div>
+</div>
 
 <button type="button" class="btn btn-danger">I'm not interested</button>
 <button type="button" class="btn btn-success">Like to read</button>
