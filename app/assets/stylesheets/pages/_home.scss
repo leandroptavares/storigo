@@ -34,7 +34,9 @@
   margin-top: 8.5rem;
 }
 
-// .logo-container {
+.logo-container {
+  display: flex; /* Optional if there are multiple items */
+  align-items: center; /* Vertically align logo */
 //   display: flex;
 //   justify-content: flex-start;
 //   width: 100%;
@@ -42,36 +44,36 @@
 //   // position: fixed; /* Keep it at the top even when scrolling */
 //   top: 0; /* Pin it to the top of the page */
 //   left: 0; /* Ensure alignment with the right edge */
-// }
+}
 
 .logo {
   font-family: Italiana;
   font-size: 3.2rem;
+  margin-bottom: 3rem;
 }
 
-// .login-home-container {
-//   display: flex;
+.login-home-container {
+  display: flex; /* Optional for alignment */
+  align-items: center; /* Vertically align login button */
 //   justify-content: flex-end;
 //   width: 100%;
 //   margin: 2rem;
 //   // position: fixed; /* Keep it at the top even when scrolling */
 //   top: 0; /* Pin it to the top of the page */
 //   right: 0; /* Ensure alignment with the right edge */
-// }
+}
 
 .header-container {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Push logo and login button to opposite sides */
-  align-items: center; /* Vertically align items */
-  width: 100%; /* Full width of the page */
-  padding: 1rem 2rem; /* Add spacing around the header */
-  position: fixed; /* Stick to the top of the page */
+  display: flex; /* Flexbox for horizontal alignment */
+  justify-content: space-between; /* Space out logo and login button */
+  align-items: center; /* Ensure vertical centering */
+  width: 100%; /* Full width */
+  padding: 1rem 2rem; /* Adjust padding */
+  position: fixed; /* Sticks to the top */
   top: 0;
-  left: 0;
-  background-color: $background_color; /* Match page background or use a specific color */
-  z-index: 10; /* Ensure it's above other elements */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for separation */
-  padding-top: 2rem;
+  background-color: $background_color; /* Background color */
+  z-index: 10; /* On top of other elements */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .trending-container {
@@ -95,5 +97,5 @@
   display: flex; /* Aligns the text and icon horizontally */
   justify-content: center; /* Centers the content */
   align-items: center; /* Aligns text and icon vertically */
-  gap: 0.5rem; /* Adds space between the text and icon */
+  // gap: 0.5rem; /* Adds space between the text and icon */
 }
