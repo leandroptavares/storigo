@@ -19,20 +19,22 @@ h2{
 }
 
 .form-actions{
+  display: flex;
   text-align: center;
   background-color: #B9D9EC;
   border-radius: 10px;
   width: 183px;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 a{
-  text-align: center;
-  text-decoration: none;
   color: #FFFFFF;
-  margin-left: 54px;
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
