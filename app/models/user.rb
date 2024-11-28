@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :user_reactions, dependent: :destroy
   validates :email, :username, :first_name, :last_name, presence: true
   validates :email, :username, uniqueness: true
+  has_many :surveys
 end
