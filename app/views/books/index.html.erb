@@ -1,29 +1,35 @@
-<% render "shared/homesearch"%>
+
+<%= render "shared/homesearch" %>
 
 <% @books_ai.each do |book| %>
 <ul>
   <% if book.is_a?(Book) %>
     <li><%= book.title%></li>
-    <li><%= book.author%></li>
+     <% authors_array = JSON.parse(book.author)%>
+    <li><%= authors_array.join(",") %></li>
     <% if book.number_of_pages.present? %>
     <li><%= book.number_of_pages %></li>
     <% end %>
      <% if book.publish_date.present? %>
         <li><%= book.publish_date %></li>
         <% end %>
+        <p>
     <%= image_tag book.cover_image, class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
+    </p>
     </ul>
   <% else%>
       <% if book["image"].present? %>
         <li><%= book["title"] %></li>
-        <li><%= book["authors"] %></li>
+        <li><%= book["authors"][0] %></li>
         <% if book["pages"].present? %>
         <li><%= book["pages"]  %></li>
         <% end %>
         <% if book["date_published"].present? %>
         <li><%= book["date_published"] %></li>
         <% end %>
+        <p>
         <%= image_tag book["image"], class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
+        </p>
       <% end%>
     </ul>
     <% end %>

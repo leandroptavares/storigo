@@ -17,6 +17,7 @@ class BooksController < ApplicationController
       @books_ai = books["books"]
       @books_ai.each do |book_data|
         create(book_data)
+
       end
     else
       @books_ai = Book.all.sample(10)
