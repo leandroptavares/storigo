@@ -60,4 +60,7 @@
     <button data-survey-target="answer" data-answer="<%= @questions.fifth.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.fifth.answer_2 %></button>
     <button data-survey-target="answer" data-answer="<%= @questions.fifth.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.fifth.answer_3 %></button>
   </div>
+  <div class="d-none" data-survey-target="final">
+    <%= link_to "Get recommendation",  recommendation_path%>
+  </div>
 </div>

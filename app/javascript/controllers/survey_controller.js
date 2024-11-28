@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="survey"
 export default class extends Controller {
-  static targets = ["answer", "input", "survey", "question_1", "question_2", "question_3", "question_4", "question_5"]
+  static targets = ["answer", "input", "survey", "question_1", "question_2", "question_3", "question_4", "question_5", "final"]
 
   connect() {
     this.currentQuestionIndex = 0; // Start from the first question
@@ -34,6 +34,7 @@ export default class extends Controller {
     if (this.currentQuestionIndex < this.questionTargets.length) {
       this.questionTargets[this.currentQuestionIndex].classList.remove("d-none");
     } else {
+      this.finalTarget.classList.remove("d-none")
       console.log("Survey completed. Generate recommendation");
     }
   }
