@@ -2,7 +2,7 @@ require 'json'
 require 'openai'
 
 isbn13_array = []
-url = "https://api2.isbndb.com/books/inspirational?page=1&pageSize=50&column=title&language=en&shouldMatchAll=0"
+# url = "https://api2.isbndb.com/books/inspirational?page=1&pageSize=50&column=title&language=en&shouldMatchAll=0"
 
 # url = "https://api2.isbndb.com/book/9781524763138"
 
