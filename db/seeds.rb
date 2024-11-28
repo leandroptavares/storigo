@@ -34,9 +34,9 @@ def getISBN(isbn13_array, answer_category , answer_length, answer_year)
     converted_results = eval(results)
       # p converted_results
     converted_results.each do |result|
-      p result[:ISBN]
-      p isbn13_array
-      p isbn13_array.include?(result[:ISBN])
+      # p result[:ISBN]
+      # p isbn13_array
+      isbn13_array.include?(result[:ISBN])
           find_book(result[:ISBN]) if isbn13_array.include?(result[:ISBN])
     end
 end
