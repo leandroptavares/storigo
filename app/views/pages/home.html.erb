@@ -1,31 +1,30 @@
-<div class="container">
+<div class="custom-container">
+  <div class="logo-container">
+    <h2 class="logo">Storigo</h2>
+  </div>
 
-<div class="logo-container">
-  <h2 class="logo">Storigo</h2>
-</div>
+  <div class="login-home-container">
+    <%= link_to "Log in", new_user_registration_path, class: "login_button" %>
+  </div>
 
-<div class="login-home-container">
-<%= link_to "Log in", new_user_registration_path, class: "login_button" %>
-</div>
+  <div class="image-container">
+    <%= image_tag "home.png", alt: "Front-Page-Image", class: "image-class" %>
+  </div>
 
-<div class="image-container">
-<%= image_tag "home.png", alt: "Front-Page-Image", class: "image-class" %>
-</div>
+  <div class="h2-home">
+    <h2>Find a story that matches your mood</h2>
+  </div>
 
-<div class="h2-home">
-<h2>Find a story that matches your mood</h2>
-</div>
-
-<%# style="padding-top: 550px;" 👇🏻 %>
-<div class="home-button-container">
-  <div data-controller="display-form">
-    <button class="btn btn-primary discover_button" data-action="click->display-form#render">
-    <div>
-    <%= image_tag "material-symbols-rocket-outline.svg", alt: "Discover Icon", class: "discover-icon" %>
-    </div>
-      Discover
-    </button>
-    <%= render "books/discover" %>
+  <%# style="padding-top: 550px;" 👇🏻 %>
+  <div class="home-button-container">
+    <div data-controller="display-form">
+      <button class="btn discover_button" data-action="click->display-form#render">
+      <div>
+        <%= image_tag "material-symbols-rocket-outline.svg", alt: "Discover Icon", class: "discover-icon" %>
+      </div>
+        Discover
+      </button>
+      <%= render "books/discover" %>
     </div>
   </div>
 </div>

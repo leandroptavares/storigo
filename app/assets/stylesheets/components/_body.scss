@@ -9,7 +9,7 @@ body, html {
   font-family: "Inter", sans-serif;
 }
 
-.container {
+.custom-container {
     text-align: center; /* Center text inside the container */
     display: flex;
     flex-direction: column;
@@ -17,4 +17,18 @@ body, html {
     min-height: 100vh; /* Ensures the container takes the full viewport height */
     justify-content: center; /* Centers content vertically */
     // position: relative;
+    width: 100%;
 }
+
+// /* Adjust font size only for smaller devices */
+// @media (max-width: 375px) { /* iPhone SE and smaller devices */
+//   html {
+//     font-size: 8px; /* Scale down slightly for smaller screens */
+//   }
+// }
+
+// @media (min-width: 768px) { /* Tablets and larger devices */
+//   html {
+//     font-size: 12px; /* Scale up for larger screens */
+//   }
+// }
