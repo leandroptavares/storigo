@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_item, only: [:show]
-    
+
   def index
     if params[:search].present?
       user_input = params[:search]
@@ -21,7 +21,6 @@ class BooksController < ApplicationController
     else
       @books_ai = Book.all.sample(10)
     end
-
   end
 
   def new
@@ -42,7 +41,6 @@ class BooksController < ApplicationController
       )
     end
   end
-
 
   def show
   end
