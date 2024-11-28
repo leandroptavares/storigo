@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :user_communities
   has_many :user_books, dependent: :destroy
   has_many :user_reactions, dependent: :destroy
+  has_many :surveys
 end
