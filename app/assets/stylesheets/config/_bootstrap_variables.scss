@@ -5,6 +5,14 @@
 // 3. You can override them below!
 
 // General style
+$light-gray: #f8f9fa; // Define this if missing
+$gray: #6c757d;
+$blue: #0d6efd;
+$green: #198754;
+$yellow: #ffc107;
+$red: #dc3545;
+$orange: #fd7e14;
+
 $font-family-sans-serif: $body-font;
 $headings-font-family:   $headers-font;
 $body-bg:                $light-gray;

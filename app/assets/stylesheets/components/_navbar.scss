@@ -1,19 +1,48 @@
 .navbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-
+  position: fixed; /* Sticks to the bottom of the viewport */
+  bottom: 0; /* Aligns it to the bottom */
+  width: 100%; /* Full width of the screen */
+  // background-color: #1a001a; /* Background color */
+  display: flex; /* Flexbox for child centering */
+  justify-content: center; /* Center links horizontally */
+  padding: 1rem 0; /* Add some padding around the navbar */
+  background-color: $background_color;
+  margin-top: 2rem;
 }
 
 ul {
-  list-style-type: none;
-  display: flex;
-  padding: 1em;
-  margin: 0;
-  width: 100%;
-  justify-content: center;
+  list-style-type: none; /* Remove bullets */
+  display: flex; /* Flex container for items */
+  justify-content: space-around; /* Spread items evenly */
+  width: 100%; /* Ensure the links span the width */
+  margin: 0; /* Reset margins */
+  padding: 0; /* Reset padding */
 }
 
 li {
-  margin: 0.2em;
+  margin: 0; /* Avoid extra gaps between items */
+}
+
+#main-links a {
+  position: relative;
+  text-decoration: none;
+  color: #B9D9EC;
+  display: flex;
+  flex-direction: column; /* Stack icons and text vertically */
+  align-items: center; /* Center everything horizontally */
+  justify-content: center; /* Align content vertically */
+}
+
+#main-links .icon {
+  width: 3rem; /* Icon size */
+  height: 3rem;
+  margin-bottom: 0.5rem; /* Space between icon and text */
+}
+
+#main-links .above-icon {
+  position: absolute;
+  top: -1rem; /* Adjust as needed to position above */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+
 }

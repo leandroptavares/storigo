@@ -13,3 +13,4 @@ export default class extends Controller {
     this.questionaireTarget.classList.remove("d-none")
   }
 }
+
