@@ -40,6 +40,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_125825) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+ActiveRecord::Schema[7.1].define(version: 2024_11_27_134642) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "content"
+    t.bigint "question_id", null: false
+    t.bigint "survey_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["survey_id"], name: "index_answers_on_survey_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -69,6 +81,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_125825) do
     t.index ["user_id"], name: "index_communities_on_user_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string "content"
+    t.string "answer_1"
+    t.string "answer_2"
+    t.string "answer_3"
+    t.string "answer_4"
+    t.string "answer_5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
     t.integer "rating"
@@ -78,6 +101,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_125825) do
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_reviews_on_book_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_surveys_on_user_id"
   end
 
   create_table "user_books", force: :cascade do |t|
@@ -129,10 +159,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_125825) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "surveys"
   add_foreign_key "communities", "books"
   add_foreign_key "communities", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
+  add_foreign_key "surveys", "users"
   add_foreign_key "user_books", "books"
   add_foreign_key "user_books", "users"
   add_foreign_key "user_communities", "communities"

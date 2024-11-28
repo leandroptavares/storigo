@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div data-controller="display-form">
+  <button class="btn btn-primary" data-action="click->display-form#render">Discover</button>
+  <%= render "books/discover" %>
+  <template class="discover-book">
+    <div>
+      <p></p>
+    </div>
+  </template>
+</div>
