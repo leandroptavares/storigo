@@ -2,10 +2,11 @@ body, html {
   background-color: $background_color;
   font-size: 10px;
   margin: 0;
-  height: 100%; /* Full viewport height */
-  display: flex;
-  justify-content: center; /* Horizontal centering */
-  align-items: center; /* Vertical centering */
+  padding: 0; /* Ensure no extra spacing */
+  min-height: 100%; /* Allow the content to grow beyond the viewport */
+  // display: flex;
+  // justify-content: center; /* Horizontal centering */
+  // align-items: center; /* Vertical centering */
   font-family: "Inter", sans-serif;
 }
 

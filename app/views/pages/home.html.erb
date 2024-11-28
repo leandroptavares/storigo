@@ -1,12 +1,13 @@
 <div class="custom-container">
+<div class="header-container">
   <div class="logo-container">
     <h2 class="logo">Storigo</h2>
-  </div>
+    </div>
 
   <div class="login-home-container">
     <%= link_to "Log in", new_user_registration_path, class: "login_button" %>
   </div>
-
+  </div>
   <div class="image-container">
     <%= image_tag "home.png", alt: "Front-Page-Image", class: "image-class" %>
   </div>
@@ -27,4 +28,14 @@
       <%= render "books/discover" %>
     </div>
   </div>
+
+  <div class="trending-container">
+  <div class="trend-container-2">
+    <h2 class="trend">Trending</h2>
+    <div>
+      <%= image_tag "fire-department-outline-rounded.svg", alt: "Fire Icon", class: "fire-icon" %>
+    </div>
+  </div>
+
+</div>
 </div>
