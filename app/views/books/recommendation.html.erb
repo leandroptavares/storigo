@@ -1,14 +1,39 @@
 <button>See details</button>
 
-<div class="book-container">
-  <%= image_tag(@books.first.cover_image) %>
-  <div class="book-txt">
-    <h2><%= @books.first.title %></h2>
-    <p>by <%= @books.first.author %></p>
-  </div>
-</div>
+<%# <div class="book-container">
+  <div class="book-cover">
+    <%= image_tag(@books.first.cover_image || "/app/assets/images/placeholder.jpg" ) %>
+  <%# </div> %>
 
-<button type="button" class="btn btn-danger">I'm not interested</button>
-<button type="button" class="btn btn-success">Like to read</button>
+  <%# <div class="book-txt">
+    <h2><%= @books.first.title %></h2>
+    <%# <p>by <%= @books.first.author %></p>
+  <%# </div> %>
+<%# </div> %>
+
+<% if @book.present? %>
+  <%= image_tag(@book.cover_image) %>
+  <h2><%= @book.title %></h2>
+  <p>by <%= @book.author %></p>
+<% else %>
+  <div class="book-container">
+    <div class="book-cover">
+      <%= image_tag "placeholder.jpg", alt: "book cover"%>
+    </div>
+
+    <div class="book-txt">
+      <h2>Becoming</h2>
+      <p> by Michelle Obama</p>
+    </div>
+
+    <div class="rec-btns">
+      <button class="image-button"><%= image_tag "reject.png", alt: "Click Me"%></button>
+      <button class="image-button"><%= image_tag "accept.png", alt: "Click Me"%></button>
+    </div>
+
+    <button class="ai-prompt"><%= image_tag "question_mark.png", alt: "AI Prompt"%></button>
+
+  </div>
+<% end %>
 
 <%# <%= @open_ai_recommendation %>
