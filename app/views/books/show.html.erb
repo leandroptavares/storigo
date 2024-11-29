@@ -1,3 +1,18 @@
-<p><%= @book.title %></p>
-<p><%= @book.description %></p>
-<%= image_tag @book.cover_image %>
+<div class="book-container">
+  <button>See details</button>
+  <div class="book-cover">
+    <%= image_tag(@book.cover_image, alt: @book.title) %>
+  </div>
+  <div class="book-txt">
+    <h2><%= @book.title %></h2>
+    <p>by <%= @book.author %></p>
+  </div>
+  <button>Add to bookshelf</button>
+  <p>Buy from:</p>
+  <ul>
+    <li><%= link_to "Amazon Books", "https://www.amazon.com/s?k=#{@book.title}", target: "_blank" %></li>
+    <li><%= link_to "The American Book Center", "#" %></li>
+    <li><%= link_to "eBay", "#" %></li>
+  </ul>
+  <h1>Reviews</h1>
+</div>
