@@ -1,7 +1,9 @@
 <%= render "shared/homesearch" %>
 
-<div class="container mt-4">
+<div class="container mt-4" style="
+    padding-bottom: 80px">
   <div class="row">
+    <% if @books_ai.present? %>
     <% @books_ai.each_with_index do |book, index| %>
       <% if index % 3 == 0 && index != 0 %>
         </div><div class="row">
@@ -44,6 +46,9 @@
           </div>
         <% end %>
       <% end %>
+    <% end %>
+    <%else%>
+    <p>"Sorry, no book available"</p>
     <% end %>
   </div>
 </div>
