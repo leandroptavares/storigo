@@ -1,3 +1,14 @@
+.btn-link{
+  padding: 0;
+  margin:0;
+  display: inline-block;
+}
+
+.btn-link button{
+  padding: 0;
+  margin:0;
+}
+
 .book-container{
   display: flex;
   flex-direction: column;    /* Stacks children in a column */
@@ -5,7 +16,10 @@
   justify-content: space-between;
   padding: 8rem 0;
 }
-
+.turn-book{
+  background: none;
+  border: none;
+}
 .rec-btns {
   display: flex;                  /* Enable Flexbox */
   //flex-direction: row;            /* Arrange buttons in a row */
@@ -27,6 +41,17 @@
   background: none;
   border: none;
   padding: 0;
+}
+
+.image-button p{
+  padding-top: 5px;
+  color: #FFFFFF;
+}
+
+.btn-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ai-prompt img{
@@ -53,4 +78,9 @@
   width: 100%;                    /* Makes the image fit the container width */
   height: 100%;                   /* Ensures the image fills the height */
   object-fit: cover;              /* Scales the image while maintaining aspect ratio */
+}
+
+.book-txt{
+  text-align: center;
+  padding-bottom: 15px;
 }
