@@ -60,7 +60,6 @@ class BooksController < ApplicationController
         reason = @open_ai_recommendation.find { |b| b[:ISBN] == book.api_id }[:Reason]
         { book: book, reason: reason }
       end
-
     else
       @books = []
       flash[:alert] = "Please complete your survey to get recommendations."
