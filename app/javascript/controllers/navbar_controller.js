@@ -9,7 +9,9 @@ export default class extends Controller {
     this.menu_iconTargets.forEach(icon => icon.classList.add("d-none"))
 
     const clickedItem = event.currentTarget
+    console.log(clickedItem)
     const iconToShow = clickedItem.querySelector('[data-navbar-target="menu_icon"]')
+    console.log
     iconToShow.classList.remove("d-none")
   }
 }
