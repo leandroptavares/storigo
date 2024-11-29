@@ -1,34 +1,31 @@
-<button>See details</button>
-
-<% if @books.first.present? %>
-  <%= image_tag(@books.first.cover_image, alt: @books.first.title, class: "book-cover") %>
-  <h2><%= @books.first.title %></h2>
-  <p>by <%= @books.first.author %></p>
-<% else %>
-  <div class="book-container">
-    <div class="book-cover">
-      <%= image_tag "placeholder.jpg", alt: "book cover"%>
+<div class="book-container">
+  <button>See details</button>
+  <div class="book-cover">
+    <%= image_tag(@books.first.cover_image, alt: @books.first.title) %>
+  </div>
+  <div class="book-txt">
+    <h2><%= @books.first.title %></h2>
+    <p>by <%= @books.first.author %></p>
+  </div>
+  <div class="rec-btns">
+    <div>
+      <button class="image-button">
+        <%= image_tag "reject.png", alt: "Click Me" %>
+      </button>
     </div>
-
-    <div class="book-txt">
-      <h2>Becoming</h2>
-      <p> by Michelle Obama</p>
-    </div>
-
-    <div class="rec-btns">
-      <button class="image-button"><%= image_tag "reject.png", alt: "Click Me"%></button>
-      <p>I'm not interested</p>
+    <div>
       <%= link_to book_path(@books.first) do %>
         <button class="image-button">
           <%= image_tag "accept.png", alt: "Accept recommendation" %>
         </button>
       <% end %>
-      <p>Like to read</p>
     </div>
+  </div>
 
-    <div data-controller="display-reason">
-    <button data-action="click->display-reason#render" class="ai-prompt"><%= image_tag "question_mark.png", alt: "AI Prompt"%></button>
-    <%# <%= render "books/reason" %>
+  <div data-controller="display-reason">
+    <button data-action="click->display-reason#render" class="ai-prompt">
+      <%= image_tag "question_mark.png", alt: "AI Prompt" %>
+    </button>
     <div class="modal hidden" data-display-reason-target="modal">
       <div>
         <%= render "books/reason" %>
@@ -36,8 +33,8 @@
       </div>
     </div>
   </div>
+</div>
 
-  </div>
-<% end %>
+
 
 <%# <%= @open_ai_recommendation %>
