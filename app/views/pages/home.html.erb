@@ -1,13 +1,20 @@
 <div class="custom-container">
-<div class="header-container">
-  <div class="logo-container">
-    <h2 class="logo">Storigo</h2>
+  <div class="header-container">
+    <div class="logo-container">
+      <h2 class="logo">Storigo</h2>
     </div>
 
-  <div class="login-home-container">
-    <%= link_to "Log in", new_user_registration_path, class: "login_button" %>
+    <div class="login-home-container">
+      <% if !current_user %>
+        <%= link_to "Log in", new_user_registration_path, class: "login_button" %>
+      <% else %>
+        <div>
+          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: "delete"}, class: "login_button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  </div>
+
   <div class="image-container">
     <%= image_tag "home.png", alt: "Front-Page-Image", class: "image-class" %>
   </div>
@@ -16,26 +23,35 @@
     <h2>Find a story that matches your mood</h2>
   </div>
 
-  <%# style="padding-top: 550px;" 👇🏻 %>
-  <div class="home-button-container">
-    <div data-controller="display-form">
-      <button class="btn discover_button" data-action="click->display-form#render">
+  <div data-controller="display-form">
+    <div class="home-button-container">
       <div>
-        <%= image_tag "material-symbols-rocket-outline.svg", alt: "Discover Icon", class: "discover-icon" %>
+        <button class="discover_button" data-action="click->display-form#render">
+          <div>
+            <%= image_tag "material-symbols-rocket-outline.svg", alt: "Discover Icon", class: "discover-icon" %>
+          </div>
+          Discover
+        </button>
       </div>
-        Discover
-      </button>
-      <%= render "books/discover" %>
+    </div>
+
+    <div class="modal hidden" data-display-form-target="modal">
+      <div>
+        <%= render "books/discover" %>
+        <button data-action="click->display-form#close" class="close-button">Close</button>
+      </div>
     </div>
   </div>
 
   <div class="trending-container">
-  <div class="trend-container-2">
-    <h2 class="trend">Trending</h2>
-    <div>
-      <%= image_tag "fire-department-outline-rounded.svg", alt: "Fire Icon", class: "fire-icon" %>
+    <div class="trend-container-2">
+      <h2 class="trend">Trending</h2>
+      <div>
+        <%= image_tag "fire-department-outline-rounded.svg", alt: "Fire Icon", class: "fire-icon" %>
+      </div>
     </div>
   </div>
+
   </div>
 
   <%# This is a placeholder for the trending stories 👇🏻 %>
@@ -65,5 +81,4 @@
       <%= image_tag "community-vector.svg", alt: "Community Icon", class: "community-icon" %>
   </div>
     </div>
-
 </div>

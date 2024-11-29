@@ -1,9 +1,27 @@
-<button>See details</button>
-<%= image_tag(@books.first.cover_image) %>
-<h2><%= @books.first.title %></h2>
-<p>by <%= @books.first.author %></p>
+<div class="custom-container">
+  <button type="button">See details</button>
+  <%= image_tag(@books.first.cover_image, alt: @books.first.title, class: "book-cover") %>
+  <h2><%= @books.first.title %></h2>
+  <p>by <%= @books.first.author %></p>
 
-<button type="button" class="btn btn-danger">I'm not interested</button>
-<button type="button" class="btn btn-success">Like to read</button>
+  <%= link_to "I'm not interested", "#", class: "btn btn-danger" %>
+  <%= link_to "Like to read", book_path(@books.first), class: "btn btn-success" %>
+
+  <div data-controller="display-reason">
+    <button data-action="click->display-reason#render">Why this book?</button>
+    <%# <%= render "books/reason" %>
+    <div class="modal hidden" data-display-reason-target="modal">
+      <div>
+        <%= render "books/reason" %>
+        <button data-action="click->display-reason#close" class="">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
 <%# <%= @open_ai_recommendation %>
