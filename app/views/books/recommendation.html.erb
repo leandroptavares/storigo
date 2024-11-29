@@ -1,5 +1,5 @@
 <div class="book-container">
-  <button>See details</button>
+  <button class="turn-book"><%= image_tag "turn_book.png", alt: "Read synopsis" %></button>
   <div class="book-cover">
     <%= image_tag(@books.first.cover_image, alt: @books.first.title) %>
   </div>
@@ -8,17 +8,19 @@
     <p>by <%= @books.first.author %></p>
   </div>
   <div class="rec-btns">
-    <div>
+    <div class="btn-wrapper">
       <button class="image-button">
         <%= image_tag "reject.png", alt: "Click Me" %>
       </button>
+      <p>No interested</p>
     </div>
-    <div>
-      <%= link_to book_path(@books.first) do %>
+    <div class="btn-wrapper">
+      <%= link_to book_path(@books.first), class: "btn-link" do %>
         <button class="image-button">
           <%= image_tag "accept.png", alt: "Accept recommendation" %>
         </button>
       <% end %>
+      <p>Interested</p>
     </div>
   </div>
 
