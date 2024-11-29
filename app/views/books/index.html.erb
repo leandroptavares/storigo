@@ -8,7 +8,7 @@
     <% if book.number_of_pages.present? %>
     <li><%= book.number_of_pages %></li>
     <% end %>
-     <% if book.publish_date.present? %>
+    <% if book.publish_date.present? %>
         <li><%= book.publish_date %></li>
         <% end %>
     <%= image_tag book.cover_image, class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>

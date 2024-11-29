@@ -1,8 +1,8 @@
 body, html {
   background-color: $background_color;
-  font-size: 10px;
-  margin: 0;
-  padding: 0; /* Ensure no extra spacing */
+  font-size: 10px; 
+  margin: 0; /* Remove default margin */
+  padding: 0; /* no extra spacing */
   min-height: 100%; /* Allow the content to grow beyond the viewport */
   // display: flex;
   // justify-content: center; /* Horizontal centering */
@@ -19,7 +19,7 @@ body, html {
     justify-content: center; /* Centers content vertically */
     // position: relative;
     width: 100%;
-    padding-bottom: 20rem;
+    padding: 8rem 0;
 }
 
 // /* Adjust font size only for smaller devices */
