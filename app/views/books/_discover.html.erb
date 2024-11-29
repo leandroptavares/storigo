@@ -6,7 +6,7 @@
         <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
         <%= f.input :question_id, input_html: { value: @questions.first.id }%>
       <% end %>
-      <%= @questions.first.content  %>
+      <p><%= @questions.first.content  %></p>
         <button data-survey-target="answer" data-answer="<%= @questions.first.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_1 %></button>
         <button data-survey-target="answer" data-answer="<%= @questions.first.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_2 %></button>
         <button data-survey-target="answer" data-answer="<%= @questions.first.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.first.answer_3 %></button>
@@ -20,7 +20,7 @@
       <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
       <%= f.input :question_id, input_html: { value: @questions.second.id }%>
     <% end %>
-    <%= @questions.second.content  %>
+    <p><%= @questions.second.content  %></p>
     <button data-survey-target="answer" data-answer="<%= @questions.second.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.second.answer_1 %></button>
     <button data-survey-target="answer" data-answer="<%= @questions.second.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.second.answer_2 %></button>
     <button data-survey-target="answer" data-answer="<%= @questions.second.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.second.answer_3 %></button>
@@ -33,7 +33,7 @@
       <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
       <%= f.input :question_id, input_html: { value: @questions.third.id }%>
     <% end %>
-    <%= @questions.third.content  %>
+    <p><%= @questions.third.content  %></p>
     <button data-survey-target="answer" data-answer="<%= @questions.third.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.third.answer_1 %></button>
     <button data-survey-target="answer" data-answer="<%= @questions.third.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.third.answer_2 %></button>
     <button data-survey-target="answer" data-answer="<%= @questions.third.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.third.answer_3 %></button>
@@ -44,7 +44,7 @@
       <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
       <%= f.input :question_id, input_html: { value: @questions.fourth.id }%>
     <% end %>
-    <%= @questions.fourth.content  %>
+    <p><%= @questions.fourth.content  %></p>
     <button data-survey-target="answer" data-answer="<%= @questions.fourth.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.fourth.answer_1 %></button>
     <button data-survey-target="answer" data-answer="<%= @questions.fourth.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.fourth.answer_2 %></button>
     <button data-survey-target="answer" data-answer="<%= @questions.fourth.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.fourth.answer_3 %></button>
@@ -55,7 +55,7 @@
       <%= f.input :content, input_html: { data: { survey_target: "input"}} %>
       <%= f.input :question_id, input_html: { value: @questions.fifth.id }%>
     <% end %>
-    <%= @questions.fifth.content  %>
+    <p><%= @questions.fifth.content  %></p>
     <button data-survey-target="answer" data-answer="<%= @questions.fifth.answer_1 %>" data-action="click->survey#createAnswer"><%= @questions.fifth.answer_1 %></button>
     <button data-survey-target="answer" data-answer="<%= @questions.fifth.answer_2 %>" data-action="click->survey#createAnswer"><%= @questions.fifth.answer_2 %></button>
     <button data-survey-target="answer" data-answer="<%= @questions.fifth.answer_3 %>" data-action="click->survey#createAnswer"><%= @questions.fifth.answer_3 %></button>

@@ -1,5 +1,5 @@
 .h2-home {
-  margin: 2rem 0;
+  margin-bottom: 2rem;
   color: #B9D9EC;
   text-align: center;
   font-family: Inter;
@@ -8,8 +8,10 @@
 
 .h2-home h2 {
   font-size: 3.2rem;
-  margin-top: 2rem;
+  // margin-top: 2rem;
   margin-bottom: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .home-button-container {
@@ -86,9 +88,6 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-}
-.fire-icon{
-
 }
 
 .trend-container-2 {
