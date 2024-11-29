@@ -1,0 +1,125 @@
+.mood_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 6rem; /* Allows flexible width */
+  min-height: 2.3rem; /* Allows flexible height */
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  font-size: 2.4rem; /* Adjust as needed */
+  line-height: 1.2; /* Keeps text vertically aligned */
+  background: #1C042E;
+  color: rgba(241, 228, 163, 1);
+  border-color: rgba(241, 228, 163, 1);
+  padding: 0.3rem 0.5rem;
+  appearance: none;
+  outline: none;
+  box-shadow: none;
+
+}
+
+.mood_button_2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 6rem; /* Allows flexible width */
+  min-height: 2.3rem; /* Allows flexible height */
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  font-size: 2.4rem; /* Adjust as needed */
+  line-height: 1.2; /* Keeps text vertically aligned */
+  background: #1C042E;
+  color: #F1A3A3;
+  border-color: #F1A3A3;
+  padding: 0.3rem 0.5rem;
+  appearance: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.mood_button_3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 6rem; /* Allows flexible width */
+  min-height: 2.3rem; /* Allows flexible height */
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  font-size: 2.4rem; /* Adjust as needed */
+  line-height: 1.2; /* Keeps text vertically aligned */
+  background: #1C042E;
+  color: #ADB5CF;
+  border-color: #ADB5CF;
+  padding: 0.3rem 0.5rem;
+  appearance: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.mood_button_4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 6rem; /* Allows flexible width */
+  min-height: 2.3rem; /* Allows flexible height */
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  font-size: 2.4rem; /* Adjust as needed */
+  line-height: 1.2; /* Keeps text vertically aligned */
+  background: #1C042E;
+  color: #DDA3F1;
+  border-color: #DDA3F1;
+  padding: 0.3rem 0.5rem;
+  appearance: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.mood_button_5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 6rem; /* Allows flexible width */
+  min-height: 2.3rem; /* Allows flexible height */
+  flex-shrink: 0;
+  font-size: 2.4rem; /* Adjust as needed */
+  line-height: 1.2; /* Keeps text vertically aligned */
+  border-radius: 0.5rem;
+  background: #1C042E;
+  color: #ffff;
+  border-color: #ffff;
+  padding: 0.3rem 0.5rem;
+  appearance: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap to the next row */
+  justify-content: center; /* Center-aligns all rows */
+  gap: 1rem; /* Adds space between buttons */
+  max-width: 100%; /* Prevents overflow */
+}
+
+.mood-font{
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #ffff;
+  text-decoration: none;
+}
+
+// Below is for the popup modal design 👇🏻 (we would need to wrap _discover.html in a div class="popup")
+// .popup {
+//   position: fixed; /* Makes it appear on top of the page */
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: rgba(255, 255, 255, 0.2); /* Semi-transparent dark background */
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   z-index: 9999; /* Ensures it appears above all other content */
+//   backdrop-filter: blur(10px);
+// }
