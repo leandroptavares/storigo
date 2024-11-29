@@ -1,2 +1,2 @@
-class ReactionsController < ApplicationController
+class UserReactionsController < ApplicationController
 end
