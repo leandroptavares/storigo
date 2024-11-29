@@ -9,7 +9,7 @@
         <%= link_to "Log in", new_user_registration_path, class: "login_button" %>
       <% else %>
         <div>
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: "delete"}, class: "login_button" %>
+          <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: "delete" }, class: "login_button" %>
         </div>
       <% end %>
     </div>
@@ -52,10 +52,6 @@
     </div>
   </div>
 
-  </div>
-
-  <%# This is a placeholder for the trending stories 👇🏻 %>
-
   <div class="img-fluid pb-4" style="margin-top: -70px; box-shadow: 8px 6px 12px 0px rgba(185, 217, 236, 0.20);">
     <%= image_tag "michelle.png", alt: "Trending-Image", class: "image-trend" %>
   </div>
@@ -65,20 +61,19 @@
   </div>
 
   <div class="trend-title-container">
-  <div class="trend-title">
-    <h3>Becoming</h3>
-  </div>
+    <div class="trend-title">
+      <h3>Becoming</h3>
+    </div>
   </div>
 
   <div class="trend-author">
     <h4>by Michelle Obama</h4>
   </div>
 
-
-  <div class="community-container"  style="margin-bottom: -4rem;">
+  <div class="community-container" style="margin-bottom: -4rem;">
     <h1 class="community-h">Communities</h1>
-  <div>
+    <div>
       <%= image_tag "community-vector.svg", alt: "Community Icon", class: "community-icon" %>
-  </div>
     </div>
-</div>
+  </div>
+</div> <!-- Close custom-container here -->
