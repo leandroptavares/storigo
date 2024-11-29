@@ -1,16 +1,16 @@
-import { Controller } from "@hotwired/stimulus";
+import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="display-form"
+// Connects to data-controller="display-reason"
 export default class extends Controller {
-  static targets = ["modal", "questionaire", "question_1", "question_2", "question_3", "question_4"];
+
+  static targets = ["modal"]
 
   connect() {
-    console.log("Hi from display_form");
+    console.log("hi from display reason")
   }
 
   render() {
     console.log("Clicked!");
-    this.questionaireTarget.classList.remove("d-none")
     this.modalTarget.classList.remove("hidden");
     document.querySelector(".custom-container").classList.add("modal-visible");
   }

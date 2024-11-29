@@ -1,0 +1,56 @@
+.book-container{
+  display: flex;
+  flex-direction: column;    /* Stacks children in a column */
+  align-items: center;       /* Centers items horizontally (optional) */
+  justify-content: space-between;
+  padding: 8rem 0;
+}
+
+.rec-btns {
+  display: flex;                  /* Enable Flexbox */
+  //flex-direction: row;            /* Arrange buttons in a row */
+  justify-content: center;
+  gap: 100px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;          /* Remove padding */      /* Show pointer cursor on hover */
+}
+
+.image-button img {
+  width: 80px;          /* Set desired width */
+  height: 80px;
+  display: block;        /* Maintain aspect ratio */
+}
+
+.image-button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.ai-prompt img{
+  width: 35px;
+  height: 35px;
+  display: block;
+}
+
+.ai-prompt{
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.book-cover{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 236px;
+  height: 360px;
+}
+
+.book-cover img {
+  width: 100%;                    /* Makes the image fit the container width */
+  height: 100%;                   /* Ensures the image fills the height */
+  object-fit: cover;              /* Scales the image while maintaining aspect ratio */
+}

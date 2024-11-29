@@ -1,42 +1,65 @@
-<div class="navbar">
-  <ul id="main-links">
-<li>
-  <%= link_to root_path do %>
-  <div>
-    <%= image_tag "home-thin.svg", alt: "Home Icon", class: "icon" %>
-    </div>
-    <span>Home</span>
-  <% end %></li>
-</>
-    <li><%= link_to books_path do %>
-  <div>
-    <%= image_tag "search-thin.svg", alt: "Home Icon", class: "icon" %>
-  </div>
-    <span>Search</span>
-  <% end %></li>
+<div data-controller="navbar">
+  <div class="navbar">
+    <ul id="main-links">
+      <li data-navbar-target="menu_link">
+        <%= link_to root_path, data: { action: "click->navbar#highlight" } do %>
+          <div data-navbar-target="menu_icon" class="above-icon d-none">
+            <%= image_tag "Component 1.svg", alt: "Additional Icon" %>
+          </div>
+          <div>
+            <%= image_tag "home-thin.svg", alt: "Home Icon", class: "icon" %>
+          </div>
+          <span>Home</span>
+        <% end %>
+      </li>
 
-    <li><%= link_to root_path do %>
-  <div>
-    <%= image_tag "Component 1.svg", alt: "Additional Icon", class: "above-icon" %>
-  </div>
+      <li data-navbar-target="menu_link">
+        <%= link_to books_path, data: { action: "click->navbar#highlight" } do %>
+          <div data-navbar-target="menu_icon" class="above-icon d-none">
+            <%= image_tag "Component 1.svg", alt: "Additional Icon" %>
+          </div>
+          <div>
+            <%= image_tag "search-thin.svg", alt: "Search Icon", class: "icon" %>
+          </div>
+          <span>Search</span>
+        <% end %>
+      </li>
 
-  <div>
-    <%= image_tag "discover.svg", alt: "Discover Icon", class: "icon" %>
-  </div>
-        <span>Discover</span>
-      <% end %></li>
+      <li data-navbar-target="menu_link">
+        <%= link_to root_path, data: { action: "click->navbar#highlight" } do %>
+          <div data-navbar-target="menu_icon" class="above-icon">
+            <%= image_tag "Component 1.svg", alt: "Additional Icon" %>
+          </div>
+          <div>
+            <%= image_tag "discover.svg", alt: "Discover Icon", class: "icon" %>
+          </div>
+          <span>Discover</span>
+        <% end %>
+      </li>
 
-    <li><%= link_to root_path do %>
-  <div>
-    <%= image_tag "community.svg", alt: "Home Icon", class: "icon" %>
-    </div>
-    <span>Community</span>
-  <% end %></li>
-    <li><%= link_to root_path do %>
-  <div>
-    <%= image_tag "profile.svg", alt: "Home Icon", class: "icon" %>
-    </div>
-    <span>Profile</span>
-  <% end %></li>
-  </ul>
+      <li data-navbar-target="menu_link">
+        <%= link_to root_path, data: { action: "click->navbar#highlight" } do %>
+          <div data-navbar-target="menu_icon" class="above-icon d-none">
+            <%= image_tag "Component 1.svg", alt: "Additional Icon" %>
+          </div>
+          <div>
+            <%= image_tag "community.svg", alt: "Community Icon", class: "icon" %>
+          </div>
+          <span>Community</span>
+        <% end %>
+      </li>
+
+      <li data-navbar-target="menu_link">
+        <%= link_to root_path, data: { action: "click->navbar#highlight" } do %>
+          <div data-navbar-target="menu_icon" class="above-icon d-none">
+            <%= image_tag "Component 1.svg", alt: "Additional Icon" %>
+          </div>
+          <div>
+            <%= image_tag "profile.svg", alt: "Profile Icon", class: "icon" %>
+          </div>
+          <span>Profile</span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
 </div>

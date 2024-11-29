@@ -16,9 +16,13 @@
   line-height: normal;
 }
 
-.login_button a {
+.login_button  {
   text-decoration: none;
 }
+
+// .login_button a {
+//   text-decoration: none;
+// }
 
 // .login_button text{
 //   color: #000;
@@ -52,7 +56,6 @@
   background: #B9D9EC;
   box-shadow: 0.1rem 0.2rem 0.2rem 0px rgba(0, 0, 0, 0.25);
   font-weight: 500;
-
 }
 
 
@@ -94,11 +97,11 @@
   // position: relative; /* Allows absolute positioning of child elements */
 }
 
-.discover-icon {
-  // position: absolute;
-  // left: 0.7rem;
-  // bottom: 1.6rem;
-}
+// .discover-icon {
+//   // position: absolute;
+//   // left: 0.7rem;
+//   // bottom: 1.6rem;
+// }
 // .discover_button text{
 //   color: #000;
 //   // font-family: Inter;
