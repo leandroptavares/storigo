@@ -14,4 +14,7 @@ class PagesController < ApplicationController
     @questions = Question.all
     @answer = Answer.new
   end
+
+  @books = Book.all
+  @communities = Community.all
 end

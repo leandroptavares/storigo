@@ -43,32 +43,60 @@
     </div>
   </div>
 
-  <div class="trending-container">
-    <div class="trend-container-2">
-      <h2 class="trend">Trending</h2>
-      <div>
-        <%= image_tag "fire-department-outline-rounded.svg", alt: "Fire Icon", class: "fire-icon" %>
+  <div data-controller="trending">
+    <div class="trending-container">
+      <div class="trend-container-2">
+        <h2 class="trend">Trending</h2>
+        <div>
+          <%= image_tag "fire-department-outline-rounded.svg", alt: "Fire Icon", class: "fire-icon" %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="img-fluid pb-4" style="margin-top: -70px; box-shadow: 8px 6px 12px 0px rgba(185, 217, 236, 0.20);">
-    <%= image_tag "michelle.png", alt: "Trending-Image", class: "image-trend" %>
-  </div>
+    <div data-trending-target="book">
+      <div class="img-fluid pb-4 book visible" style="margin-top: -70px; box-shadow: 8px 6px 12px 0px rgba(185, 217, 236, 0.20);">
+        <%= image_tag "michelle.png", alt: "Trending-Image", class: "image-trend" %>
+      </div>
 
-  <div>
-    <%= image_tag "rating.svg", alt: "Ratings", class: "rating-trend" %>
-  </div>
+      <div class="book visible">
+        <%= image_tag "rating.svg", alt: "Ratings", class: "rating-trend" %>
+      </div>
 
-  <div class="trend-title-container">
-    <div class="trend-title">
-      <h3>Becoming</h3>
+      <div class="trend-title-container">
+        <div class="trend-title">
+          <h3>Becoming</h3>
+        </div>
+      </div>
+
+      <div class="trend-author">
+        <h4>by Michelle Obama</h4>
+      </div>
     </div>
-  </div>
 
-  <div class="trend-author">
-    <h4>by Michelle Obama</h4>
-  </div>
+  <!-- TEST -->
+    <%# <div class="book hidden" data-trending-target="book">
+      <div class="img-fluid pb-4" style="margin-top: -70px; box-shadow: 8px 6px 12px 0px rgba(185, 217, 236, 0.20);">
+        <%= image_tag "harry_potter.jpg", alt: "Trending-Image", class: "image-trend" %>
+      <%# </div>
+
+      <div>
+        <%= image_tag "rating.svg", alt: "Ratings", class: "rating-trend" %>
+      <%# </div>
+
+      <div class="trend-title-container">
+        <div class="trend-title">
+          <h3>Harry Potter and the Philosopher's Stone</h3>
+        </div>
+      </div>
+
+      <div class="trend-author">
+        <h4>by J.K. Rowling</h4>
+      </div>
+    </div>
+
+    <button data-action="click->trending#move">click</button>
+  </div> %>
+  <!-- TEST -->
 
   <div class="community-container" style="margin-bottom: -4rem;">
     <h1 class="community-h">Communities</h1>
