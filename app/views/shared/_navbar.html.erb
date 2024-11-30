@@ -1,10 +1,10 @@
-<div data-controller="navbar">
+<div data-controller="display-form">
   <div class="navbar">
     <ul id="main-links">
-      <li data-navbar-target="menu_link">
+      <li>
         <%= link_to root_path, data: { action: "click->navbar#highlight" } do %>
-          <div data-navbar-target="menu_icon" class="above-icon d-none">
-            <%= image_tag "Component 1.svg", alt: "Additional Icon" %>
+          <div>
+            <%= image_tag "Component 1.svg", alt: "Additional Icon", class: "d-none", data: { navbar_target: "menu_icon"} %>
           </div>
           <div>
             <%= image_tag "home-thin.svg", alt: "Home Icon", class: "icon" %>
@@ -13,10 +13,10 @@
         <% end %>
       </li>
 
-      <li data-navbar-target="menu_link">
+      <li>
         <%= link_to books_path, data: { action: "click->navbar#highlight" } do %>
-          <div data-navbar-target="menu_icon" class="above-icon d-none">
-            <%= image_tag "Component 1.svg", alt: "Additional Icon" %>
+          <div>
+            <%= image_tag "Component 1.svg", alt: "Additional Icon", class: "d-none", data: { navbar_target: "menu_icon"} %>
           </div>
           <div>
             <%= image_tag "search-thin.svg", alt: "Search Icon", class: "icon" %>
@@ -25,10 +25,10 @@
         <% end %>
       </li>
 
-      <li data-navbar-target="menu_link">
-        <%= link_to root_path, data: { action: "click->navbar#highlight" } do %>
-          <div data-navbar-target="menu_icon" class="above-icon">
-            <%= image_tag "Component 1.svg", alt: "Additional Icon" %>
+      <li>
+        <%= link_to root_path, data: { action: "click->display_form#render" } do %>
+          <div>
+            <%= image_tag "Component 1.svg", alt: "Additional Icon", class: "d-none", data: { navbar_target: "menu_icon"} %>
           </div>
           <div>
             <%= image_tag "discover.svg", alt: "Discover Icon", class: "icon" %>
@@ -37,10 +37,10 @@
         <% end %>
       </li>
 
-      <li data-navbar-target="menu_link">
+      <li>
         <%= link_to root_path, data: { action: "click->navbar#highlight" } do %>
-          <div data-navbar-target="menu_icon" class="above-icon d-none">
-            <%= image_tag "Component 1.svg", alt: "Additional Icon" %>
+          <div>
+            <%= image_tag "Component 1.svg", alt: "Additional Icon", class: "d-none", data: { navbar_target: "menu_icon"} %>
           </div>
           <div>
             <%= image_tag "community.svg", alt: "Community Icon", class: "icon" %>
@@ -49,10 +49,10 @@
         <% end %>
       </li>
 
-      <li data-navbar-target="menu_link">
+      <li>
         <%= link_to root_path, data: { action: "click->navbar#highlight" } do %>
-          <div data-navbar-target="menu_icon" class="above-icon d-none">
-            <%= image_tag "Component 1.svg", alt: "Additional Icon" %>
+          <div>
+            <%= image_tag "Component 1.svg", alt: "Additional Icon", class: "d-none", data: { navbar_target: "menu_icon"} %>
           </div>
           <div>
             <%= image_tag "profile.svg", alt: "Profile Icon", class: "icon" %>

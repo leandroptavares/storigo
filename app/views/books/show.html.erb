@@ -7,7 +7,11 @@
     <h2><%= @book.title %></h2>
     <p>by <%= @book.author %></p>
   </div>
-  <button>Add to bookshelf</button>
+  <% if current_user.books.include?(@book) %>
+    <p>This books has already been added to your bookshelf</p>
+  <% else %>
+    <%= button_to "Add to bookshelf", user_books_path(book_id: @book.id) %>
+  <% end %>
   <p>Buy from:</p>
   <ul>
     <li><%= link_to "Amazon Books", "https://www.amazon.com/s?k=#{@book.title}", target: "_blank" %></li>
