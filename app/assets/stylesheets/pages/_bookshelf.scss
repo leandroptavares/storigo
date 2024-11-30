@@ -1,0 +1,15 @@
+.my-bookshelf-book {
+  width: 132px;
+  height: 200px;
+}
+
+.my-books-title {
+  display: -webkit-box; /* Use the box model for multi-line text */
+  -webkit-box-orient: vertical; /* Stack text vertically */
+  overflow: hidden; /* Hide any overflowing text */
+  line-clamp: auto;
+  -webkit-line-clamp: 2; /* Limit the text to 2 lines */
+  text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
+  width: 100%; /* Ensure the title takes up the full width of its parent */
+  text-align: center; /* Optional: Center-align the title */
+}

@@ -10,7 +10,7 @@
   <% if current_user.books.include?(@book) %>
     <p>This books has already been added to your bookshelf</p>
   <% else %>
-    <%= button_to "Add to bookshelf", user_books_path(book_id: @book.id), data: { modal_target: "button", action: "click->modal#show"} %>
+    <%= button_to "Add to bookshelf", user_books_path(@book), data: { modal_target: "button", action: "click->modal#show"} %>
 
   <% end %>
   <p>Buy from:</p>

@@ -5,10 +5,9 @@ export default class extends Controller {
   static targets = ["modal", "button"];
 
   connect() {
-    console.log("modal is here")
+    // console.log("modal is here")
   }
 
-  // Show the modal
   show() {
     console.log("clicked")
     this.modalTarget.classList.remove("hidden");
