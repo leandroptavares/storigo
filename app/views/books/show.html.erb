@@ -1,4 +1,4 @@
-<div class="book-container">
+<div class="book-container modal-wrapper" data-controller="modal">
   <button>See details</button>
   <div class="book-cover">
     <%= image_tag(@book.cover_image, alt: @book.title) %>
@@ -10,7 +10,8 @@
   <% if current_user.books.include?(@book) %>
     <p>This books has already been added to your bookshelf</p>
   <% else %>
-    <%= button_to "Add to bookshelf", user_books_path(book_id: @book.id) %>
+    <%= button_to "Add to bookshelf", user_books_path(book_id: @book.id), data: { modal_target: "button", action: "click->modal#show"} %>
+
   <% end %>
   <p>Buy from:</p>
   <ul>
@@ -19,4 +20,11 @@
     <li><%= link_to "eBay", "#" %></li>
   </ul>
   <h1>Reviews</h1>
+
+<div class="modal yellow hidden" data-modal-target="modal">
+      <div>
+        <%= render "books/explore" %>
+        <button data-action="click->modal#close" class="close-button">Close</button>
+      </div>
+    </div>
 </div>

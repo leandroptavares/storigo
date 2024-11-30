@@ -1,17 +1,19 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="display-reason"
+// Connects to data-controller="modal"
 export default class extends Controller {
-
-  static targets = ["modal"]
+  static targets = ["modal", "button"];
 
   connect() {
-    console.log("hi from display reason")
+    console.log("modal is here")
   }
 
-  render() {
-    console.log("Clicked!");
+  // Show the modal
+  show() {
+    console.log("clicked")
     this.modalTarget.classList.remove("hidden");
+    this.buttonTarget.innerText = "Added to Bookshelf";
+    this.buttonTarget.disabled = true;
     document.querySelector(".book-container").classList.add("modal-visible");
   }
 
