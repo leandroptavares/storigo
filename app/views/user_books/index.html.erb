@@ -11,6 +11,8 @@
         <%= image_tag(book.cover_image, alt: book.title, class: "my-bookshelf-book mb-3") %>
         <h5 class="text center my-books-title"><%= book.title %></h5>
         <p class="text-center">by <%= book.author %></p>
+        <%= link_to "Update status", "#" %>
+        <%= link_to "Remove", user_books_path(book), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this book from your bookshelf?"} %>
       </div>
     <% end %>
   </div>
