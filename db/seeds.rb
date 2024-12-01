@@ -191,5 +191,10 @@ question_5.save
 puts "question created!"
 
 
-community = Community.new(name: "Get inspired", description: "Time to get inspired together")
+community = Community.new(name: "Get inspired", description: "Time to get inspired together", image: "https://booksthatmakeyou.com/wp-content/uploads/2023/08/Ways_to_Help_Create_a_Relaxing_Atmosphere.jpg")
 community.save
+p "Added Get inspired community"
+
+community = Community.new(name: "Relaxing reads", description: "Relax and enjoy you fav readings", image: "https://booksthatmakeyou.com/wp-content/uploads/2023/08/Ways_to_Help_Create_a_Relaxing_Atmosphere.jpg")
+community.save
+p "Added Relaxing reads community"

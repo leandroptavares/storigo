@@ -1,5 +1,5 @@
-<div class="book-container modal-wrapper">
-  <button class="turn-book"><%= image_tag "turn_book.png", alt: "Read synopsis" %></button>
+<div class="book-container modal-wrapper" data-controller="modal">
+  <p data-action="click->modal#details">See details</p>
   <div class="book-cover">
     <%= image_tag(@books.first.cover_image, alt: @books.first.title) || "no cover available" %>
   </div>
@@ -12,7 +12,7 @@
       <button class="image-button">
         <%= image_tag "reject.png", alt: "Click Me" %>
       </button>
-      <p>No interested</p>
+      <p>Not interested</p>
     </div>
     <div class="btn-wrapper">
       <%= link_to book_path(@books.first), class: "btn-link" do %>
@@ -35,8 +35,11 @@
       </div>
     </div>
   </div>
+
+    <div class="modal hidden" data-modal-target="bookDetails">
+    <div>
+      <%= render "books/recommendation-details" %>
+      <button data-action="click->modal#closeDetails" class="close-button">Close</button>
+    </div>
+  </div>
 </div>
-
-
-
-<%# <%= @open_ai_recommendation %>
