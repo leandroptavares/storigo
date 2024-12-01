@@ -1,0 +1,23 @@
+.search-img{
+  width: 0 auto;
+  height: 200px;
+  object-fit: cover;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.search-card{
+  display: flex;
+  justify-content: start;
+  padding-bottom: 10px;
+}
+
+.search-card:hover{
+  background-color: #624876;
+  border-radius: 10px;
+}
+
+.search-txt{
+  padding-top: 15px;
+}
