@@ -103,5 +103,13 @@
     <div>
       <%= image_tag "community-vector.svg", alt: "Community Icon", class: "community-icon" %>
     </div>
+    <div class="row">
+      <% @communities.each do |community| %>
+      <div class="col-6" style="background-image: url('<%= image_path(community.image) %>'); width: 348px; height: 167px; background-size: cover; background-position: center;">
+        <h1><%= link_to community.name, community_path(community) %></h1>
+        <p><%= community.users.count %> followers</p>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div> <!-- Close custom-container here -->
