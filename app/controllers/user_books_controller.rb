@@ -1,6 +1,6 @@
 class UserBooksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_book, only: [:destroy, :edit, :update]
+  before_action :set_user_book, only: [:destroy, :edit, :update]
 
   def index
     @user_books = current_user.books
@@ -45,7 +45,7 @@ class UserBooksController < ApplicationController
     params.require(:user_book).permit(:status)
   end
 
-  def set_book
+  def set_user_book
     @user_book = UserBook.find(params[:id])
   end
 end
