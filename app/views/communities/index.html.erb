@@ -1,0 +1,9 @@
+<div class="custom-container">
+  <h1>Communities</h1>
+  <% @communities.each do |community| %>
+    <div style="background-image: url('<%= image_path(community.image) %>'); width: 348px; height: 167px; background-size: cover; background-position: center;">
+      <h1><%= link_to community.name, community_path(community) %></h1>
+      <p><%= community.users.count %> followers</p>
+    </div>
+  <% end %>
+</div>

@@ -189,3 +189,7 @@ question_5 = Question.new(content: "What's your preferred publication date?", an
 question_5.save
 
 puts "question created!"
+
+
+community = Community.new(name: "Get inspired", description: "Time to get inspired together")
+community.save
