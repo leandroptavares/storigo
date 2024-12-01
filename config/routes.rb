@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   get "discover", to: "books#discover", as: :discover
   get "recommendation", to: "books#recommendation", as: :recommendation
+  get "profile", to: "pages#profile", as: :profile
 
 
   resources :surveys, only: [:create] do
