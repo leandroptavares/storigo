@@ -1,8 +1,8 @@
 development:
-  adapter: enhanced_postresql
+  adapter: enhanced_postgresql
 
 test:
   adapter: test
 
 production:
-  adapter: enhanced_postresql
+  adapter: enhanced_postgresql

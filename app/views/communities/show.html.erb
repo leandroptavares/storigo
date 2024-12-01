@@ -25,24 +25,28 @@
 
 
 <!-- Messages -->
-<div class="container">
-  <%= simple_form_for [@community, @message],
-    html: {class: "d-flex",
-          data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Add a message",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
 
+<div class="container">
+  <% if current_user.communities.include?(@community) %>
+    <%= simple_form_for [@community, @message],
+      html: {class: "d-flex",
+            data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
+    %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Add a message",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
+      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <% end %>
+
+  <%= turbo_stream_from "community_#{@community.id}_messages" %>
   <div id="messages" class="messages">
     <% @messages.each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
   </div>
+  <% else %>
+    <p>Follow this community to interact with other readers</p>
+  <% end %>
 </div>
-
-<%= turbo_stream_from %>
