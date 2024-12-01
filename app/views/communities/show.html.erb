@@ -1,0 +1,20 @@
+<div style="background-image: url('<%= image_path(@community.image) %>'); width: 100%; background-size: cover; background-position: center;">
+      <h1><%= @community.name %></h1>
+      <p><%= @community.users.count %> followers</p>
+      <p><%= @community.description %></p>
+</div>
+
+
+<p>Suggested books:</p>
+<div class="row">
+  <% books_count = 0 %>
+  <% @books.each do |book| %>
+    <% break if books_count == 3 %>
+      <div class="col-4 d-flex flex-column align-items-center">
+        <%= image_tag(book.cover_image, alt: book.title, class: "my-bookshelf-book mb-3") %>
+        <h5 class="text center my-books-title"><%= book.title %></h5>
+        <p class="text-center">by <%= book.author %></p>
+      </div>
+    <% books_count += 1 %>
+  <% end %>
+</div>
