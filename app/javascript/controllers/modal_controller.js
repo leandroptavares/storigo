@@ -9,11 +9,14 @@ export default class extends Controller {
   }
 
   show() {
-    console.log("clicked")
-    this.modalTarget.classList.remove("hidden");
-    this.buttonTarget.innerText = "Added to Bookshelf";
-    this.buttonTarget.disabled = true;
-    document.querySelector(".book-container").classList.add("modal-visible");
+    console.log("clicked");
+    
+    setTimeout(() => {
+      this.modalTarget.classList.remove("hidden");
+      this.buttonTarget.innerText = "Added to Bookshelf";
+      this.buttonTarget.disabled = true;
+      document.querySelector(".book-container").classList.add("modal-visible");
+    }, 500);
   }
 
   close() {

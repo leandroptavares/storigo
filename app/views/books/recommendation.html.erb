@@ -1,7 +1,7 @@
 <div class="book-container modal-wrapper">
   <button class="turn-book"><%= image_tag "turn_book.png", alt: "Read synopsis" %></button>
   <div class="book-cover">
-    <%= image_tag(@books.first.cover_image, alt: @books.first.title) %>
+    <%= image_tag(@books.first.cover_image, alt: @books.first.title) || "no cover available" %>
   </div>
   <div class="book-txt">
     <h2><%= @books.first.title %></h2>
