@@ -2,6 +2,7 @@
       <h1><%= @community.name %></h1>
       <p><%= @community.users.count %> followers</p>
       <p><%= @community.description %></p>
+      <%= button_to "Join", user_communities_path(id: @community.id) %>
 </div>
 
 

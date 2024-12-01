@@ -17,12 +17,13 @@ Rails.application.routes.draw do
   end
 
   resources :communities, only: [:index, :new, :create, :edit, :update, :show] do
-    resources :user_communities, only: [:create]
+    # resources :user_communities, only: [:create]
   end
 
   resources :reviews, only: [:edit, :update, :destroy]
-  resources :user_communities, only: [:destroy]
+  resources :user_communities, only: [:index, :create, :destroy]
   resources :user_books, only: [:index, :destroy, :edit, :update, :create]
+
 
   get "discover", to: "books#discover", as: :discover
   get "recommendation", to: "books#recommendation", as: :recommendation

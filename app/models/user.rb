@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :books, through: :user_books
   has_many :reviews, dependent: :destroy
   has_many :user_communities
+  has_many :communities, through: :user_communities
   has_many :user_reactions, dependent: :destroy
   has_one_attached :photo
   validates :email, :username, :first_name, :last_name, presence: true
