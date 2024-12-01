@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :communities, only: [:index, :new, :create, :edit, :update, :show] do
     # resources :user_communities, only: [:create]
+    resources :messages, only: [:create, :destroy]
   end
 
   resources :reviews, only: [:edit, :update, :destroy]

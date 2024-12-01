@@ -1,7 +1,14 @@
 <h1>Profile</h1>
-<p><%= current_user.username %></p>
-<p>Edit Profile</p>
-<p>My bookshelf</p>
+<div class="d-flex">
+  <%= image_tag(current_user.photo, style: "width: 55px; height: 55px; border-radius: 50%;") %>
+  <div>
+    <p>Username: <%= current_user.username %></p>
+    <p>Member since <%= current_user.created_at.strftime("%B %d, %Y") %></p>
+
+  </div>
+</div>
+<p><%= link_to "Edit Profile", edit_user_registration_path %></p>
+<p><%= link_to "My bookshelf", user_books_path %></p>
+<p><%= link_to "My communities", user_communities_path %></p>
 <p>Recent recommendation</p>
 <p>Reading tracker</p>
-<p>My communities</p>

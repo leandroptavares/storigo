@@ -6,6 +6,8 @@ class CommunitiesController < ApplicationController
   end
 
   def show
+    @message = Message.new
+    @messages = @community.messages.order(created_at: :desc)
   end
 
   private

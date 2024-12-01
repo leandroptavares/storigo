@@ -78,3 +78,5 @@ end
 gem "http"
 gem "ruby-openai"
 gem "cloudinary"
+gem "solid_cable"
+gem "actioncable-enhanced-postgresql-adapter"
