@@ -15,6 +15,10 @@ GEM
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
       zeitwerk (~> 2.6)
+    actioncable-enhanced-postgresql-adapter (1.0.1)
+      actioncable (>= 6.0)
+      connection_pool (>= 2.2.5)
+      pg (~> 1.5)
     actionmailbox (7.1.5)
       actionpack (= 7.1.5)
       activejob (= 7.1.5)
@@ -306,6 +310,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    solid_cable (1.0.3)
+      rails (< 9)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -357,6 +363,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  actioncable-enhanced-postgresql-adapter
   autoprefixer-rails
   bootsnap
   bootstrap (~> 5.2)
@@ -376,6 +383,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   simple_form!
+  solid_cable
   sprockets-rails
   stimulus-rails
   turbo-rails
