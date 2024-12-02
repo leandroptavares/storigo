@@ -19,7 +19,7 @@
   </ul>
   <h1>Reviews</h1>
 
-  <div class="modal yellow hidden" data-modal-target="modal">
+  <div class="modal yellow" data-modal-target="modal">
     <div>
       <%= render "books/explore" %>
       <button data-action="click->modal#close" class="close-button">Close</button>
@@ -27,9 +27,11 @@
   </div>
 
   <div class="modal-2 hidden" data-modal-target="bookDetails">
-    <div class="lalala">
+    <div class="modal-container">
       <%= render "books/book-details" %>
-      <button data-action="click->modal#closeDetails" class="close-button">Close</button>
+      <button data-action="click->modal#closeDetails" class="close-button">
+        <%= image_tag "close.svg", alt: "Close Icon", class: "close-icon" %>
+      </button>
     </div>
   </div>
 </div>
