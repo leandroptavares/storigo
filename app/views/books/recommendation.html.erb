@@ -1,2 +1,5 @@
 <%= turbo_stream_from "recommendations" %>
-<p id='recommendations'>Loading...</p>
+<div class="custom-container" id="recommendations" data-controller="quote-rotator">
+  <p><h1>Almost ready! Your next read is coming soon.</h1></p>
+  <p id="quotes" data-quote-rotator-target="quote"><i>Loading...</i></p>
+</div>
