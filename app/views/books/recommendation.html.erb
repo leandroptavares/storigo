@@ -1,7 +1,7 @@
-<div class="book-container">
-  <button class="turn-book"><%= image_tag "turn_book.png", alt: "Read synopsis" %></button>
+<div class="book-container modal-wrapper" data-controller="modal">
+  <p data-action="click->modal#details">See details</p>
   <div class="book-cover">
-    <%= image_tag(@books.first.cover_image, alt: @books.first.title) %>
+    <%= image_tag(@books.first.cover_image, alt: @books.first.title) || "no cover available" %>
   </div>
   <div class="book-txt">
     <h2><%= @books.first.title %></h2>
@@ -12,7 +12,7 @@
       <button class="image-button">
         <%= image_tag "reject.png", alt: "Click Me" %>
       </button>
-      <p>No interested</p>
+      <p>Not interested</p>
     </div>
     <div class="btn-wrapper">
       <%= link_to book_path(@books.first), class: "btn-link" do %>
@@ -28,15 +28,18 @@
     <button data-action="click->display-reason#render" class="ai-prompt">
       <%= image_tag "question_mark.png", alt: "AI Prompt" %>
     </button>
-    <div class="modal hidden" data-display-reason-target="modal">
+    <div class="modal yellow hidden" data-display-reason-target="modal">
       <div>
         <%= render "books/reason" %>
-        <button data-action="click->display-reason#close" class="">Close</button>
+        <button data-action="click->display-reason#close" class="close-button">Close</button>
       </div>
     </div>
   </div>
+
+    <div class="modal hidden" data-modal-target="bookDetails">
+    <div>
+      <%= render "books/recommendation-details" %>
+      <button data-action="click->modal#closeDetails" class="close-button">Close</button>
+    </div>
+  </div>
 </div>
-
-
-
-<%# <%= @open_ai_recommendation %>

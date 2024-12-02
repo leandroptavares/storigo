@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_28_125825) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_01_150245) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,12 +71,29 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_125825) do
     t.string "name"
     t.text "description"
     t.string "category"
-    t.bigint "book_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_communities_on_book_id"
-    t.index ["user_id"], name: "index_communities_on_user_id"
+    t.bigint "community_id", null: false
+    t.index ["community_id"], name: "index_messages_on_community_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "messages_tables", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "user_communities_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_communities_id"], name: "index_messages_tables_on_user_communities_id"
+    t.index ["user_id"], name: "index_messages_tables_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -101,15 +118,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_125825) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "solid_cache_entries", force: :cascade do |t|
-    t.binary "key", null: false
-    t.binary "value", null: false
+  create_table "solid_cable_messages", force: :cascade do |t|
+    t.text "channel"
+    t.text "payload"
     t.datetime "created_at", null: false
-    t.bigint "key_hash", null: false
-    t.integer "byte_size", null: false
-    t.index ["byte_size"], name: "index_solid_cache_entries_on_byte_size"
-    t.index ["key_hash", "byte_size"], name: "index_solid_cache_entries_on_key_hash_and_byte_size"
-    t.index ["key_hash"], name: "index_solid_cache_entries_on_key_hash", unique: true
+    t.datetime "updated_at", null: false
+    t.index ["channel"], name: "index_solid_cable_messages_on_channel"
+    t.index ["created_at"], name: "index_solid_cable_messages_on_created_at"
   end
 
   create_table "surveys", force: :cascade do |t|
@@ -170,8 +185,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_125825) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "surveys"
-  add_foreign_key "communities", "books"
-  add_foreign_key "communities", "users"
+  add_foreign_key "messages", "communities"
+  add_foreign_key "messages", "users"
+  add_foreign_key "messages_tables", "user_communities", column: "user_communities_id"
+  add_foreign_key "messages_tables", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
   add_foreign_key "surveys", "users"

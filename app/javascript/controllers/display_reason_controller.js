@@ -12,11 +12,11 @@ export default class extends Controller {
   render() {
     console.log("Clicked!");
     this.modalTarget.classList.remove("hidden");
-    document.querySelector(".custom-container").classList.add("modal-visible");
+    document.querySelector(".book-container").classList.add("modal-visible");
   }
 
   close() {
     this.modalTarget.classList.add("hidden");
-    document.querySelector(".custom-container").classList.remove("modal-visible");
+    document.querySelector(".book-container").classList.remove("modal-visible");
   }
 }

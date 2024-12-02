@@ -1,0 +1,14 @@
+<h1>My communities</h1>
+<% if current_user.communities.empty? %>
+  <p>You haven't joined any book community yet</p>
+<% else %>
+  <p>You've joined <%= current_user.communities.count %> <%= current_user.communities.count > 1 ? "book communities" : "book community" %></p>
+<% end %>
+
+<% current_user.user_communities.each do |user_community| %>
+    <div style="background-image: url('<%= image_path(user_community.community.image) %>'); width: 348px; height: 167px; background-size: cover; background-position: center;">
+      <h1><%= link_to user_community.community.name, community_path(user_community.community) %></h1>
+      <p><%= user_community.community.users.count %> followers</p>
+      <%= link_to "Unfollow", user_community_path(user_community), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to unfollow this community?"} %>
+    </div>
+  <% end %>

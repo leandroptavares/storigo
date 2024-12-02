@@ -1,5 +1,6 @@
 class Community < ApplicationRecord
-  belongs_to :user
   has_many :user_communities
-  validates :name, :description, :category, :user_id, presence: true
+  has_many :users, through: :user_communities
+  has_many :messages
+  validates :name, :description, presence: true
 end

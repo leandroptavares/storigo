@@ -60,7 +60,7 @@ class BooksController < ApplicationController
       @api_recommendations = getRecommendations(@user_survey.answers.first.content)
       @open_ai_recommendation = getISBNorder(@api_recommendations, @user_survey.answers.second.content, @user_survey.answers.third.content, @user_survey.answers.fourth.content, @user_survey.answers.fifth.content)
       @books = Book.where(api_id: @open_ai_recommendation.map { |book| book[:ISBN] })
-
+      p @books
       @books_with_reasons = @books.map do |book|
         reason = @open_ai_recommendation.find { |b| b[:ISBN] == book.api_id }[:Reason]
         { book: book, reason: reason }
@@ -119,7 +119,7 @@ class BooksController < ApplicationController
                   end
       number_of_pages = book_data["book"]["pages"].to_i || "No information available"
       publish_date = book_data["book"]["date_published"] || "No information available"
-      cover_image = book_data["book"]["image"]
+      cover_image = book_data["book"]["image"] || "No cover available"
       api_id = book_data["book"]["isbn13"].to_s || book_data["book"]["isbn"].to_s
       publisher = book_data["book"]["publisher"] || "No information available"
 

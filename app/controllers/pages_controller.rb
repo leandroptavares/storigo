@@ -13,5 +13,12 @@ class PagesController < ApplicationController
 
     @questions = Question.all
     @answer = Answer.new
+
+    @books = Book.all
+    @communities = Community.all
   end
+
+  def profile
+  end
+
 end

@@ -14,6 +14,25 @@
   padding: 20px;
 }
 
+// // .reason {
+// //   position: fixed; /* Fixed position on screen */
+// //   top: 50%; /* Center vertically */
+// //   left: 50%; /* Center horizontally */
+// //   transform: translate(-50%, -50%); /* Adjust for true center */
+// //   width: 80%; /* Default width for small screens (80% of the viewport) */
+// //   height: 50%; /* Default height for small screens (50% of the viewport) */
+// //   background-color: #f1e4a3; /* Light yellow background */
+// //   color: black;
+// //   z-index: 1000; /* Ensure it appears above other elements */
+// //   display: flex; /* Flexbox for centering content */
+// //   flex-direction: column; /* Stack content vertically */
+// //   align-items: center; /* Center content horizontally */
+// //   justify-content: center; /* Center content vertically */
+// //   padding: 15px; /* Padding for internal spacing */
+// //   border-radius: 8px; /* Rounded corners */
+// //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+// // }
+
 .hidden {
   display: none;
 }
@@ -47,6 +66,61 @@
 .custom-container.modal-visible::before {
   display: block; /* Shows the background overlay when the modal is active */
 }
+
+.modal.yellow {
+  // Existing modal styles
+  background-color: #f1e4a3; /* Yellow background */
+  border-radius: 10px;        /* Rounded corners */
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: black;
+
+  // Ensure links and buttons inside the modal are black
+  a,
+  button {
+    color: black; /* Black text color */
+    text-decoration: none; /* Remove underline for links */
+    background: none; /* Ensure buttons inherit background */
+    border: none; /* Optional: Removes borders from buttons */
+  }
+
+  // Optional: hidden state
+  &.hidden {
+    display: none;
+  }
+
+  // Responsive adjustments for mobile screens
+  @media (max-width: 600px) {
+    padding: 15px;
+    max-width: 90%;
+    border-radius: 5px;
+  }
+}
+
+/* Dimming the background for modal-wrapper containers */
+.modal-wrapper::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+  z-index: 999; /* Below the modal but above other content */
+  display: none; /* Initially hidden */
+}
+
+/* Show the background dim when modal is active */
+.modal-wrapper.modal-visible::before {
+  display: block; /* Shows the background overlay when the modal is active */
+}
+
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
