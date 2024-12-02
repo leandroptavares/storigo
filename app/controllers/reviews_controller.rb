@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  class ReviewsController < ApplicationController
     def create
       @book = Book.find(params[:book_id])
       if !current_user
@@ -29,5 +28,3 @@ class ReviewsController < ApplicationController
         params.require(:review).permit(:comment, :rating, :book_id)
     end
   end
-
-end

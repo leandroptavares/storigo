@@ -40,12 +40,11 @@
         We've got your review!
       </div>
     <% else %>
-      <%= simple_form_for [@book, @review] do |f| %>
-        <%= f.input :comment, class: "reviewbox" %>
-        <p>Rating
-          <%= f.select :rating, options_for_select([1, 2, 3, 4, 5], @review.rating), class: "rating-dropdown" %>
-        </p>
-        <%= f.submit class: "buttons" %>
-      <% end %>
+  <%= simple_form_for [@book, @review] do |f| %>
+  <%= f.input :comment, class: "reviewbox", label: "Comment" %>
+  <p>Rating</p>
+  <%= f.select :rating, options_for_select([1, 2, 3, 4, 5], @review.rating), class: "rating-dropdown" %>
+  <%= f.submit "Submit Review", class: "buttons" %>
+<% end %>
   <% end %>
 <% end %>
