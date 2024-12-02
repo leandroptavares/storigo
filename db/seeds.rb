@@ -174,7 +174,7 @@ require 'openai'
 
 # getISBN(isbn13_array, "novel", "250" , "2010")
 
-Book.destroy_all
+# Book.destroy_all
 
 
 question_1 = Question.new(content: "What emotion are you looking to experience?", answer_1: "Inspired", answer_2: "Suspense", answer_3: "Somber", answer_4: "Joyful", answer_5: "Magical" )
