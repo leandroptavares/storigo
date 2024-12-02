@@ -80,14 +80,14 @@ class BooksController < ApplicationController
   #RECOMMENDATION METHODS:
 
   def getRecommendations(mood)
-  url = "https://api2.isbndb.com/books/#{mood}?page=1&pageSize=50&column=subject&language=en&shouldMatchAll=0"
+  url = "https://api2.isbndb.com/books/#{mood}?page=1&pageSize=100&column=subject&language=en&shouldMatchAll=0"
 
   response = HTTP.headers("Content-Type": "application/json", "Authorization": ENV["ISBN_DB_API"]).get(url)
   book_data = JSON.parse(response.body)
 
-  isbn13_numbers = book_data["books"].map { |item| item["isbn13"] }
+  p book_data
 
-  p isbn13_13
+  isbn13_numbers = book_data["books"].map { |item| item["isbn13"] }
 
   end
 
