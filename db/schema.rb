@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.1].define(version: 2024_12_02_142006) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,21 +81,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_142006) do
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
+    t.bigint "community_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "community_id", null: false
     t.index ["community_id"], name: "index_messages_on_community_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "messages_tables", force: :cascade do |t|
-    t.text "content"
-    t.bigint "user_id", null: false
-    t.bigint "user_communities_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_communities_id"], name: "index_messages_tables_on_user_communities_id"
-    t.index ["user_id"], name: "index_messages_tables_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -308,8 +300,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_142006) do
   add_foreign_key "answers", "surveys"
   add_foreign_key "messages", "communities"
   add_foreign_key "messages", "users"
-  add_foreign_key "messages_tables", "user_communities", column: "user_communities_id"
-  add_foreign_key "messages_tables", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

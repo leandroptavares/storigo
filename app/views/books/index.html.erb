@@ -17,12 +17,12 @@
 
 
               <div class="search-txt">
-                <h5 class="card-title"><%= book.title %></h5>
+                <h5 class="card-title" style="color: #B9D9EC"><%= book.title %></h5>
                 <% authors_array = book.author.is_a?(String) && book.author.start_with?("[") ? JSON.parse(book.author) : Array(book.author) %>
 
                 <br>
 
-                <p class="card-text-author">by <%= authors_array.join(",") %></p>
+                <p class="card-text-author" style="size:14px">by <%= authors_array.join(",") %></p>
 
                 <% if book.number_of_pages.present? %>
                   <span class="card-text"> <%= book.number_of_pages %> pages | </span>

@@ -5,36 +5,25 @@ class BooksController < ApplicationController
   def index
     if params[:search].present?
       user_input = params[:search]
-    # Search by title
-    url = "https://api2.isbndb.com/books/#{user_input}?page=1&pageSize=20&column=title&language=en&shouldMatchAll=0"
-    #Search by category
-    # url = "https://api2.isbndb.com/subject/#{user_input}"
-    # url = "https://api2.isbndb.com/search/#{user_input}?page=1&pageSize=20"  #RESULT NOT GOOD
-    # Search by author
-    # url = "https://api2.isbndb.com/author/#{user_input}?page=1&pageSize=20"
-
-      response = HTTP.headers("Content-Type": "application/json", "Authorization": ENV["ISBN_DB_API"]).get(url)
-      if response.status.success?
-        books = JSON.parse(response.body)
-        @books_ai = books["books"] || []
-          @books_ai.each do |book_data|
-            create(book_data)
-          end
-      else
-        @books_ai = []
-      end
+      fetch_and_save_books_from_api(user_input)
+      @books_ai = Book.where("title ILIKE ?", "%#{user_input}%")
     else
       @books_ai = Book.all.sample(60)
     end
   end
 
-  def new
-    @book = Book.new
-  end
+def fetch_and_save_books_from_api(search_term)
+  url = "https://api2.isbndb.com/books/#{search_term}?page=1&pageSize=20&column=title&language=en&shouldMatchAll=0"
+  response = HTTP.headers("Content-Type": "application/json", "Authorization": ENV["ISBN_DB_API"]).get(url)
+      if response.status.success?
+        books = JSON.parse(response.body)["books"] || []
+        books.each {|book_data| save_book_to_database(book_data)}
+      end
+end
 
-  def create(book_data)
-    if Book.where(title: book_data["title"]) == []
-      @book = Book.create(
+  def save_book_to_database(book_data)
+    return if Book.exists?(title: book_data["title"])
+      Book.create(
       title: book_data["title"],
       author: book_data["authors"],
       description: book_data["synopsis"],
@@ -44,10 +33,15 @@ class BooksController < ApplicationController
       cover_image: book_data["image"],
       api_id: book_data["isbn13"]
       )
-    end
+  end
+
+
+  def new
+    @book = Book.new
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def discover
