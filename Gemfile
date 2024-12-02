@@ -80,3 +80,6 @@ gem "ruby-openai"
 gem "cloudinary"
 gem "solid_cable"
 gem "actioncable-enhanced-postgresql-adapter"
+
+gem "solid_queue"
+

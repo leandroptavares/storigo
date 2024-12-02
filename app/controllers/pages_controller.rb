@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     unless current_user.surveys.empty?
       @survey = Survey.where(user: current_user)
-      @survey.first.destroy
+      @survey.destroy_all
     end
 
     @survey = Survey.new

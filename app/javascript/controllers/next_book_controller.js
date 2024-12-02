@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="next-book"
 export default class extends Controller {
 
-  static targets = ["book"]
+  static targets = ["book", "container"]
 
   connect() {
     console.log("hi from next_book")
@@ -29,7 +29,7 @@ export default class extends Controller {
       currentBook.classList.add("d-none")
       nextBook.classList.remove("d-none")
     } else {
-      currentBook.innerHTML = "<div class='custom-container'><h1>We ran out of recommendations :(</h1>. <p>Try answering the survey again</p><p><a href='/'>Go to homepage</a></p></div>"
+      currentBook.innerHTML = "<div class='custom-container' data-next-book-target='container'><h1>We ran out of recommendations :(</h1><p>Try answering the survey again</p><h2><a href='/'>Go to homepage</a></h2></div>"
     }
   }
 }
