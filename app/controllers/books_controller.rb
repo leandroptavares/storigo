@@ -161,6 +161,7 @@ class BooksController < ApplicationController
                     "in any year"
                   end}
 
+      You MUST always start with the book title!!!
 
       Do not return anything else than the array. List from the most relevant to the least relevant. Also add a reason (from 200 to 400 characters) about why this suggestion was given.
 

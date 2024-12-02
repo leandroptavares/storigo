@@ -29,7 +29,7 @@ export default class extends Controller {
       currentBook.classList.add("d-none")
       nextBook.classList.remove("d-none")
     } else {
-      currentBook.insertAdjacentHTML("beforeend", "<h1> We ran out of recommendations... Try answering survey again </1>")
+      currentBook.innerHTML = "<div class='custom-container'><h1>Oh no... we ran out of recommendations</h1>. <p>Try answering the survey again</p><p><a href='/'>Go to homepage</a></p></div>"
     }
   }
 }
