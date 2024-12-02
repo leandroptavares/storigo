@@ -30,8 +30,8 @@ class UserBooksController < ApplicationController
     @user_book.update(user_book_params)
     if @user_book.save
       redirect_to user_books_path
-    else
-      render :edit, status: :unprocessable_entity
+    # else
+    #   render :edit, status: :unprocessable_entity
     end
   end
 
@@ -43,7 +43,7 @@ class UserBooksController < ApplicationController
   private
 
   def user_book_params
-    params.require(:user_book).permit(:status)
+    params.require(:user_book).permit(:status, :pages_read)
   end
 
   def set_user_book

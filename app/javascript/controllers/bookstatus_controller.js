@@ -1,50 +1,37 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["status", "pages","content"]
+  static targets = ["status", "pages","content", "numberpages", "error"]
+  static values = {pages: Number}
 
   connect() {
-    // console.log("dsjfklasjdfksd")
-    this.#showPages()
+    this.numberpagesTarget.addEventListener("input", () => this.#showError())
     this.statusTarget.addEventListener("change", () => this.#showPages())
-    this.#showContent()
     this.statusTarget.addEventListener("change", () => this.#showContent())
   }
 
   #showPages() {
-    // if (this.statusTarget.value === "No") {
-    //   this.pagesTarget.classList.remove("d-none")
-    // } else {
-    //   this.pagesTarget.classList.add("d-none")
-    // }
-
-    if (this.statusTarget.value === "No") {
-      this.pagesTarget.classList.remove("d-none");
-
-      const pagesInput = this.pagesTarget.querySelector("input[type='number']");
-      const maxPages = parseInt(pagesInput.getAttribute("max"), 10);
-
-      pagesInput.addEventListener("input", () => {
-        const value = parseInt(pagesInput.value, 10);
-        if (value > maxPages) {
-          pagesInput.setCustomValidity(`The number must be less than or equal to ${maxPages}.`);
-        } else {
-          pagesInput.setCustomValidity("");
-        }
-      });
+    if (this.statusTarget.value === "In progress") {
+      this.pagesTarget.classList.remove("d-none")
     } else {
-      this.pagesTarget.classList.add("d-none");
+      this.pagesTarget.classList.add("d-none")
     }
   }
 
   #showContent() {
-    if (this.statusTarget.value === "Yes") {
+    if (this.statusTarget.value === "Completed") {
       this.pagesTarget.classList.add("d-none")
       this.contentTarget.classList.remove("d-none")
     } else {
       this.contentTarget.classList.add("d-none")
     }
   }
+
+  #showError() {
+    if (this.numberpagesTarget.value > this.pagesValue) {
+      this.errorTarget.classList.remove("d-none")
+    } else {
+      this.errorTarget.classList.add("d-none")
+    }
+  }
 }
-
-
