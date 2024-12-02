@@ -23,7 +23,7 @@ end
 
   def save_book_to_database(book_data)
     return if Book.exists?(title: book_data["title"])
-      Book.create(  
+      Book.create(
       title: book_data["title"],
       author: book_data["authors"],
       description: book_data["synopsis"],
@@ -35,13 +35,15 @@ end
       )
   end
 
-
   def new
     @book = Book.new
   end
 
   def show
-    @book = Book.find(params[:id])
+    # @book = Book.find(params[:id])
+    @review = Review.new(book_id: @book_id)
+    @reviews = Review.where(book_id: @book.id)
+    @user_review = @reviews.find_by(user_id: current_user.id) if current_user
   end
 
   def discover
