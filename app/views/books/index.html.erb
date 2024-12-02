@@ -4,62 +4,36 @@
     padding-bottom: 80px">
   <div class="row">
     <% if @books_ai.present? %>
-    <% @books_ai.each_with_index do |book, index| %>
-      <% if index % 3 == 0 && index != 0 %>
+      <% @books_ai.each_with_index do |book, index| %>
+        <% if index % 3 == 0 && index != 0 %>
         </div><div class="row">
-      <% end %>
-
-      <% if book.is_a?(Book) %>
-        <%= link_to book_path(book) do %>
-          <div class="results">
-            <div class="search-card">
-                <%= image_tag book.cover_image, class: "search-img"%>
-
-
-              <div class="search-txt">
-                <h5 class="card-title"><%= book.title %></h5>
-                <% authors_array = book.author.is_a?(String) && book.author.start_with?("[") ? JSON.parse(book.author) : Array(book.author) %>
-
-                <br>
-
-                <p class="card-text-author">by <%= authors_array.join(",") %></p>
-
-                <% if book.number_of_pages.present? %>
-                  <span class="card-text"> <%= book.number_of_pages %> pages | </span>
-                <% end %>
-
-                <% if book.publish_date.present? %>
-                  <span class="card-text"> <%= book.publish_date %></span>
-                <% end %>
-
-                <div class="to-bookshelf">
-                  <%= image_tag "bookshelf_icon.png", alt:"Bookshelf icon"%>
-                </div>
-
-              </div>
-            </div>
-          </div>
         <% end %>
-      <% else %>
-        <% if book["image"].present? %>
+
+        <% if book.is_a?(Book) %>
           <div class="card col-md-4 mb-4">
-             <div class="card-footer text-center">
-              <%= image_tag book["image"], class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
+            <div class="card-footer text-center">
+              <%= link_to book_path(book), data: { action: "click->navbar#highlight" } do %>
+              <%= image_tag book.cover_image, class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
             </div>
+
             <div class="card-body">
-              <h5 class="card-title"><%= book["title"] %></h5>
-              <p class="card-text"><strong>Author(s):</strong> <%= book["authors"].join(",")%></p>
-              <% if book["pages"].present? %>
-                <p class="card-text"><strong>Pages:</strong> <%= book["pages"] %></p>
-              <% end %>
-              <% if book["date_published"].present? %>
-                <p class="card-text"><strong>Published:</strong> <%= book["date_published"] %></p>
-              <% end %>
+              <h5 class="card-title" style = "color:black; text-align: left"><%= book.title %></h5>
+            <% end %>
+
+            <% authors_array = book.author.is_a?(String) && book.author.start_with?("[") ? JSON.parse(book.author) : Array(book.author) %>
+              <p class="card-text"><strong>Author(s):</strong> <%= authors_array.join(",") %></p>
+
+            <% if book.number_of_pages.present? %>
+              <p class="card-text"><strong>Pages:</strong> <%= book.number_of_pages %></p>
+            <% end %>
+
+            <% if book.publish_date.present? %>
+              <p class="card-text"><strong>Published:</strong> <%= book.publish_date %></p>
+            <% end %>
             </div>
           </div>
         <% end %>
       <% end %>
-    <% end %>
     <%else%>
     <p>"Sorry, no book available"</p>
     <% end %>
