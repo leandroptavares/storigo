@@ -14,6 +14,33 @@
   padding: 20px;
 }
 
+.modal-2 {
+  position: fixed;
+  // top: 0;
+  // left: 0;
+  width: 100%;
+  height: 65%;
+  background: #1C042E;
+  padding: 1rem; /* Reduce padding for better use of screen space */
+  margin: 0; /* Remove margin to ensure it takes up the full viewport */
+  border-radius: 1rem; /* Reduce border radius */
+  border: solid 0.2rem #f1a3a3;
+  z-index: 1000; /* Ensure the modal appears above other content */
+
+}
+
+.lalala {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal-2 p {
+  font-size: 1.2rem;  /* Set font size for modal-2 */
+  color: #ffff;        /* Set a different text color */
+  line-height: 1.5;
+
+}
+
 // // .reason {
 // //   position: fixed; /* Fixed position on screen */
 // //   top: 50%; /* Center vertically */
@@ -36,6 +63,8 @@
 .hidden {
   display: none;
 }
+
+
 
 .close-button {
   position: absolute;
@@ -114,6 +143,7 @@
   background: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
   z-index: 999; /* Below the modal but above other content */
   display: none; /* Initially hidden */
+
 }
 
 /* Show the background dim when modal is active */

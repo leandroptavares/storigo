@@ -81,7 +81,6 @@ end
 
   isbn13_numbers = book_data["books"].map { |item| item["isbn13"] }
 
-  p isbn13_13
 
   end
 
