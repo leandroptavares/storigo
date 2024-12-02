@@ -10,23 +10,36 @@
       <% end %>
 
       <% if book.is_a?(Book) %>
-        <div class="card col-md-4 mb-4">
-            <div class="card-footer text-center">
-            <%= image_tag book.cover_image, class: "img-fluid", style: "height: 300px; width: 200px; object-fit: cover;" %>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title"><%= book.title %></h5>
-            <% authors_array = book.author.is_a?(String) && book.author.start_with?("[") ? JSON.parse(book.author) : Array(book.author) %>
-            <p class="card-text"><strong>Author(s):</strong> <%= authors_array.join(",") %></p>
+        <%= link_to book_path(book) do %>
+          <div class="results">
+            <div class="search-card">
+                <%= image_tag book.cover_image, class: "search-img"%>
 
-            <% if book.number_of_pages.present? %>
-              <p class="card-text"><strong>Pages:</strong> <%= book.number_of_pages %></p>
-            <% end %>
-            <% if book.publish_date.present? %>
-              <p class="card-text"><strong>Published:</strong> <%= book.publish_date %></p>
-            <% end %>
+
+              <div class="search-txt">
+                <h5 class="card-title"><%= book.title %></h5>
+                <% authors_array = book.author.is_a?(String) && book.author.start_with?("[") ? JSON.parse(book.author) : Array(book.author) %>
+
+                <br>
+
+                <p class="card-text-author">by <%= authors_array.join(",") %></p>
+
+                <% if book.number_of_pages.present? %>
+                  <span class="card-text"> <%= book.number_of_pages %> pages | </span>
+                <% end %>
+
+                <% if book.publish_date.present? %>
+                  <span class="card-text"> <%= book.publish_date %></span>
+                <% end %>
+
+                <div class="to-bookshelf">
+                  <%= image_tag "bookshelf_icon.png", alt:"Bookshelf icon"%>
+                </div>
+
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% else %>
         <% if book["image"].present? %>
           <div class="card col-md-4 mb-4">
