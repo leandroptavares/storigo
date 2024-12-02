@@ -23,7 +23,7 @@ end
 
   def save_book_to_database(book_data)
     return if Book.exists?(title: book_data["title"])
-      Book.create(
+      Book.create(  
       title: book_data["title"],
       author: book_data["authors"],
       description: book_data["synopsis"],
