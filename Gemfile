@@ -79,3 +79,6 @@ gem "http"
 gem "ruby-openai"
 gem "cloudinary"
 gem "actioncable-enhanced-postgresql-adapter"
+
+gem "solid_queue"
+

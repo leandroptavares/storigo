@@ -1,0 +1,23 @@
+$transition-duration: 1s;
+$transition-ease: ease-in-out;
+
+.quote-container {
+  position: relative;
+  max-width: 600px;  // Adjust width as necessary
+  margin: 0 auto;  // Centers the container
+  font-size: 18px;  // Adjust the text size
+  text-align: center;
+
+  .quote {
+    opacity: 0;  // Quotes are initially invisible
+    visibility: hidden;  // Quotes are not visible
+    transition: opacity $transition-duration $transition-ease, visibility 0s $transition-duration; // Transition opacity with visibility change
+
+    // When not hidden, set to visible
+    &:not(.d-none) {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
