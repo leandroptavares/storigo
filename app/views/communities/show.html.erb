@@ -1,12 +1,12 @@
-<div style="background-image: url('<%= image_path(@community.image) %>'); width: 100%; background-size: cover; background-position: center;">
-      <h1><%= @community.name %></h1>
-      <p><%= @community.users.count %> followers</p>
-      <p><%= @community.description %></p>
-      <% if current_user.communities.include?(@community) %>
-        <p>You're following this community</p>
-      <% else %>
-        <%= button_to "Join", user_communities_path(id: @community.id) %>
-      <% end %>
+<div class="communities-banner" style="background-image: url('<%= image_path(@community.image) %>'); width: 100%; background-size: cover; background-position: center;">
+  <h1><%= @community.name %></h1>
+  <p><%= @community.users.count %> followers</p>
+  <p><%= @community.description %></p>
+  <% if current_user.communities.include?(@community) %>
+    <p>You're following this community</p>
+  <% else %>
+    <%= button_to "Join", user_communities_path(id: @community.id) %>
+  <% end %>
 </div>
 
 <p>Suggested books:</p>
