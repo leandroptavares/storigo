@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_01_150245) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_01_150244) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,21 +79,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_150245) do
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
+    t.bigint "community_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "community_id", null: false
     t.index ["community_id"], name: "index_messages_on_community_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "messages_tables", force: :cascade do |t|
-    t.text "content"
-    t.bigint "user_id", null: false
-    t.bigint "user_communities_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_communities_id"], name: "index_messages_tables_on_user_communities_id"
-    t.index ["user_id"], name: "index_messages_tables_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -116,15 +106,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_150245) do
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_reviews_on_book_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "solid_cable_messages", force: :cascade do |t|
-    t.text "channel"
-    t.text "payload"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["channel"], name: "index_solid_cable_messages_on_channel"
-    t.index ["created_at"], name: "index_solid_cable_messages_on_created_at"
   end
 
   create_table "surveys", force: :cascade do |t|
@@ -187,8 +168,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_01_150245) do
   add_foreign_key "answers", "surveys"
   add_foreign_key "messages", "communities"
   add_foreign_key "messages", "users"
-  add_foreign_key "messages_tables", "user_communities", column: "user_communities_id"
-  add_foreign_key "messages_tables", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
   add_foreign_key "surveys", "users"
