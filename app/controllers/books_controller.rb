@@ -35,13 +35,15 @@ end
       )
   end
 
-
   def new
     @book = Book.new
   end
 
   def show
-    @book = Book.find(params[:id])
+    @book_id = params[:book_id]
+    @review = Review.new(book_id: @book_id)
+    @reviews = Review.where(book_id: @book.id)
+    @user_review = @reviews.find_by(user_id: current_user.id) if current_user
   end
 
   def discover
