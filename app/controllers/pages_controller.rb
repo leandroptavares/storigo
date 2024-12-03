@@ -18,7 +18,11 @@ class PagesController < ApplicationController
     @communities = Community.all
   end
 
-  def profile
+  def my_profile
+  end
+
+  def user_profile
+    @user_profile = User.find(params[:user_id])
   end
 
 end
