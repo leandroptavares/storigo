@@ -6,6 +6,7 @@ export default class extends Controller {
 
   connect() {
     // console.log("modal is here")
+    console.log(this.modalTarget)
   }
 
   show() {
