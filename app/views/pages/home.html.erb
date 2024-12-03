@@ -57,7 +57,7 @@
     </div>
 
     <div data-trending-target="book">
-      <div class="img-fluid pb-4 book visible" style="margin-top: -70px; box-shadow: 8px 6px 12px 0px rgba(185, 217, 236, 0.20);">
+      <div class="img-fluid pb-4 book visible" style="margin-top: -70px;">
         <%= image_tag "michelle.png", alt: "Trending-Image", class: "image-trend" %>
       </div>
 
@@ -101,18 +101,49 @@
   </div> %>
   <!-- TEST -->
 
-  <div class="community-container" style="margin-bottom: -4rem;">
-    <h1 class="community-h">Communities</h1>
-    <div>
-      <%= image_tag "community-vector.svg", alt: "Community Icon", class: "community-icon" %>
-    </div>
-    <div class="row">
-      <% @communities.each do |community| %>
-      <div class="col-6" style="background-image: url('<%= image_path(community.image) %>'); width: 348px; height: 167px; background-size: cover; background-position: center;">
-        <h1><%= link_to community.name, community_path(community) %></h1>
-        <p><%= community.users.count %> followers</p>
-      </div>
-      <% end %>
-    </div>
+  <div class="my-home-container">
+    <h1 class="community-h">
+    <%= image_tag "community-vector.svg", alt: "Community Icon", class: "community-icon" %>
+    Communities
+      </h1>
+
+<!-- Add Carousel Below Communities -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators-home">
+    <% @communities.each_with_index do |_, index| %>
+      <button type="button" id="toggles-home" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= index %>" class="<%= 'active' if index.zero? %>" aria-current="<%= 'true' if index.zero? %>" aria-label="Slide <%= index + 1 %>"></button>
+    <% end %>
   </div>
-</div> <!-- Close custom-container here -->
+  <div class="carousel-inner-home">
+    <% @communities.each_with_index do |community, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <%= link_to community_path(community) do %>
+          <div class="com-thumbnail">
+            <div class="background-img-carousel" style="background-image: url('<%= image_path(community.image) %>'); width: 348px; height: 167px; background-size: cover; background-position: center;">
+              <h1 class="com-title"><%= community.name %></h1>
+              <div class="followers">
+                <%= image_tag "community-thumbnail.png" %> <p><%= community.users.count %> followers</p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+
+
+  </div>
+</div>
+</div>
