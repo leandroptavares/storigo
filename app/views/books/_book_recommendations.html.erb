@@ -1,7 +1,7 @@
 <% @book = books.first %>
 <% @reason = books_with_reasons %>
 
-<div data-controller="next-book">
+<div data-controller="next-book" data-next-book-bookid-value="<%= @book.id %>">
   <div class="book-container modal-wrapper" data-controller="modal" data-next-book-target="book" data-recommendation-id="0">
     <p data-action="click->modal#details">See details</p>
     <div class="book-cover">
@@ -20,7 +20,7 @@
       </div>
       <div class="btn-wrapper">
         <%= link_to book_path(@book), class: "btn-link" do %>
-          <button class="image-button">
+          <button class="image-button" data-next-book-target="likeButton" data-action="click->next-book#liked" data-recommendation-id="0">
             <%= image_tag "accept.png", alt: "Accept recommendation" %>
           </button>
         <% end %>
@@ -72,7 +72,7 @@
       </div>
       <div class="btn-wrapper">
         <%= link_to book_path(book), class: "btn-link" do %>
-          <button class="image-button">
+          <button class="image-button" data-next-book-target="likeButton" data-action="click->next-book#liked">
             <%= image_tag "accept.png", alt: "Accept recommendation" %>
           </button>
         <% end %>
