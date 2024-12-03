@@ -1,3 +1,18 @@
+.book-show-container {
+  text-align: center; /* Center text inside the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Ensures the container takes the full viewport height */
+  justify-content: center; /* Centers content vertically */
+  // position: relative;
+  width: 100%;
+  padding-top: 4rem;
+  padding-bottom: 10rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
 .see-details-toggle{
   flex-shrink: 0;
   text-align: center;
@@ -6,6 +21,11 @@
   align-items: center;
   font-size: 1.4rem;
   gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#a-t-b-move{
+  margin-top: -1rem;
 }
 
 .detail-icon{
@@ -21,12 +41,13 @@
 }
 
 .buy-from{
-  margin-top: 2rem;
+  font-size: 1.2rem;
+  margin-top: 2.5rem;
 }
 
 .book-txt h2{
-  padding: 0 4rem;
-  margin-top: 2rem;
+  // padding: 0 4rem;
+  margin-top: -0.5rem;
   font-size: 1.8rem;
 }
 
@@ -35,4 +56,61 @@
   // margin-top: 1rem;
   font-size: 1.2rem;
   color: #F1E4A3;
+}
+
+.book-cover img{
+  border-radius: 1rem;
+  border: solid 0.1rem #F1E4A3;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  // margin-bottom: 10rem;
+}
+
+.buy-link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #624876;
+  border-radius: 1rem;
+  width: 50%;
+  height: 6rem;
+  padding-top: 1rem;
+
+  ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    // gap: 2rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    // margin-top: 0.2rem;
+  }
+
+
+  .amazon-icon {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    // transform: translateX(-1rem);
+  }
+
+  .abc-icon {
+    display: block;
+    // width: 12.8rem;
+    // height: 2rem;
+    // transform: translateX(1.5rem);
+  }
+
+}
+
+.reviews-title{
+  text-align: left;
+  align-self: flex-start;
+  margin-top: 2rem;
+  font-size: 2.4rem;
+  font-weight: 200;
+  padding-bottom: 2rem;
 }
