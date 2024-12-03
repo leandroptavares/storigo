@@ -22,14 +22,18 @@
   <div class="modal yellow hidden" data-modal-target="modal">
     <div>
       <%= render "books/explore" %>
-      <button data-action="click->modal#close" class="close-button">Close</button>
+      <button data-action="click->modal#close" class="close-2-button">
+        <%= image_tag "close.svg", alt: "Close Icon", class: "close-2-icon" %>
+      </button>
     </div>
   </div>
 
-  <div class="modal hidden" data-modal-target="bookDetails">
-    <div>
+  <div class="modal-2 hidden" data-modal-target="bookDetails">
+    <div class="modal-container">
       <%= render "books/book-details" %>
-      <button data-action="click->modal#closeDetails" class="close-button">Close</button>
+      <button data-action="click->modal#closeDetails" class="close-button">
+        <%= image_tag "close.svg", alt: "Close Icon", class: "close-icon" %>
+      </button>
     </div>
   </div>
 </div>
