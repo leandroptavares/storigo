@@ -2,11 +2,16 @@
 <h1>A new chapter awaits!</h1>
 <p>You successfully added a book to your bookshelf! Be sure to join the conversation and share your thoughts with others in the book communities.</p>
 
-<div class="explore-link">
-<%= link_to "Explore", communities_path %>
+<div class="explore-link-container">
+  <div class="explore-link">
+    <%= link_to "Explore", communities_path %>
+  </div>
 </div>
 
+<div class="bookshelf-link-container">
 <div class="bookshelf-link">
-<%= link_to "Go to your bookshelf", user_books_path %>
+    <%= link_to "Go to your bookshelf", user_books_path %>
 </div>
+</div>
+
 </div>

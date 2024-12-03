@@ -116,13 +116,33 @@
 // }
 
 .explore-link{
-  width: 8rem;
-  height: 2.5rem;
+  width: 10rem;
+  height: 4rem;
   flex-shrink: 0;
-  border-radius: 10px;
+  border-radius: 1rem;
   background: #F1A3A3;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  border: solid 1px #ffffff;
 }
+
+.bookshelf-link{
+  width: 12rem;
+  height: 4rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #63BDF2;
+  text-align: center;
+  border: solid 1px #ffffff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 1rem;
+  box-shadow: #00000087 0.1rem 0.1rem 0.2rem;
+}
+
 
 // .add_to_bookshelf_button{
 //   width: 183px;

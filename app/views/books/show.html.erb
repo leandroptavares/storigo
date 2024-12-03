@@ -19,10 +19,12 @@
   </ul>
   <h1>Reviews</h1>
 
-  <div class="modal yellow" data-modal-target="modal">
+  <div class="modal yellow hidden" data-modal-target="modal">
     <div>
       <%= render "books/explore" %>
-      <button data-action="click->modal#close" class="close-button">Close</button>
+      <button data-action="click->modal#close" class="close-2-button">
+        <%= image_tag "close.svg", alt: "Close Icon", class: "close-2-icon" %>
+      </button>
     </div>
   </div>
 

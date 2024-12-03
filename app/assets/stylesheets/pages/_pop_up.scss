@@ -99,6 +99,23 @@
   flex-shrink: 0;
 }
 
+.close-2-button {
+  position: absolute;
+  top: 5%;  /* Relative to the modal content height */
+  right: 5%; /* Relative to the modal content width */
+  border: none;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+.close-2-icon {
+  background-color: none;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  filter: invert(0%) brightness(0%);
+}
+
 /* Dimming the background */
 .custom-container::before {
   content: "";
@@ -119,9 +136,13 @@
 
 .modal.yellow {
   // Existing modal styles
+  height: 60%;
   background-color: #f1e4a3; /* Yellow background */
   border-radius: 5rem;        /* Rounded corners */
-  padding: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   max-width: 50rem;
   width: 90%;
   position: fixed;
@@ -130,6 +151,8 @@
   transform: translate(-50%, -50%);
   box-shadow: 0 8px 20px rgba(113, 113, 113, 0.524), /* Soft primary shadow */
               0 4px 6px rgba(0, 0, 0, 0.1);  /* Additional subtle shadow for depth */
+              border: solid 0.2rem black;
+
   // color: black;
 
   // Ensure links and buttons inside the modal are black
