@@ -1,5 +1,9 @@
 <div class="book-container modal-wrapper" data-controller="modal">
-  <p data-action="click->modal#details">See details</p>
+  <p data-action="click->modal#details" class="see-details-toggle">
+  <%= image_tag "Detail-2.svg", alt: "Detail Icon", class: "detail-icon" %>
+  See details
+  </p>
+
   <div class="book-cover">
     <%= image_tag(@book.cover_image, alt: @book.title) %>
   </div>
@@ -8,11 +12,14 @@
     <p>by <%= @book.author %></p>
   </div>
   <% if current_user.books.include?(@book) %>
-    <p>This book has already been added to your bookshelf</p>
+    <p class="already-added">This book has already been added to your bookshelf</p>
   <% else %>
-    <%= button_to "Add to bookshelf", user_books_path(id: @book.id), method: :post, data: { modal_target: "button", action: "modal#show" } %>
+<%= button_to user_books_path(id: @book.id), method: :post, class: "add_to_bookshelf_button", data: { modal_target: "button", action: "modal#show" } do %>
+  <%= image_tag "add-to-bookshelf.svg", alt: "Add To Bookshelf Icon", class: "add-to-bookshelf-icon" %>
+  Add to bookshelf
+<% end %>
   <% end %>
-  <p>Buy from:</p>
+  <p class="buy-from">Buy from:</p>
   <ul>
     <li><%= link_to "Amazon Books", "https://www.amazon.com/s?k=#{@book.title}", target: "_blank" %></li>
     <li><%= link_to "The American Book Center", "https://abc.nl/search#/query/title/#{@book.title}", target: "_blank" %></li>
