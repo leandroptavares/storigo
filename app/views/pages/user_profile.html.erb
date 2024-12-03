@@ -1,5 +1,5 @@
 <h1><%= image_tag(@user_profile.photo, class: "profile-img") if @user_profile.photo.present? %> <%= @user_profile.username %>'s bookshelf</h1>
-<p><%= @user_profile.books.count %><%= @user_profile.books.count > 1 ? "books" : "book" %></p>
+<p><%= @user_profile.books.count %> <%= @user_profile.books.count > 1 ? "books" : "book" %> are added to this bookshelf</p>
 
     <% @user_profile.user_books.each do |user_book| %>
       <div class="col-6 d-flex flex-column align-items-center">
