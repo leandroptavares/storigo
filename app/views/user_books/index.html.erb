@@ -5,6 +5,11 @@
   <% else %>
     <p>You haven't added any book to your reading list yet</p>
   <% end %>
+
+
+
+
+
   <div class="row">
     <% current_user.user_books.each do |user_book| %>
       <div class="col-6 d-flex flex-column align-items-center">
@@ -14,35 +19,60 @@
 
           <!-- Progress Bar -->
         <% if user_book.status == "In progress"%>
-        <p>Status: <%= user_book.status %></p>
-         <div class="progress-container">
-         <progress
-        value="<%= user_book.pages_read %>"
-        max="<%= user_book.book.number_of_pages %>">
-        </progress>
-       <p>
-        <%= user_book.pages_read %> / <%= user_book.book.number_of_pages %> pages read
-       </p>
-      </div>
+          <p>Status: <%= user_book.status %></p>
+          <div class="progress-container">
+            <progress
+              value="<%= user_book.pages_read %>"
+              max="<%= user_book.book.number_of_pages %>">
+            </progress>
+            <p>
+              <%= user_book.pages_read %> / <%= user_book.book.number_of_pages %> pages read
+            </p>
+          </div>
         <%else%>
-            <p>Status: Completed</p>
-       <% end %>
+          <p>Status: Completed</p>
+        <% end %>
         <button data-action="click-> modal#show" data-user-book-id="<%= user_book.id %>">Update status</button>
         <%# <%= link_to "Update status", edit_user_book_path(user_book) %>
         <%= link_to "Remove", user_book_path(user_book), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this book from your bookshelf?"} %>
+
+
+      <div class="modal yellow hidden" data-modal-target="modal">
+        <div>
+          <h1>Edit book status</h1>
+          <%= simple_form_for(user_book, data: { controller: "bookstatus", bookstatus_pages_value: user_book.book.number_of_pages }) do |f| %>
+            <%= f.input :status, as: :select,
+              collection:  [["In progress", "In progress"], ["Completed", "Completed"]],
+              class: "dropdown",
+              prompt:"",
+              label: "Completion",
+              input_html: { data: { bookstatus_target: "status" } } %>
+            <div class="" data-bookstatus-target="pages">
+              <%= f.input :pages_read,
+                      label: "Pages Read",
+                      input_html: { min: 1, step: 1, type: "number", class: "dropdown", data: { bookstatus_target: "numberpages" } } %>
+              / <%= user_book.book.number_of_pages %>
+            </div>
+            <p>
+              <%= f.submit "Update Status", class: "buttons" %>
+            </p>
+            <div class="d-none" data-bookstatus-target="content">
+              Congratulations, you finished your reading
+            </div>
+            <div class="d-none" data-bookstatus-target="error">
+              <p>The number is bigger than book pages </p>
+            </div>
+          <% end %>
+          <button data-action="click->modal#close" class="close-button">Close</button>
+        </div>
       </div>
+
+
+
+
+      </div>
+
+
     <% end %>
   </div>
-
-
-
-  <div class="modal yellow hidden" data-modal-target="modal">
-    <div>
-
-      <%= render "user_books/edit" %>
-
-      <button data-action="click->modal#close" class="close-button">Close</button>
-    </div>
-  </div>
-
 </div>

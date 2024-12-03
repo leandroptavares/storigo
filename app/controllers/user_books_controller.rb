@@ -23,7 +23,7 @@ class UserBooksController < ApplicationController
   end
 
   def edit
-    @user_book = UserBook.find(params[:id])
+    # @user_book = UserBook.find(params[:id])
   end
 
   def update
