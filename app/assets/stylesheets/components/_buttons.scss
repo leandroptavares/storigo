@@ -20,6 +20,26 @@
   text-decoration: none;
 }
 
+.logout_button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  border-color: #B9D9EC;
+  // border: solid;
+  // border-width: thin;
+  // background: transparent;
+  color: white;
+  // box-shadow: 0.1rem 0.2rem 0.2rem 0px rgba(0, 0, 0, 0.25);
+  width: 9.2rem;
+  height: 5.3rem;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
+
 // .login_button a {
 //   text-decoration: none;
 // }
@@ -55,6 +75,14 @@
   border-radius: 0.7rem;
   background: #B9D9EC;
   box-shadow: 0.1rem 0.2rem 0.2rem 0px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+}
+
+.recommendation_button{
+  width: 12em;
+  height: 2em;
+  border: solid;
+  border-width: thin;
   font-weight: 500;
 }
 
@@ -114,6 +142,35 @@
 // .discover_button--variant2 {
 //   background: rgba(99, 189, 242, 1);
 // }
+
+.explore-link{
+  width: 10rem;
+  height: 4rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #F1A3A3;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border: solid 1px #ffffff;
+}
+
+.bookshelf-link{
+  width: 12rem;
+  height: 4rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #63BDF2;
+  text-align: center;
+  border: solid 1px #ffffff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 1rem;
+  box-shadow: #00000087 0.1rem 0.1rem 0.2rem;
+}
+
 
 // .add_to_bookshelf_button{
 //   width: 183px;

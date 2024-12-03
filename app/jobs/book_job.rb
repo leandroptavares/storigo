@@ -1,78 +1,29 @@
-class BooksController < ApplicationController
-  skip_before_action :authenticate_user!
-  before_action :set_item, only: [:show]
+class BookJob < ApplicationJob
+  queue_as :default
 
-  def index
-    if params[:search].present?
-      user_input = params[:search]
-      fetch_and_save_books_from_api(user_input)
-      @books_ai = Book.where("title ILIKE ?", "%#{user_input}%")
-    else
-      @books_ai = Book.all.sample(60)
+  def perform(survey)
+    @user_survey = survey
+    @api_recommendations = getRecommendations(@user_survey.answers.first.content)
+    @open_ai_recommendation = getISBNorder(@api_recommendations, @user_survey.answers.second.content, @user_survey.answers.third.content, @user_survey.answers.fourth.content, @user_survey.answers.fifth.content)
+    @books = Book.where(api_id: @open_ai_recommendation.map { |book| book[:ISBN] })
+    @books_with_reasons = @books.map do |book|
+      reason = @open_ai_recommendation.find { |b| b[:ISBN] == book.api_id }[:Reason]
+      { book: book, reason: reason }
     end
+
+    Turbo::StreamsChannel.broadcast_update_to(
+      "recommendations",
+      target: "recommendations",
+      partial: "books/book_recommendations", locals:{ books: @books, books_with_reasons: @books_with_reasons })
   end
-
-def fetch_and_save_books_from_api(search_term)
-  url = "https://api2.isbndb.com/books/#{search_term}?page=1&pageSize=20&column=title&language=en&shouldMatchAll=0"
-  response = HTTP.headers("Content-Type": "application/json", "Authorization": ENV["ISBN_DB_API"]).get(url)
-      if response.status.success?
-        books = JSON.parse(response.body)["books"] || []
-        books.each {|book_data| save_book_to_database(book_data)}
-      end
-end
-
-  def save_book_to_database(book_data)
-    return if Book.exists?(title: book_data["title"])
-      Book.create(
-      title: book_data["title"],
-      author: book_data["authors"],
-      description: book_data["synopsis"],
-      category: book_data["subjects"],
-      number_of_pages: book_data["pages"],
-      publish_date: book_data["date_published"],
-      cover_image: book_data["image"],
-      api_id: book_data["isbn13"]
-      )
-  end
-
-  def new
-    @book = Book.new
-  end
-
-  def show
-    @book_id = params[:book_id]
-    @review = Review.new(book_id: @book_id)
-    @reviews = Review.where(book_id: @book.id)
-    @user_review = @reviews.find_by(user_id: current_user.id) if current_user
-  end
-
-  def discover
-    # render partial: "books/discover"
-  end
-
-  def recommendation
-    @user_survey = current_user.surveys.last
-
-    BookJob.perform_later(@user_survey)
-  end
-
-  private
-
-  def set_item
-    @book = Book.find(params[:id])
-  end
-
-  #RECOMMENDATION METHODS:
 
   def getRecommendations(mood)
-  url = "https://api2.isbndb.com/books/#{mood}?page=1&pageSize=100&column=subject&language=en&shouldMatchAll=0"
+    url = "https://api2.isbndb.com/books/#{mood}?page=1&pageSize=100&column=subject&language=en&shouldMatchAll=0"
 
-  response = HTTP.headers("Content-Type": "application/json", "Authorization": ENV["ISBN_DB_API"]).get(url)
-  book_data = JSON.parse(response.body)
+    response = HTTP.headers("Content-Type": "application/json", "Authorization": ENV["ISBN_DB_API"]).get(url)
+    book_data = JSON.parse(response.body)
 
-  p book_data
-
-  isbn13_numbers = book_data["books"].map { |item| item["isbn13"] }
+    isbn13_numbers = book_data["books"].map { |item| item["isbn13"] }
 
   end
 
@@ -82,8 +33,6 @@ end
 
     response = HTTP.headers("Content-Type": "application/json", "Authorization": ENV["ISBN_DB_API"]).get(url)
     book_data = JSON.parse(response.body)
-
-    p book_data
 
     if book_data["errorMessage"] == "Not Found" || book_data["message"] == "Forbidden"
       puts "Unable to find book"
@@ -156,8 +105,9 @@ end
     converted_results = eval(results)
 
     converted_results.each do |result|
-      isbn13_array.include?(result[:ISBN])
       createBook(result[:ISBN]) if isbn13_array.include?(result[:ISBN])
     end
+
+    return converted_results
   end
 end

@@ -1,31 +1,61 @@
-<div data-controller="modal">
-  <h1>My bookshelf</h1>
+<div class="bookshelf", data-controller="modal">
+  <div class="bookshelf-title text-center my-5 pb-3">
+  <h1 class="pb-3">My bookshelf</h1>
   <% if current_user.books.count > 0 %>
     <p>You've added <%= current_user.books.count %> <%= current_user.books.count > 1 ? "books" : "book" %> to your reading list</p>
   <% else %>
     <p>You haven't added any book to your reading list yet</p>
   <% end %>
-  <div class="row">
-    <% current_user.user_books.each do |user_book| %>
-      <div class="col-6 d-flex flex-column align-items-center">
-        <%= image_tag(user_book.book.cover_image, alt: user_book.book.title, class: "my-bookshelf-book mb-3") %>
-        <h5 class="text center my-books-title"><%= user_book.book.title %></h5>
-        <p class="text-center">by <%= user_book.book.author %></p>
-        <p>Status: <%= user_book.status %></p>
-        <button data-action="click-> modal#show" data-user-book-id="<%= user_book.id %>">Update status</button>
-        <%# <%= link_to "Update status", edit_user_book_path(user_book) %>
-        <%= link_to "Remove", user_book_path(user_book), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this book from your bookshelf?"} %>
+  </div>
+      <div class="row">
+        <% current_user.user_books.each do |user_book| %>
+          <div class="col-6 d-flex flex-column align-items-center bookshelf-bookcover mt-5">
+            <p>
+            <%= link_to book_path(id: user_book.book_id) do %>
+            <%= image_tag(user_book.book.cover_image, alt: user_book.book.title, class: "my-bookshelf-book mb-3") %>
+            </p>
+            <p>
+            <h5 class="text center my-books-title"><%= user_book.book.title %></h5>
+            </p>
+             <% end %>
+            <p class="text-center bookshelf-author">by <%= user_book.book.author.tr('[]', '').split(',').map(&:strip).join(', ') %></p>
+              <!-- Progress Bar -->
+              <div class="progress-word">
+                <% if user_book.status == "In progress"%>
+                  <p>Status: <%= user_book.status %></p>
+                  <div class="progress-container">
+                    <progress
+                    value="<%= user_book.pages_read %>"
+                    max="<%= user_book.book.number_of_pages %>">
+                    </progress>
+                    <p>
+                      <%= user_book.pages_read %> / <%= user_book.book.number_of_pages %> pages
+                    </p>
+                  </div>
+                <%else%>
+                  <p>Status: Completed</p>
+                  <div class="progress-container">
+                    <progress
+                    value="<%= user_book.book.number_of_pages %>"
+                    max="<%= user_book.book.number_of_pages %>">
+                    </progress>
+                  </div>
+                  <p>
+                    <%= user_book.book.number_of_pages%> / <%= user_book.book.number_of_pages %> pages
+                  </p>
+                <% end %>
+              </div>
+              <div class="update-button">
+                <button data-action="click-> modal#show" data-user-book-id="<%= user_book.id %>">Update status</button>
+              </div>
+              <%= link_to "Remove", user_book_path(user_book), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this book from your bookshelf?"} %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
-
-
-
-  <div class="modal yellow hidden" data-modal-target="modal">
-    <div>
-      <%= render "user_books/edit" %>
-      <button data-action="click->modal#close" class="close-button">Close</button>
-    </div>
-  </div>
-
+      <div class="modal yellow hidden" data-modal-target="modal">
+        <div>
+          <%= render "user_books/edit" %>
+          <button data-action="click->modal#close" class="close-button">Close</button>
+        </div>
+      </div>
 </div>

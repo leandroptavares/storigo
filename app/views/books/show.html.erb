@@ -10,26 +10,30 @@
   <% if current_user.books.include?(@book) %>
     <p>This book has already been added to your bookshelf</p>
   <% else %>
-    <%= button_to "Add to bookshelf", user_books_path(id: @book.id), method: :post, data: { modal_target: "button", action: "modal#show" } %>
+    <%= button_to "Add to bookshelf", add_book_path(id: @book.id), data: { modal_target: "button", action: "modal#show", turbo_method: :post } %>
   <% end %>
   <p>Buy from:</p>
   <ul>
     <li><%= link_to "Amazon Books", "https://www.amazon.com/s?k=#{@book.title}", target: "_blank" %></li>
     <li><%= link_to "The American Book Center", "https://abc.nl/search#/query/title/#{@book.title}", target: "_blank" %></li>
   </ul>
-  <h1>Reviews</h1>
-
+  <h1>Reviews (<%= @book.reviews.count %>)</h1>
+  <%= render "shared/reviews" %>
   <div class="modal yellow hidden" data-modal-target="modal">
     <div>
       <%= render "books/explore" %>
-      <button data-action="click->modal#close" class="close-button">Close</button>
+      <button data-action="click->modal#close" class="close-2-button">
+        <%= image_tag "close.svg", alt: "Close Icon", class: "close-2-icon" %>
+      </button>
     </div>
   </div>
 
-  <div class="modal hidden" data-modal-target="bookDetails">
-    <div>
+  <div class="modal-2 hidden" data-modal-target="bookDetails">
+    <div class="modal-container">
       <%= render "books/book-details" %>
-      <button data-action="click->modal#closeDetails" class="close-button">Close</button>
+      <button data-action="click->modal#closeDetails" class="close-button">
+        <%= image_tag "close.svg", alt: "Close Icon", class: "close-icon" %>
+      </button>
     </div>
   </div>
 </div>

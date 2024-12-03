@@ -1,0 +1,49 @@
+<!-- Review Section -->
+<!-- Add New Review Section -->
+<div class="reviewbigcontainer">
+  <% if current_user %>
+    <% if @book.reviews.any? { |review| review.user_id == current_user.id } %>
+      <p> We've got your review! Thanks for sharing</p>
+      </div>
+    <% else %>
+      <%= simple_form_for [@book, @review] do |f| %>
+        <%= f.input :comment, class: "reviewbox", label: "Comment" %>
+        <p>Rating</p>
+        <%= f.select :rating, options_for_select([1, 2, 3, 4, 5], @review.rating), class: "rating-dropdown" %>
+        <%= f.submit "Submit Review", class: "buttons" %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<!-- Show Existing Reviews Section -->
+  <ul>
+    <% @reviews.each do |review| %>
+      <li>
+        <div>
+          <div>
+            <%= image_tag(review.user.photo, class: "profile-img") %>
+            <%= review.user.username if current_user.username == review.user.username %>
+            <%= link_to review.user.username, profile_path(user_id: review.user.id) if current_user.username != review.user.username%>
+          </div>
+          <div>
+            <% review.rating.times do %>
+              <i class="fa-solid fa-star"></i>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="fa-regular fa-star"></i>
+            <% end %>
+          </div>
+          <div>
+            <p><%= review.comment %></p>
+          </div>
+          <p>Published on <%= review.created_at.strftime("%d/%m/%Y") %></p>
+          <% if current_user && review.user_id == current_user.id %>
+            <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete", style: "color:black" do %>
+              <i class="fa-solid fa-trash"></i> Delete review
+            <% end %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

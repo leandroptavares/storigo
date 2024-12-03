@@ -9,7 +9,7 @@
         <%= link_to "Log in", new_user_registration_path, class: "login_button" %>
       <% else %>
         <div>
-          <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: "delete" }, class: "login_button" %>
+          <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: "delete" }, class: "logout_button" %>
         </div>
       <% end %>
     </div>
@@ -35,10 +35,13 @@
       </div>
     </div>
 
-    <div class="modal hidden" data-display-form-target="modal">
+    <div class="modal modal-1 hidden" data-display-form-target="modal">
       <div>
         <%= render "books/discover" %>
-        <button data-action="click->display-form#close" class="close-button">Close</button>
+        <button data-action="click->display-form#close" class="close-button">
+          <%= image_tag "close.svg", alt: "Close Icon", class: "close-icon" %>
+        </button>
+
       </div>
     </div>
   </div>

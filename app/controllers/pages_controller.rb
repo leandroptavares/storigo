@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     unless current_user.surveys.empty?
       @survey = Survey.where(user: current_user)
-      @survey.first.destroy
+      @survey.destroy_all
     end
 
     @survey = Survey.new
@@ -18,7 +18,11 @@ class PagesController < ApplicationController
     @communities = Community.all
   end
 
-  def profile
+  def my_profile
+  end
+
+  def user_profile
+    @user_profile = User.find(params[:user_id])
   end
 
 end

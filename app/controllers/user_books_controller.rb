@@ -14,7 +14,7 @@ class UserBooksController < ApplicationController
     @user_book.status = "In progress"
     @user_book.pages_read = 0
     @user_book.save
-
+    redirect_to user_books_path
     # if @user_book.save
     #   redirect_to user_books_path, notice: 'Book added to your bookshelf.'
     # else
@@ -23,14 +23,15 @@ class UserBooksController < ApplicationController
   end
 
   def edit
+    @user_book = UserBook.find(params[:id])
   end
 
   def update
     @user_book.update(user_book_params)
     if @user_book.save
       redirect_to user_books_path
-    else
-      render :edit, status: :unprocessable_entity
+    # else
+    #   render :edit, status: :unprocessable_entity
     end
   end
 
@@ -42,7 +43,7 @@ class UserBooksController < ApplicationController
   private
 
   def user_book_params
-    params.require(:user_book).permit(:status)
+    params.require(:user_book).permit(:status, :pages_read)
   end
 
   def set_user_book

@@ -1,0 +1,48 @@
+<div class="my-profile-container">
+  <h1 class="profile-title">Profile</h1>
+
+  <div class="img-user-container">
+    <!-- Image Container -->
+    <div class="image-placement">
+      <%= image_tag(current_user.photo, class: "profile-img") if current_user.photo.present? %>
+    </div>
+    <!-- Username Container -->
+    <div class="username-container ms-3">
+      <p class="username-title"><%= current_user.username %></p>
+      <p>Member since <%= current_user.created_at.strftime("%B %d, %Y") %></p>
+    </div>
+  </div>
+
+<div class="link-container">
+  <div class="profile-links">
+    <p class="edit-profile-link">
+      <%= image_tag "edit_profile.svg", alt: "Profile Icon", class: "profile-icon" %>
+      <%= link_to "Edit Profile", edit_user_registration_path %>
+    </p>
+
+
+    <p class="edit-profile-link">
+      <%= image_tag "bookshelf.svg", alt: "Bookshelf Icon", class: "bookshelf-icon" %>
+      <%= link_to "My bookshelf", user_books_path %>
+    </p>
+
+    <p class="edit-profile-link">
+      <%= image_tag "Community-white.svg", alt: "Cookshelf Icon White", class: "community-white-icon" %>
+      <%= link_to "My communities", user_communities_path, class: "community-p" %>
+    </p>
+
+    <p class="edit-profile-link">
+      <%= image_tag "recommendation.svg", alt: "Recommendation Icon", class: "recommendation-icon" %>
+      Recent recommendation
+    </p>
+
+  <p class="edit-profile-link">
+  <%= image_tag "graph.svg", alt: "Graph Icon", class: "graph-icon" %>
+  Reading tracker
+  </p>
+
+  <%# <div class="community-center"> %>
+  </div>
+
+  </div>
+</div>
