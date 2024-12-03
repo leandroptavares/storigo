@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
       if @review.save
         redirect_to book_path(@book)
       else
-        redirect_to book_path(@book), alert: "Couldn't create review"
+        redirect_to book_path(@book), alert: "Couldn't create a review. Your review must have at least 10 characters"
       end
     end
 
