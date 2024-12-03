@@ -37,7 +37,6 @@ export default class extends Controller {
 
   update(event) {
     const modalId = event.target.dataset.modalId;
-
     const modal = document.getElementById(modalId);
 
     if (modal) {
