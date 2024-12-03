@@ -19,7 +19,7 @@
 
 .h2-home h2 {
   font-size: 3.2rem;
-  margin-top: -4rem;
+  margin-top: -1rem;
   margin-bottom: 2rem;
 }
 
@@ -42,7 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 8rem;
 }
 
 .logo-container {
@@ -89,7 +89,7 @@
 
 .trending-container {
   padding-bottom: 6rem;
-  padding-top: 2rem;
+  padding-top: 4rem;
   margin-bottom: 2rem;
 }
 
@@ -157,28 +157,6 @@
   // gap: 0.5rem; /* Adds space between the text and icon */
 }
 
-.carousel-inner-home {
-  // display:  flex;
-  // justify-content: center;
-  // align-items: center;
-  // max-width: 80%;
-  // padding-right: 2rem;
-  // padding-left: 2rem;
-  // margin-top: 4rem;
-  // max-height: 3rem; /* Set a fixed height for the carousel */
-  // overflow: hidden; /* Adjust the spacing as needed */
-}
-
-.background-img-carousel {
-  // width: 50%;
-//   border-radius: 1rem; /* Optional: adds rounded corners to images */
-//   width: 100%; /* Ensure the image scales properly */
-//   // height: 300px; /* Adjust the height to fit your design */
-//   object-fit: cover; /* Maintain aspect ratio and crop if needed */
-//   height: 1.67rem;
-//   background-size: cover;
-//   background-position: center;
-}
 
 .carousel{
   padding-right: 6rem;

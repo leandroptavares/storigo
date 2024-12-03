@@ -109,7 +109,7 @@
 
 <!-- Add Carousel Below Communities -->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
+  <div class="carousel-indicators-home">
     <% @communities.each_with_index do |_, index| %>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= index %>" class="<%= 'active' if index.zero? %>" aria-current="<%= 'true' if index.zero? %>" aria-label="Slide <%= index + 1 %>"></button>
     <% end %>
