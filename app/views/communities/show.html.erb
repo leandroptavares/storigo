@@ -45,7 +45,7 @@
   <%= turbo_stream_from "community_#{@community.id}_messages" %>
   <div id="messages" class="messages">
     <% @messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+      <%= render partial: "messages/message", locals: { message: message, current_user: current_user } %>
     <% end %>
   </div>
   <% else %>
