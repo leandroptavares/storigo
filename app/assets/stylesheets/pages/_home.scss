@@ -157,10 +157,11 @@
   // gap: 0.5rem; /* Adds space between the text and icon */
 }
 
-.carousel {
-  display:  flex;
-  justify-content: center;
-  max-width: 80%;
+.carousel-inner-home {
+  // display:  flex;
+  // justify-content: center;
+  // align-items: center;
+  // max-width: 80%;
   // padding-right: 2rem;
   // padding-left: 2rem;
   // margin-top: 4rem;
@@ -168,11 +169,22 @@
   // overflow: hidden; /* Adjust the spacing as needed */
 }
 
-.carousel-inner img {
-  border-radius: 1rem; /* Optional: adds rounded corners to images */
-  // width: 100%; /* Ensure the image scales properly */
-  // height: 300px; /* Adjust the height to fit your design */
-  // object-fit: cover; /* Maintain aspect ratio and crop if needed */
+.background-img-carousel {
+  // width: 50%;
+//   border-radius: 1rem; /* Optional: adds rounded corners to images */
+//   width: 100%; /* Ensure the image scales properly */
+//   // height: 300px; /* Adjust the height to fit your design */
+//   object-fit: cover; /* Maintain aspect ratio and crop if needed */
+//   height: 1.67rem;
+//   background-size: cover;
+//   background-position: center;
+}
 
-
+.carousel{
+  padding-right: 6rem;
+  padding-left: 6rem;
+  // display:  flex;
+  // justify-content: center;
+  // width: 50%;
+  // max-width: 80%;
 }
