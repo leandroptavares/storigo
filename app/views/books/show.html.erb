@@ -24,7 +24,7 @@
     <li><%= link_to "Amazon Books", "https://www.amazon.com/s?k=#{@book.title}", target: "_blank" %></li>
     <li><%= link_to "The American Book Center", "https://abc.nl/search#/query/title/#{@book.title}", target: "_blank" %></li>
   </ul>
-  <h1>Reviews</h1>
+  <h1>Reviews (<%= @book.reviews.count %>)</h1>
   <%= render "shared/reviews" %>
   <div class="modal yellow hidden" data-modal-target="modal">
     <div>

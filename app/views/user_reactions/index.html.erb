@@ -1,0 +1,24 @@
+<div class="bookshelf">
+  <div class="bookshelf-title text-center my-5 pb-3">
+    <h1 class="pb-3">Recent recommendations</h1>
+    <p>Check the past recommendations you liked</p>
+    <% if @user_reactions.count == 0 %>
+      <p>You haven't reacted to any book recommendation yet</p>
+    <% else %>
+  </div>
+  <div class="row">
+    <% @user_reactions.each do |reaction| %>
+      <div class="col-6 d-flex flex-column align-items-center bookshelf-bookcover mt-5">
+        <%= link_to book_path(id: reaction.book.id) do %>
+          <%= image_tag(reaction.book.cover_image, alt: reaction.book.title, class: "my-bookshelf-book mb-3") %>
+        <% end %>
+        <h5 class="text-center my-books-title"><%= reaction.book.title %></h5>
+        <p class="text-center bookshelf-author">
+          by <%= reaction.book.author.tr('[]', '').split(',').map(&:strip).join(', ') %>
+        </p>
+        <h5>On <%= reaction.created_at.strftime("%B %d, %Y") %></h5>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>

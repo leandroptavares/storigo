@@ -14,7 +14,7 @@ class UserBooksController < ApplicationController
     @user_book.status = "In progress"
     @user_book.pages_read = 0
     @user_book.save
-
+    redirect_to user_books_path
     # if @user_book.save
     #   redirect_to user_books_path, notice: 'Book added to your bookshelf.'
     # else
