@@ -34,4 +34,23 @@ export default class extends Controller {
     this.bookDetailsTarget.classList.add("hidden");
     document.querySelector(".book-container").classList.remove("modal-visible");
   }
+
+  update(event) {
+    const modalId = event.target.dataset.modalId;
+
+    const modal = document.getElementById(modalId);
+
+    if (modal) {
+      modal.classList.remove("hidden");
+    } else {
+      console.error(`Modal with ID ${modalId} not found.`);
+    }
+  }
+
+  closeUpdate(event) {
+      const modal = event.target.closest(".modal");
+    if (modal) {
+      modal.classList.add("hidden");
+    }
+  }
 }
