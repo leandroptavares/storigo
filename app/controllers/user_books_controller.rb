@@ -8,13 +8,17 @@ class UserBooksController < ApplicationController
 
   def create
     @book = Book.find(params[:id])
+    # @user_books = current_user.books
+    # if @user_books.book_id.include?(@book)
+    # redirect_to books_path(@book), alert: 'Unable to add the book to your bookshelf.'
+    # else
     @user_book = UserBook.new
     @user_book.user_id = current_user.id
     @user_book.book_id = @book.id
     @user_book.status = "In progress"
     @user_book.pages_read = 0
     @user_book.save
-    redirect_to user_books_path
+    # redirect_to user_books_path
     # if @user_book.save
     #   redirect_to user_books_path, notice: 'Book added to your bookshelf.'
     # else
