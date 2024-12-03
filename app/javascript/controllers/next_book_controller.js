@@ -3,14 +3,19 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="next-book"
 export default class extends Controller {
 
-  static targets = ["book", "container"]
+  static targets = ["book", "container", "likeButton"]
+  static values = { bookid: Number,
+                    userid: Number
+                  }
 
   connect() {
     console.log("hi from next_book")
+    console.log("This book:", this.bookidValue)
+    console.log("This book:", this.useridValue)
   }
 
   next(event){
-    console.log("next book please")
+    // console.log("next book please")
 
     const currentBook = this.bookTargets.find(
       book => book.dataset.recommendationId === event.currentTarget.dataset.recommendationId
@@ -31,5 +36,22 @@ export default class extends Controller {
     } else {
       currentBook.innerHTML = "<div class='custom-container' data-next-book-target='container'><h1>We ran out of recommendations :(</h1><p>Try answering the survey again</p><h2><a href='/'>Go to homepage</a></h2></div>"
     }
+  }
+
+  liked(event){
+    console.log("I like this book")
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const params = { user_reaction: {like: true, book_id: this.bookidValue }}
+
+    fetch(`/books/${this.bookidValue}/user_reactions`, {
+      method: "POST",
+      headers: { "Accept": "application/json", "Content-Type": "application/json", "X-CSRF-Token": csrfToken },
+      body: JSON.stringify(params)
+      // body: new FormData(params)
+    })
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data)
+    })
   }
 }

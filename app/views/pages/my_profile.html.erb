@@ -33,7 +33,8 @@
 
     <p class="edit-profile-link">
       <%= image_tag "recommendation.svg", alt: "Recommendation Icon", class: "recommendation-icon" %>
-      Recent recommendation
+      <%= link_to "Recent recommendation", user_reactions_path, class: "community-p" %>
+
     </p>
 
   <p class="edit-profile-link">
