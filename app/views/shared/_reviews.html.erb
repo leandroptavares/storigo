@@ -22,7 +22,8 @@
         <div>
           <div>
             <%= image_tag(review.user.photo, class: "profile-img") %>
-            <%= review.user.username %>
+            <%= review.user.username if current_user.username == review.user.username %>
+            <%= link_to review.user.username, profile_path(user_id: review.user.id) if current_user.username != review.user.username%>
           </div>
           <div>
             <% review.rating.times do %>
