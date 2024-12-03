@@ -9,9 +9,15 @@
   </div>
       <div class="row">
         <% current_user.user_books.each do |user_book| %>
-          <div class="col-6 d-flex flex-column align-items-center bookshelf-bookcover">
+          <div class="col-6 d-flex flex-column align-items-center bookshelf-bookcover mt-5">
+            <p>
+            <%= link_to book_path(id: user_book.book_id) do %>
             <%= image_tag(user_book.book.cover_image, alt: user_book.book.title, class: "my-bookshelf-book mb-3") %>
+            </p>
+            <p>
             <h5 class="text center my-books-title"><%= user_book.book.title %></h5>
+            </p>
+             <% end %>
             <p class="text-center bookshelf-author">by <%= user_book.book.author.tr('[]', '').split(',').map(&:strip).join(', ') %></p>
               <!-- Progress Bar -->
               <div class="progress-word">
