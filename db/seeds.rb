@@ -174,12 +174,14 @@ require 'openai'
 
 # getISBN(isbn13_array, "novel", "250" , "2010")
 
-# Book.destroy_all
+Answer.destroy_all
+Question.destroy_all
 
+p "Questions removed"
 
-question_1 = Question.new(content: "What emotion are you looking to experience?", answer_1: "Inspired", answer_2: "Suspense", answer_3: "Somber", answer_4: "Joyful", answer_5: "Magical" )
+question_1 = Question.new(content: "What emotion are you looking to experience?", answer_1: "Inspiration", answer_2: "Suspense", answer_3: "Joy", answer_4: "Love", answer_5: "Emotional" )
 question_1.save
-question_2 = Question.new(content: "Choose a book category", answer_1: "Best-seller", answer_2: "Classic", answer_3: "Contemporary", answer_4: "Social media trend", answer_5: "Kids-friendly" )
+question_2 = Question.new(content: "Choose a book category", answer_1: "Best-seller", answer_2: "Classic", answer_3: "Contemporary", answer_4: "Alternative", answer_5: "BookTok trend" )
 question_2.save
 question_3 = Question.new(content: "How much reading are you in the mood for?", answer_1: "Short book", answer_2: "Long book", answer_3: "Open to both")
 question_3.save
@@ -188,7 +190,7 @@ question_4.save
 question_5 = Question.new(content: "What's your preferred publication date?", answer_1: "New releases", answer_2: "Old but gold", answer_3: "It doesn't matter" )
 question_5.save
 
-puts "question created!"
+puts "questions created!"
 
 
 community = Community.new(name: "Get inspired", description: "Time to get inspired together", image: "https://booksthatmakeyou.com/wp-content/uploads/2023/08/Ways_to_Help_Create_a_Relaxing_Atmosphere.jpg")
