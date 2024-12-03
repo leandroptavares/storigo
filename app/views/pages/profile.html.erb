@@ -27,6 +27,11 @@
     </p>
 
     <p class="edit-profile-link">
+      <%= image_tag "Community-white.svg", alt: "Cookshelf Icon White", class: "community-white-icon" %>
+      <%= link_to "My communities", user_communities_path, class: "community-p" %>
+    </p>
+
+    <p class="edit-profile-link">
       <%= image_tag "recommendation.svg", alt: "Recommendation Icon", class: "recommendation-icon" %>
       Recent recommendation
     </p>
@@ -37,10 +42,6 @@
   </p>
 
   <%# <div class="community-center"> %>
-    <p class="edit-profile-link">
-      <%= image_tag "Community-white.svg", alt: "Cookshelf Icon White", class: "community-white-icon" %>
-      <%= link_to "My communities", user_communities_path, class: "community-p" %>
-    </p>
   </div>
 
   </div>
