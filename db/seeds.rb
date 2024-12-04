@@ -233,7 +233,7 @@ image: "https://images.unsplash.com/photo-1612490690182-1cbbc5ee55ad?q=80&w=2940
 community.save
 p "Added Romance Unite"
 
-community = Community.new(name: "Dark & Twisty Reads",
+community = Community.new(name: "Dark & Twisty",
 description: "Dive into the darker side of literature—psychological thrillers, gothic tales, and haunting mysteries.",
 image: "https://images.unsplash.com/photo-1500099817043-86d46000d58f?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 community.save
