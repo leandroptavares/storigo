@@ -190,12 +190,12 @@
 }
 
 
-.submit-modal-button{
-  width: 12.5rem;
-  height: 4.5rem;
+.cancel-button{
+  width: 12rem;
+  height: 4rem;
   flex-shrink: 0;
   border-radius: 1rem;
-  background: #63BDF2;
+  background: #F1A3A3;
   text-align: center;
   border: solid 1px #ffffff;
   font-size: 1.4rem;
@@ -206,6 +206,49 @@
   padding: 1rem;
   box-shadow: #00000087 0.1rem 0.1rem 0.2rem;
   margin-top: 1rem;
+  border: none;
+  margin-bottom: 1.5rem;
+}
+
+.form-actions-button{
+  width: 15rem;
+  height: 4rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #B9D9EC;
+  border: solid 1rem black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // width: fit-content;
+  padding: 1rem;
+  box-shadow: #00000087 0.1rem 0.1rem 0.2rem;
+  margin-top: 1rem;
+  border: none;
+}
+
+.form-actions-button input{
+  color: black;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.submit-modal-button{
+  width: 12.5rem;
+  height: 4.5rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #63BDF2;
+  text-align: center;
+  border: solid 1px #ffffff;
+  font-size: 2.4rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 1rem;
+  box-shadow: #00000087 0.1rem 0.1rem 0.2rem;
 }
 
 // .add_to_bookshelf_button text{

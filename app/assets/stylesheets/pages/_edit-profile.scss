@@ -1,0 +1,49 @@
+.edit-profile-container{
+  // // flex-direction: column;
+  // // align-items: center;
+  // min-height: 100vh; /* Ensures the container takes the full viewport height */
+  // // justify-content: center; /* Centers content vertically */
+  // // position: relative;
+  // // width: 100%;
+  padding-top: 2.5rem;
+  padding-bottom: 10rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.form-control {
+  border: 0.15rem solid #F1E4A3;
+  border-radius: 4px;
+  padding: 1rem;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.edit-profile-title {
+  font-size: 2.4rem;
+  color: #B9D9EC;
+  margin-bottom: -2rem;
+}
+
+.form-text {
+  margin-top: -1rem;
+}
+
+.cancel-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.f-a-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+
+.form-inputs input{
+  background-color: #F1E4A3;
+}
