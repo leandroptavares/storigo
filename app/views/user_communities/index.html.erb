@@ -1,14 +1,24 @@
-<h1>My communities</h1>
-<% if current_user.communities.empty? %>
-  <p>You haven't joined any book community yet</p>
-<% else %>
-  <p>You've joined <%= current_user.communities.count %> <%= current_user.communities.count > 1 ? "book communities" : "book community" %></p>
-<% end %>
-
-<% current_user.user_communities.each do |user_community| %>
-    <div style="background-image: url('<%= image_path(user_community.community.image) %>'); width: 348px; height: 167px; background-size: cover; background-position: center;">
-      <h1><%= link_to user_community.community.name, community_path(user_community.community) %></h1>
-      <p><%= user_community.community.users.count %> followers</p>
-      <%= link_to "Unfollow", user_community_path(user_community), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to unfollow this community?"} %>
-    </div>
+<div class="bookshelf-title text-center my-5 pb-3">
+  <h1 style="font-weight: 600; color: #B9D9EC; pb-3 ">My communities</h1>
+  <% if current_user.communities.empty? %>
+    <p>You haven't joined any book community yet</p>
+  <% else %>
+    <p>You've joined <%= current_user.communities.count %> <%= current_user.communities.count > 1 ? "book communities" : "book community" %></p>
   <% end %>
+</div>
+
+<div class="custom-container" style="padding-bottom: 80px;">
+  <% current_user.user_communities.each do |user_community| %>
+  <%= link_to "Unfollow", user_community_path(user_community), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to unfollow this community?" }, class: "unfollow-btn" %>
+    <%= link_to community_path(user_community.community), class: "com-thumbnail-link" do %>
+      <div class="com-thumbnail">
+        <div class="background-img" style="background-image: url('<%= user_community.community.image %>'); width: 348px; height: 167px; background-size: cover; background-position: center;">
+          <h1 class="com-title"><%= user_community.community.name %></h1>
+          <div class="followers">
+            <%= image_tag "community-thumbnail.png" %> <p><%= user_community.community.users.count %> followers</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

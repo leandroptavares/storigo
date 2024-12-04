@@ -140,11 +140,8 @@ p.followers{
 
 .no-resize{
   resize: none;
+  overflow: hidden;
   vertical-align: middle;
-  padding-top: 10px;
-  line-height: 40px;
-  position: sticky;
-  z-index: 1000;
 }
 
 .community-title{
