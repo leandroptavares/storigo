@@ -51,19 +51,43 @@
         <%= link_to "Remove", user_book_path(user_book), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this book from your bookshelf?" } %>
       </div>
       <div
-  class="modal yellow hidden"
+  class="modal my-bookshelf-form hidden"
   data-modal-target="modal"
   id="modal-<%= user_book.id %>">
-  <div>
+  <div class="simple-form-progress">
     <h1>Edit book status</h1>
     <%= simple_form_for [user_book], data: { controller: "bookstatus", bookstatus_pages_value: user_book.book.number_of_pages } do |f| %>
-      <%= f.input :status, as: :select, collection: [["In progress", "In progress"], ["Completed", "Completed"]], class: "dropdown", prompt: "", label: "Completion", input_html: { data: { bookstatus_target: "status" } } %>
-      <div class="" data-bookstatus-target="pages">
-        <%= f.input :pages_read, label: "Pages Read", input_html: { min: 1, step: 1, type: "number", class: "dropdown", data: { bookstatus_target: "numberpages" } } %>
-        / <%= user_book.book.number_of_pages %>
-      </div>
-      <p>
-        <%= f.submit "Update Status", class: "buttons" %>
+<div class="status-form">
+<%= f.input :status, as: :select,
+            collection: [["In progress", "In progress"], ["Completed", "Completed"]],
+            class: "dropdown no-checkmark",
+            prompt: "",
+            label: "Completion",
+            input_html: {
+              data: { bookstatus_target: "status" },
+              style: "--bs-form-select-bg-icon: none;"
+            } %>
+
+</div>
+<div class="pages-form" data-bookstatus-target="pages">
+<div class="pages-input-wrapper">
+  <%= f.input :pages_read,
+              label: "Pages Read",
+              input_html: {
+                min: 1,
+                step: 1,
+                type: "number",
+                class: "pages-input",
+                data: { bookstatus_target: "numberpages" }
+              } %>
+  <span class="total-pages">/ <%= user_book.book.number_of_pages %></span>
+</div>
+
+
+</div>
+
+      <p class="sub-button-placement">
+        <%= f.submit "Update Status", class: "bookshelf-link" %>
       </p>
       <div class="d-none" data-bookstatus-target="content">
         Congratulations, you finished your reading

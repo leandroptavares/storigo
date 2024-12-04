@@ -1,0 +1,71 @@
+// .pages-form {
+//   margin: 54px;
+//   align-items: center;
+//   letter-spacing: 20%;
+//   text-transform: uppercase;
+//   font-size: 12px;
+//   margin-bottom: 30px;
+//   background-image: none !important;
+
+// }
+.pages-input-wrapper {
+  position: relative;
+  display: inline-block;
+
+}
+
+.pages-input-wrapper .pages-input {
+  padding-right: 2rem; /* Add space for the total pages text */
+}
+
+.pages-input-wrapper .total-pages {
+  position: absolute;
+  top: 60%;
+  left: 3.5rem; /* Position the total pages text on the right */
+  transform: translateY(-48%);
+  color: #6c757d; /* Optional: Style for clarity */
+  pointer-events: none; /* Make sure the text isn’t clickable */
+  font-size: 0.9rem; /* Adjust font size to match the input */
+}
+
+.pages-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 20%;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.pages-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 0.1rem solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: white;
+}
+
+.sub-button-placement{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.simple-form-progress h1{
+  margin-bottom: 2rem;
+}
+
+.simple-form-progress{
+  color: black;
+}
+
+.status-form label{
+  font-size: 1.4rem;
+}

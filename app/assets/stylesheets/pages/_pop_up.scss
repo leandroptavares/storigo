@@ -200,6 +200,50 @@
   }
 }
 
+.modal.my-bookshelf-form {
+  // Existing modal styles
+  height: 60%;
+  background-color: #f1e4a3; /* Yellow background */
+  border-radius: 5rem;        /* Rounded corners */
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  max-width: 50rem;
+  width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 20px rgba(113, 113, 113, 0.524), /* Soft primary shadow */
+              0 4px 6px rgba(0, 0, 0, 0.1);  /* Additional subtle shadow for depth */
+  border: solid 0.2rem black;
+
+
+  // color: black;
+
+  // Ensure links and buttons inside the modal are black
+  a,
+  button {
+    color: black; /* Black text color */
+    text-decoration: none; /* Remove underline for links */
+    background: none; /* Ensure buttons inherit background */
+    border: none; /* Optional: Removes borders from buttons */
+  }
+
+  // Optional: hidden state
+  &.hidden {
+    display: none;
+  }
+
+  // Responsive adjustments for mobile screens
+  @media (max-width: 600px) {
+    padding: 15px;
+    max-width: 90%;
+    border-radius: 5px;
+  }
+}
+
 /* Dimming the background for modal-wrapper containers */
 .modal-wrapper::before {
   content: "";
