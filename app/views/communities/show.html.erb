@@ -27,29 +27,28 @@
     <% end %>
   </div>
 
-  <p style="padding-left: 30px"><strong>Suggested books:</strong></p>
-  <div id="booksCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <% @books.each_slice(3).with_index do |books_group, index| %>
-        <div class="row">
+  <p class="community-title"><strong>Suggested books:</strong></p>
+  <div id="booksCarousel" class="carousel slide" style="padding-bottom:20px;" data-bs-ride="carousel">
+
+  <div class="carousel-inner" style="padding-top: 40px; margin: auto;">
+    <% @books.each_slice(3).with_index do |books_group, index| %>
+      <div class="carousel-item <%= 'active' if index == 0 %>">
+        <div class="d-flex justify-content-center">
           <% books_group.each do |book| %>
-            <div class="carousel-item <%= 'active' if index == 0 %>">
-              <div class=" d-flex flex-column align-items-center">
-                <%= link_to book_path(book) do %>
-                  <div class="carousel-container">
-                    <%= image_tag(book.cover_image, alt: book.title, class: "my-bookshelf-book mb-3") %>
-                      <div class="carousel-info">
-                      <h5 class="text-center my-books-title"><%= book.title %></h5>
-                      <p class="text-center">by <%= book.author %></p>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
+            <div class="">
+              <%= link_to book_path(book) do %>
+                <div class="d-flex flex-column align-items-center justify-content-center book-card">
+                  <%= image_tag(book.cover_image, alt: book.title, class: "my-bookshelf-book mb-3") %>
+                  <h5 class="text-center my-books-title"><%= book.title %></h5>
+                  <p class="text-center">by <%= book.author %></p>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
 
     <button class="carousel-control-prev" type="button" data-bs-target="#booksCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -61,36 +60,40 @@
     </button>
   </div>
 
-  <h4 style="display: inline-block; padding-left: 30px; padding-right: 30px; padding-top: 30px;">Comments</h4>
-  <div class="message-container" style="padding-left: 30px; padding-right: 30px; padding-top:30px;">
-    <% if current_user.communities.include?(@community) %>
-    <%= turbo_stream_from "community_#{@community.id}_messages" %>
-    <div id="messages" class="messages">
-      <% @messages.each do |message| %>
-        <%= render "messages/message", message: message %>
-        <%= image_tag(current_user.photo, style: "width: 50px; height: 50px; border-radius: 50%; object-fit:cover;") %>
-      <% end %>
-    </div>
-    <% else %>
-      <div class="blocked">
-        <%= image_tag "locked_comments.png" %><p class="block-message">Follow this community to interact with other readers</p>
-      </div>
-    <% end %>
+  <h4
+   class= "community-title"style="display: inline-block; padding-left: 30px; padding-right: 30px; padding-top: 30px;"><strong>Comments</strong></h4>
+  <div class="message-container" style="padding-left: 30px; padding-right: 30px; padding-top:30px; max-width: 600px; width: 100%; margin: 0 auto">
+  <% if current_user.communities.include?(@community) %>
+        <%= turbo_stream_from "community_#{@community.id}_messages" %>
+        <div id="messages" class="messages">
+          <% @messages.each do |message| %>
+            <%# <%unless message.content.blank? %>
+              <%= render "messages/message", message: message %>
+            <% end %>
+          <%# <% end %>
+        </div>
 
-   <%= simple_form_for [@community, @message],
-        html: {class: "d-flex",
-              data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
-      %>
-      <div class="input-icon" style="padding-top: 30px">
-          <%= f.input :content,
-            label: false,
-            placeholder: "Add a message",
-            wrapper_html: {class: "text-field"}
+        <%= simple_form_for [@community, @message],
+            html: {class: "d-flex",
+                  data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
           %>
+
+        <%= f.input :content,
+          label: false,
+          placeholder: "Add a message",
+          input_html: {class: "no-resize"},
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+
         <button type="submit" class="btn btn-outline-secondary send">
-            <%= image_tag "send_message.png", alt: "Send" %>
-          </button>
+          <%= image_tag "send_message.png", alt: "Send" %>
+        </button>
         <% end %>
-      </div>
+
+      <% else %>
+        <div class="blocked">
+          <%= image_tag "locked_comments.png" %><p class="block-message">Follow this community to interact with other readers</p>
+        </div>
+      <% end %>
   </div>
 </div>

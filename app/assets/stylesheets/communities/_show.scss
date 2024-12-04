@@ -9,7 +9,7 @@
 
 .white-arrow{
   align-self: flex-start;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .return-arrow{
@@ -95,15 +95,21 @@ p.followers{
   padding-left: 10px;
 }
 
+// .message-text{
+//   width: 100%;
+//   max-width: 400px;
+// }
+
 .send{
   border-radius: 50%;
   background-color: #4D4255;
   margin: 5px;
+  border: none;
 }
 
 .send img{
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .input-icon{
@@ -114,30 +120,61 @@ p.followers{
   margin: 0 auto;
 }
 
-.carousel-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-}
+// .carousel-inner{
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-items: center;
+//   text-align: center;
+// }
 
-.carousel-info{
+.text-center{
   text-align: center;
   padding-top: 10px;
 }
 
-.carousel-item a{
-  text-decoration: none;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+.my-books-title{
+  width: 150px;
+  font-size: 11px;
 }
 
-.carousel-inner .row{
-  display: flex;
-  justify-content: space-around;
+.no-resize{
+  resize: none;
 }
+
+.community-title{
+  font-size: 18px;
+  color: #B9D9EC;
+  padding-top: 30px;
+  padding-left: 40px;
+}
+
+.carousel-inner{
+  width: 100%;
+  max-width: 800px;
+  align-items: center;
+  justify-content: center;
+}
+
+// .carousel-control-next-icon{
+//   color:
+// }
+// .carousel-item a{
+//   text-decoration: none;
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+// }
+
+// .carousel-item{
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .carousel-inner .row{
+//   display: flex;
+//   justify-content: space-around;
+// }
 
 // .input-icon{
 //   position: relative;
