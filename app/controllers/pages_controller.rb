@@ -16,6 +16,8 @@ class PagesController < ApplicationController
 
     @books = Book.all
     @communities = Community.all
+
+    # @trending_books = Book.where(id: [2100, 2350, 2372, 2380])
   end
 
   def my_profile
