@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     @questions = Question.all
     @answer = Answer.new
 
-    @books = Book.all
+    @books = Book.all.sort_by {|b| b.user_reactions.count }.reverse
     @communities = Community.all
 
     # @trending_books = Book.where(id: [2100, 2350, 2372, 2380])

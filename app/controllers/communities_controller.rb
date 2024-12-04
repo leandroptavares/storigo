@@ -14,6 +14,6 @@ class CommunitiesController < ApplicationController
 
   def set_community
     @community = Community.find(params[:id])
-    @books = Book.all
+    @books = Book.all.sample(12)
   end
 end
