@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div data-controller="trending">
+  <div data-controller="trending m-0">
     <div class="trending-container">
       <div class="trend-container-2">
         <h2 class="trend">Trending</h2>
@@ -56,7 +56,39 @@
       </div>
     </div>
 
-    <div data-trending-target="book">
+          <div id="booksCarousel" class="carousel slide" style="padding-bottom:20px;" data-bs-ride="carousel">
+
+        <div class="carousel-inner" style="margin: auto;">
+          <% @books.each_slice(3).with_index do |books_group, index| %>
+            <div class="carousel-item <%= 'active' if index == 0 %>">
+              <div class="d-flex justify-content-center">
+                <% books_group.each do |book| %>
+                  <div class="">
+                    <%= link_to book_path(book) do %>
+                      <div class="d-flex flex-column align-items-center justify-content-center book-card">
+                        <%= image_tag(book.cover_image, alt: book.title, class: "my-bookshelf-book-trend m-3") %>
+                        <h5 class="text-center my-books-title-trend"><%= book.title %></h5>
+                        <p class="text-center trend-author">by <%= book.author %></p>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#booksCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#booksCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+   <!-- div data-trending-target="book">
       <div class="img-fluid pb-4 book visible" style="margin-top: -70px;">
         <%= image_tag "michelle.png", alt: "Trending-Image", class: "image-trend" %>
       </div>
@@ -74,7 +106,7 @@
       <div class="trend-author">
         <h4>by Michelle Obama</h4>
       </div>
-    </div>
+    </div-->
 
   <!-- TEST -->
     <%# <div class="book hidden" data-trending-target="book">
