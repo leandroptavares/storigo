@@ -10,6 +10,6 @@ class Message < ApplicationRecord
     broadcast_prepend_to "community_#{community.id}_messages",
                         partial: "messages/message",
                         target: "messages",
-                        locals: { message: self }
+                        locals: { message: self, current_user: "" }
   end
 end

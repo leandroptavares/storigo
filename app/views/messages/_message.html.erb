@@ -1,7 +1,7 @@
 <div id="message-<%= message.id %>">
   <small>
-    <strong><%= message.user.username %></strong>
-    <%# <strong><%= link_to message.user.username, profile_path(user_id: message.user.id) if current_user.username != message.user.username %>
+    <strong><%= message.user.username if current_user == message.user %></strong>
+    <strong><%= link_to message.user.username, profile_path(user_id: message.user.id) if current_user != message.user %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
   <p><%= message.content %></p>

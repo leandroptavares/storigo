@@ -30,8 +30,18 @@
                   <% end %>
               </div>
 
-                <div class="to-bookshelf">
-                  <%= link_to add_book_path(id: book.id), data: {turbo_method: :post} do %><%= image_tag "bookshelf_icon.png", alt:"Bookshelf icon"%>
+                <div class="to-bookshelf" data-controller="bookstatus">
+                  <% if current_user.books.include?(book) %>
+                   <div class="" data-bookstatus-target="checkmark">
+                   <%= image_tag "checkmark.svg", alt: "checked icon" %>
+                  </div>
+                  <% else %>
+                  <%= link_to add_book_path(id: book.id), data: {turbo_method: :post, bookstatus_target:"link", action: "bookstatus#removelink" } do %><%= image_tag "bookshelf_icon.png", alt:"Bookshelf icon"%>
+
+                  <% end %>
+                   <div class="d-none" data-bookstatus-target="checkmark">
+                   <%= image_tag "checkmark.svg", alt: "checked icon" %>
+                  </div>
                   <% end %>
                 </div>
             </div>

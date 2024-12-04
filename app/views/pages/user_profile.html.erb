@@ -1,26 +1,37 @@
-<h1><%= image_tag(@user_profile.photo, class: "profile-img") if @user_profile.photo.present? %> <%= @user_profile.username %>'s bookshelf</h1>
-<p><%= @user_profile.books.count %> <%= @user_profile.books.count > 1 ? "books" : "book" %> are added to this bookshelf</p>
-
-    <% @user_profile.user_books.each do |user_book| %>
-      <div class="col-6 d-flex flex-column align-items-center">
-      <%= link_to book_path(user_book.book) do %>
-        <%= image_tag(user_book.book.cover_image, alt: user_book.book.title, class: "my-bookshelf-book mb-3") %>
-        <h5 class="text center my-books-title"><%= user_book.book.title %></h5>
-        <p class="text-center">by <%= user_book.book.author %></p>
-        <% end %>
-          <!-- Progress Bar -->
-        <% if user_book.status == "In progress"%>
-        <p>Status: <%= user_book.status %></p>
-         <div class="progress-container">
-         <progress
-        value="<%= user_book.pages_read %>"
-        max="<%= user_book.book.number_of_pages %>">
-        </progress>
-       <p>
-        <%= user_book.pages_read %> / <%= user_book.book.number_of_pages %> pages read
-       </p>
+<div class="bookshelf", data-controller="modal">
+      <div class="bookshelf-title text-center my-5 pb-3">
+      <h1><%= image_tag(@user_profile.photo, class: "profile-img") if @user_profile.photo.present? %> <%= @user_profile.username %>'s bookshelf</h1>
+      <p><%= @user_profile.books.count %> <%= @user_profile.books.count > 1 ? "books" : "book" %> are added to this bookshelf</p>
       </div>
-        <%else%>
-            <p>Status: Completed</p>
-       <% end %>
-  <% end %>
+      <div class="row">
+      <% @user_profile.user_books.each do |user_book| %>
+        <div class="col-6 d-flex flex-column align-items-center bookshelf-bookcover mt-5">
+          <p>
+        <%= link_to book_path(user_book.book) do %>
+          <%= image_tag(user_book.book.cover_image, alt: user_book.book.title, class: "my-bookshelf-book mb-3") %>
+          </p>
+          <p>
+          <h5 class="text center my-books-title"><%= user_book.book.title %></h5>
+          </p>
+          <% end %>
+          <p class="text-center">by <%= user_book.book.author.tr('[]', '').split(',').map(&:strip).join(', ') %></p>
+
+            <!-- Progress Bar -->
+          <% if user_book.status == "In progress"%>
+          <p>Status: <%= user_book.status %></p>
+            <div class="progress-container">
+            <progress
+          value="<%= user_book.pages_read %>"
+          max="<%= user_book.book.number_of_pages %>">
+          </progress>
+          <p>
+          <%= user_book.pages_read %> / <%= user_book.book.number_of_pages %> pages read
+          </p>
+        </div>
+          <%else%>
+              <p>Status: Completed</p>
+          <% end %>
+      <% end %>
+      </div>
+    </div>
+</div>
