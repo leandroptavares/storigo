@@ -1,15 +1,15 @@
 <!-- Review Section -->
 <!-- Add New Review Section -->
-<div class="reviewbigcontainer">
+<div class="review-comment-container">
   <% if current_user %>
     <% if @book.reviews.any? { |review| review.user_id == current_user.id } %>
       <p> We've got your review! Thanks for sharing</p>
       </div>
     <% else %>
       <%= simple_form_for [@book, @review] do |f| %>
-        <%= f.input :comment, class: "reviewbox", label: "Comment" %>
-        <p>Rating</p>
-        <%= f.select :rating, options_for_select([1, 2, 3, 4, 5], @review.rating), class: "rating-dropdown" %>
+        <%= f.input :comment, class: "reviewbox", label: "Comment", placeholder: "Leave a review ✍🏻" %>
+        <%# <p class="rating-p-text">Rating</p> %>
+        <%= f.select :rating, options_for_select([1, 2, 3, 4, 5], @review.rating), { prompt: "Rating 1-5 ⭐️" } ,class: "rating-dropdown" %>
         <%= f.submit "Submit Review", class: "buttons" %>
       <% end %>
     <% end %>

@@ -16,19 +16,36 @@
   <% if current_user.books.include?(@book) %>
     <p class="already-added">This book has already been added to your bookshelf</p>
   <% else %>
-    <%= button_to add_book_path(id: @book.id), class: "add_to_bookshelf_button", data: { modal_target: "button", action: "modal#show", turbo_method: :post  } do %>
+    <%= button_to add_book_path(id: @book.id), id: "a-t-b-move",class: "add_to_bookshelf_button", data: { modal_target: "button", action: "modal#show", turbo_method: :post  } do %>
     <%= image_tag "add-to-bookshelf.svg", alt: "Add To Bookshelf Icon", class: "add-to-bookshelf-icon" %>
     Add to bookshelf
     <% end %>
   <% end %>
 
   <p class="buy-from">Buy from:</p>
-  <ul>
-    <li><%= link_to "Amazon Books", "https://www.amazon.com/s?k=#{@book.title}", target: "_blank" %></li>
-    <li><%= link_to "The American Book Center", "https://abc.nl/search#/query/title/#{@book.title}", target: "_blank" %></li>
-  </ul>
 
-  <h1>Reviews (<%= @book.reviews.count %>)</h1>
+  <div class="buy-link-container">
+    <ul>
+    <li class="amazon-item">
+      <%= link_to "https://www.amazon.com/s?k=#{@book.title}", target: "_blank", class: "amazon-link" do %>
+        <%= image_tag "amazon.svg", alt: "Amazon Icon", class: "amazon-icon" %>
+      <% end %>
+    </li>
+
+    <li class="line-item">
+      <%= image_tag "line.svg", alt: "Line Icon", class: "line-icon" %>
+    </li>
+
+      <li class="abc-item">
+        <%= link_to "https://abc.nl/search#/query/title/#{@book.title}", target: "_blank", class: "abc-link" do %>
+          <%= image_tag "abc-text-low.svg", alt: "ABC Icon", class: "abc-icon" %>
+          <% end %>
+        </li>
+    </ul>
+  </div>
+
+
+  <h1 class="reviews-title">Reviews (<%= @book.reviews.count %>)</h1>
   <%= render "shared/reviews" %>
 
   <div class="modal yellow hidden" data-modal-target="modal">
