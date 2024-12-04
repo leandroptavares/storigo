@@ -25,7 +25,6 @@ export default class extends Controller {
   }
 
   details(){
-    // console.log("show book details")
     this.bookDetailsTarget.classList.remove("hidden")
     document.querySelector(".book-container").classList.add("modal-visible")
   }

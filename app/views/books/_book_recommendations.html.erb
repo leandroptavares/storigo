@@ -69,7 +69,10 @@
     data-recommendation-id="<%= index + 1 %>"
     data-next-book-bookid-value="<%= book.id %>"
   >
-    <p data-action="click->modal#details">See details</p>
+    <p data-action="click->modal#details" class="see-details-toggle-recommend">
+    <%= image_tag "Detail-2.svg", alt: "Detail Icon", class: "detail-icon" %>
+    See details
+  </p>
     <div class="book-cover">
       <%= image_tag(book.cover_image, alt: book.title) || "no cover available" %>
     </div>
@@ -98,10 +101,12 @@
       <button data-action="click->display-reason#render" class="ai-prompt">
         <%= image_tag "question_mark.png", alt: "AI Prompt" %>
       </button>
-      <div class="modal yellow hidden" data-display-reason-target="modal">
+      <div class="modal recommend-alt hidden" data-display-reason-target="modal">
         <div>
           <%= @reason[index + 1][:reason] %>
-          <button data-action="click->display-reason#close" class="close-button">Close</button>
+          <button data-action="click->display-reason#close" class="close-button">
+            <%= image_tag "close.svg", alt: "Close Icon", class: "close-2-icon" %>
+          </button>
         </div>
       </div>
     </div>
