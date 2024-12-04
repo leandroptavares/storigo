@@ -2,12 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content:center;
-}
-
-.results{
-  display: grid;
-  padding-left: 50px;
-  padding-right:50px;
+  align-items: center;
 }
 
 .search-card{
@@ -18,7 +13,9 @@
   margin: 10px auto;
   align-items: center;
   height: 200px;
-  width: 450px;
+  width: 100%;
+  max-width: 600px;
+  padding-right:10px;
 }
 
 .search-card:hover{
@@ -93,9 +90,9 @@ a img{
   display: inline-block;
 }
 
-/* For small screens (phones) */
-@media screen and (max-width: 768px) {
-  .search-card {
-    flex: 1 1 100%; /* 1 card per row */
-  }
-}
+// /* For small screens (phones) */
+// @media screen and (max-width: 768px) {
+//   .search-card {
+//     flex: 1 1 100%; /* 1 card per row */
+//   }
+// }
