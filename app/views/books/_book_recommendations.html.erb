@@ -3,7 +3,10 @@
 
 <div data-controller="next-book" data-next-book-first-book-id-value="<%= @book.id %>">
   <div class="book-container modal-wrapper" data-controller="modal" data-next-book-target="book" data-recommendation-id="0">
-    <p data-action="click->modal#details">See details</p>
+    <p data-action="click->modal#details" class="see-details-toggle-recommend">
+    <%= image_tag "Detail-2.svg", alt: "Detail Icon", class: "detail-icon" %>
+    See details
+  </p>
     <div class="book-cover">
       <%= image_tag(@book.cover_image, alt: @book.title) || "no cover available" %>
     </div>
@@ -16,7 +19,7 @@
         <button class="image-button" data-action="click->next-book#next" data-recommendation-id="0">
           <%= image_tag "reject.png", alt: "Click Me" %>
         </button>
-        <p>Not interested</p>
+        <%# <p>Not interested</p> %>
       </div>
       <div class="btn-wrapper">
         <%= link_to book_path(@book), class: "btn-link" do %>
@@ -24,7 +27,7 @@
             <%= image_tag "accept.png", alt: "Accept recommendation" %>
           </button>
         <% end %>
-        <p>Interested</p>
+        <%# <p>Interested</p> %>
       </div>
     </div>
 
@@ -32,23 +35,27 @@
       <button data-action="click->display-reason#render" class="ai-prompt">
         <%= image_tag "question_mark.png", alt: "AI Prompt" %>
       </button>
-      <div class="modal yellow hidden" data-display-reason-target="modal">
+      <div class="modal recommend-alt hidden" data-display-reason-target="modal">
         <div>
           <%= @reason.first[:reason] %>
-          <button data-action="click->display-reason#close" class="close-button">Close</button>
+          <button data-action="click->display-reason#close" class="close-button">
+            <%= image_tag "close.svg", alt: "Close Icon", class: "close-2-icon" %>
+          </button>
         </div>
       </div>
     </div>
 
-      <div class="modal hidden" data-modal-target="bookDetails">
-      <div>
+      <div class="modal-2 hidden" data-modal-target="bookDetails">
+      <div class = "modal-container">
         <h1><%= @book.title %></h1>
         <p><%= @book.author %></p>
         <p><%= @book.description %></p>
         <p>Pages: <%= @book.number_of_pages %></p>
         <p>Publication date: <%= @book.publish_date %></p>
         <p>Publisher: <%= @book.publisher %></p>
-        <button data-action="click->modal#closeDetails" class="close-button">Close</button>
+        <button data-action="click->modal#closeDetails" class="close-button">
+        <%= image_tag "close.svg", alt: "Close Icon", class: "close-icon" %>
+      </button>
       </div>
     </div>
   </div>
@@ -99,17 +106,14 @@
       </div>
     </div>
 
-      <div class="modal hidden" data-modal-target="bookDetails">
-      <div>
-        <h1><%= book.title %></h1>
-        <p><%= book.author %></p>
-        <p><%= book.description %></p>
-        <p>Pages: <%= book.number_of_pages %></p>
-        <p>Publication date: <%= book.publish_date %></p>
-        <p>Publisher: <%= book.publisher %></p>
-        <button data-action="click->modal#closeDetails" class="close-button">Close</button>
-      </div>
+      <div class="modal-2 hidden" data-modal-target="bookDetails">
+    <div class="modal-container">
+      <%= render "books/book-details" %>
+      <button data-action="click->modal#closeDetails" class="close-button">
+        <%= image_tag "close.svg", alt: "Close Icon", class: "close-icon" %>
+      </button>
     </div>
+  </div>
   </div>
 <% end %>
 </div>
