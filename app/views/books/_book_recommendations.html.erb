@@ -1,7 +1,7 @@
 <% @book = books.first %>
 <% @reason = books_with_reasons %>
 
-<div data-controller="next-book" data-next-book-bookid-value="<%= @book.id %>">
+<div data-controller="next-book" data-next-book-first-book-id-value="<%= @book.id %>">
   <div class="book-container modal-wrapper" data-controller="modal" data-next-book-target="book" data-recommendation-id="0">
     <p data-action="click->modal#details">See details</p>
     <div class="book-cover">
@@ -20,7 +20,7 @@
       </div>
       <div class="btn-wrapper">
         <%= link_to book_path(@book), class: "btn-link" do %>
-          <button class="image-button" data-next-book-target="likeButton" data-action="click->next-book#liked" data-recommendation-id="0">
+          <button class="image-button" data-next-book-target="likeButton" data-action="click->next-book#likedFirst" data-recommendation-id="0">
             <%= image_tag "accept.png", alt: "Accept recommendation" %>
           </button>
         <% end %>
@@ -54,7 +54,14 @@
   </div>
 
 <% books[1..].each_with_index do |book, index| %>
-  <div class="book-container modal-wrapper d-none" data-controller="modal" data-next-book-target="book" data-recommendation-id="<%= index + 1 %>">
+  <div
+    id="nex-book-<%= book.id %>"
+    class="book-container modal-wrapper d-none"
+    data-controller="modal"
+    data-next-book-target="book"
+    data-recommendation-id="<%= index + 1 %>"
+    data-next-book-bookid-value="<%= book.id %>"
+  >
     <p data-action="click->modal#details">See details</p>
     <div class="book-cover">
       <%= image_tag(book.cover_image, alt: book.title) || "no cover available" %>
@@ -105,4 +112,5 @@
     </div>
   </div>
 <% end %>
+</div>
 </div>
