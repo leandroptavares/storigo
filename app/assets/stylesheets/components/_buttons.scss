@@ -189,6 +189,25 @@
   gap: 0.5rem;
 }
 
+
+.submit-modal-button{
+  width: 12.5rem;
+  height: 4.5rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: #63BDF2;
+  text-align: center;
+  border: solid 1px #ffffff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 1rem;
+  box-shadow: #00000087 0.1rem 0.1rem 0.2rem;
+  margin-top: 1rem;
+}
+
 // .add_to_bookshelf_button text{
 //   width: 113.462px;
 //   height: 17px;

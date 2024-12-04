@@ -60,12 +60,12 @@
 <div class="status-form">
 <%= f.input :status, as: :select,
             collection: [["In progress", "In progress"], ["Completed", "Completed"]],
-            class: "dropdown no-checkmark",
+            class: "dropdown",
             prompt: "",
             label: "Completion",
             input_html: {
               data: { bookstatus_target: "status" },
-              style: "--bs-form-select-bg-icon: none;"
+              style: "--bs-form-select-bg-icon: none; height: 3rem; font-size: 1.2rem; padding: 0.5rem;"
             } %>
 
 </div>
@@ -87,16 +87,18 @@
 </div>
 
       <p class="sub-button-placement">
-        <%= f.submit "Update Status", class: "bookshelf-link" %>
+        <%= f.submit "Update Status", class: "submit-modal-button" %>
       </p>
-      <div class="d-none" data-bookstatus-target="content">
-        Congratulations, you finished your reading
+      <div class="d-none alert-p" data-bookstatus-target="content">
+        Congratulations, you finished your reading 🥳
       </div>
       <div class="d-none" data-bookstatus-target="error">
         <p>The number is bigger than book pages</p>
       </div>
     <% end %>
-    <button data-action="click->modal#closeUpdate" class="close-button">Close</button>
+    <button data-action="click->modal#closeUpdate" class="close-button">
+      <%= image_tag "close.svg", alt: "Close Icon", class: "close-icon-2" %>
+    </button>
   </div>
 </div>
     <% end %>
