@@ -1,7 +1,7 @@
 class BookJob < ApplicationJob
   queue_as :default
 
-  def perform(survey)
+  def perform(survey, user)
     @user_survey = survey
     @api_recommendations = getRecommendations(@user_survey.answers.first.content)
     @open_ai_recommendation = getISBNorder(@api_recommendations, @user_survey.answers.second.content, @user_survey.answers.third.content, @user_survey.answers.fourth.content, @user_survey.answers.fifth.content)
@@ -12,7 +12,7 @@ class BookJob < ApplicationJob
     end
 
     Turbo::StreamsChannel.broadcast_update_to(
-      "recommendations_#{current_user.id}",
+      "recommendations_#{user.id}",
       target: "recommendations",
       partial: "books/book_recommendations", locals:{ books: @books, books_with_reasons: @books_with_reasons })
   end

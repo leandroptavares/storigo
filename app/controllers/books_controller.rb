@@ -53,7 +53,7 @@ end
   def recommendation
     @user_survey = current_user.surveys.last
 
-    BookJob.perform_later(@user_survey)
+    BookJob.perform_later(@user_survey, current_user)
   end
 
   private
