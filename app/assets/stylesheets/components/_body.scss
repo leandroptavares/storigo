@@ -1,6 +1,6 @@
 body, html {
   background-color: $background_color;
-  font-size: 10px; 
+  font-size: 10px;
   margin: 0; /* Remove default margin */
   padding: 0; /* no extra spacing */
   min-height: 100%; /* Allow the content to grow beyond the viewport */
@@ -10,17 +10,20 @@ body, html {
   font-family: "Inter", sans-serif;
 }
 
+// this only works for the homepage because it needs more pading on top and bottom I just realised (custom container)👇🏻
+
 .custom-container {
-    text-align: center; /* Center text inside the container */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh; /* Ensures the container takes the full viewport height */
-    justify-content: center; /* Centers content vertically */
-    // position: relative;
-    width: 100%;
+    // text-align: center; /* Center text inside the container */
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // min-height: 100vh; /* Ensures the container takes the full viewport height */
+    // justify-content: center; /* Centers content vertically */
+    // // position: relative;
+    // width: 100%;
     padding: 8rem 0;
 }
+
 
 // /* Adjust font size only for smaller devices */
 // @media (max-width: 375px) { /* iPhone SE and smaller devices */

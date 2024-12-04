@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show, :create] do
     resources :reviews, only: [:new, :create]
     # resources :user_books, only: [:create]
-    resources :reactions, only: [:create]
+    resources :user_reactions, only: [:create]
   end
 
   resources :communities, only: [:index, :new, :create, :edit, :update, :show] do
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :user_communities, only: [:index, :create, :destroy]
   resources :user_books, only: [:index, :destroy, :edit, :update]
   post "user_books/:id", to: "user_books#create", as: :add_book
+  resources :user_reactions, only: [:index]
 
 
   get "discover", to: "books#discover", as: :discover
