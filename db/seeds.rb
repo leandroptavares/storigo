@@ -221,11 +221,11 @@ image: "https://plus.unsplash.com/premium_photo-1674727219372-4ba6644106bc?q=80&
 community.save
 p "Added History Buffs"
 
-community = Community.new(name: "Emotional Journeys",
+community = Community.new(name: "Emo Journeys",
 description: "Dive deep into books that evoke powerful emotions and leave lasting impressions.",
 image: "https://images.unsplash.com/photo-1617440168937-c6497eaa8db5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 community.save
-p "Added Emotional Journeys"
+p "Added Emo Journeys"
 
 community = Community.new(name: "Romance Unite",
 description: "A swoon-worthy community for lovers of romantic novels, from sweet love stories to steamy tales.",
@@ -240,11 +240,11 @@ community.save
 p "Added Dark & Twisty Reads"
 
 
-community = Community.new(name: "Classic Chronicles",
+community = Community.new(name: "Classical Club",
 description: "A space for lovers of classic literature. Share and discuss timeless novels, from Shakespeare to Dickens and beyond.",
 image: "https://images.unsplash.com/photo-1645185480854-c538f9f43a7a?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 community.save
-p "Added Classic Chronicles"
+p "Added Classical Club"
 
 
 community = Community.new(name: "Mystery Maven",
