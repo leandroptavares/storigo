@@ -1,7 +1,6 @@
 <%= turbo_stream_from "recommendations" %>
-<%# <div class="overwrite-container"> %>
-<%# <body class="custom-page"> %>
-<div class="book-container" id="recommendations" data-controller="quote-rotator">
+
+<div class="loading-container" id="recommendations" data-controller="quote-rotator">
   <p><h1>Almost ready! Your next read is coming soon.</h1></p>
   <div class="spinner-border" role="status">
     <span class="sr-only">Loading...</span>
@@ -9,5 +8,3 @@
   <br>
   <p id="quotes" data-quote-rotator-target="quote"><i>Loading...</i></p>
 </div>
-<%# </div> %>
-<%# </body> %>

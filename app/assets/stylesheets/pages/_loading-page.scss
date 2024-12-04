@@ -1,0 +1,65 @@
+.loading-container{
+  text-align: center; /* Center text inside the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* Ensures the container takes the full viewport height */
+  justify-content: center; /* Centers content vertically */
+  // position: relative;
+  width: 100%;
+  padding-top: 2.5rem;
+  padding-bottom: 10rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.loading-container h1 {
+  font-size: 2.4rem;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Spinner Styling */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.3rem;
+  color: #B9D9EC; /* Match Bootstrap spinner colors */
+  margin: 1rem 0;
+}
+
+/* Quote Text Styling */
+#quotes {
+  font-style: italic;
+  font-size: 1.6rem;
+  text-shadow: 0rem 0.2rem 0.5rem #b9d9ec51;
+  color: #F1E4A3;
+  margin-top: 1rem;
+}
+
+/* Add Animation for Quote Rotator */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#quotes {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
