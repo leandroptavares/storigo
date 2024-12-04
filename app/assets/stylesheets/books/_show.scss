@@ -75,6 +75,10 @@
   height: 6rem;
   padding-top: 1rem;
 
+  @media (min-width: 1024px) {
+    width: 15%; /* Adjust width for desktops */
+  }
+
   ul {
     display: flex;
     padding: 0;
@@ -94,14 +98,14 @@
     display: block;
     width: 4rem;
     height: 4rem;
-    // transform: translateX(-1rem);
+    transform: translateX(0.5rem);
   }
 
   .abc-icon {
     display: block;
     // width: 12.8rem;
     // height: 2rem;
-    // transform: translateX(1.5rem);
+    transform: translateX(-0.5rem);
   }
 
 }
@@ -109,7 +113,8 @@
 .reviews-title{
   text-align: left;
   align-self: flex-start;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  // margin-bottom: 1rem;
   font-size: 2.4rem;
   font-weight: 200;
   padding-bottom: 2rem;
