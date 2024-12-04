@@ -12,7 +12,7 @@ class BookJob < ApplicationJob
     end
 
     Turbo::StreamsChannel.broadcast_update_to(
-      "recommendations",
+      "recommendations_#{current_user.id}",
       target: "recommendations",
       partial: "books/book_recommendations", locals:{ books: @books, books_with_reasons: @books_with_reasons })
   end

@@ -1,4 +1,4 @@
-<%= turbo_stream_from "recommendations" %>
+<%= turbo_stream_from "recommendations_#{current_user.id}" %>
 <%# <div class="overwrite-container"> %>
 <%# <body class="custom-page"> %>
 <div class="book-container" id="recommendations" data-controller="quote-rotator">
