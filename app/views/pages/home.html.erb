@@ -68,7 +68,7 @@
                       <div class="d-flex flex-column align-items-center justify-content-center book-card">
                         <%= image_tag(book.cover_image, alt: book.title, class: "my-bookshelf-book-trend m-3") %>
                         <h5 class="text-center my-books-title-trend"><%= book.title %></h5>
-                        <p class="text-center trend-author">by <%= book.author %></p>
+                        <p class="text-center trend-author">by <%= book.author.tr('[]', '').split(',').map(&:strip).join(', ') %></p>
                       </div>
                     <% end %>
                   </div>
