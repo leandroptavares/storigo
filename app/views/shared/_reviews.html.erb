@@ -4,21 +4,23 @@
   <% if current_user %>
     <% if @book.reviews.any? { |review| review.user_id == current_user.id } %>
       <p> We've got your review! Thanks for sharing</p>
-      </div>
+      <%# </div> %>
     <% else %>
       <%= simple_form_for [@book, @review] do |f| %>
         <%= f.input :comment, class: "reviewbox", label: "Comment", placeholder: "Leave a review ✍🏻" %>
         <%# <p class="rating-p-text">Rating</p> %>
         <%= f.select :rating, options_for_select([1, 2, 3, 4, 5], @review.rating), { prompt: "Rating 1-5 ⭐️" } ,class: "rating-dropdown" %>
-        <%= f.submit "Submit Review", class: "buttons" %>
+        <%= f.submit "Submit Review", class: "add-submit-buttons" %>
       <% end %>
     <% end %>
   <% end %>
 
 <!-- Show Existing Reviews Section -->
+<div class="existing-container">
 <ul>
   <% @reviews.each do |review| %>
     <li>
+    <div class="all-user-container">
       <div id="review-<%= review.id %>">
         <div class="review-profile-info">
           <div class="review-user-image">
@@ -45,13 +47,15 @@
 
         <% if current_user && review.user_id == current_user.id %>
           <p>
-            <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "review-delete", style: "color:black" do %>
+            <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "review-delete" do %>
               <i class="fa-solid fa-trash"></i> Delete review
             <% end %>
           </p>
         <% end %>
       </div>
+      </div>
     </li>
   <% end %>
 </ul>
+</div>
 </div>

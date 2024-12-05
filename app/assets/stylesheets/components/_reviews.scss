@@ -55,10 +55,11 @@
   }
 }
 
-.buttons {
+.add-submit-buttons {
   display: inline-block; /* Ensures the button doesn't span full width */
   padding: 0.75rem 1.5rem; /* Adjust padding for size */
   margin-top: 1rem;
+  margin-bottom: 1.5rem;
   font-size: 1.4rem; /* Adjust font size */
   background-color: #B9D9EC; /* Background color of the button */
   color: #000000; /* Text color */
@@ -71,3 +72,112 @@
   }
 }
 
+/* CSS for Review Section */
+.review-profile-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #1C042E, #5E3C74, #B39FBE);
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.5);
+
+}
+
+
+
+.review-user-image {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-current-user-name,
+.review-other-user-name {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.review-timestamp {
+  font-size: 0.875rem;
+  color: white;
+}
+
+.review-content {
+  margin: 1rem 0;
+  padding: 1rem;
+  // background-color: rgba(128, 128, 128, 0.562);
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 60rem;
+
+}
+
+.review-content i {
+  color: #ffcc00;
+  font-size: 1.6rem;
+}
+
+.review-content p {
+  font-size: 1.4rem;
+  color: black;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+/* Specific Styles for the Reviews Section */
+.existing-container ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+}
+
+.existing-container li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Delete Link Styles */
+.review-delete {
+  text-align: right;
+  font-size: 0.875rem;
+  color: black;
+  text-decoration: none;
+}
+
+.review-delete i {
+  margin-right: 0.5rem;
+}
+
+.review-delete:hover {
+  text-decoration: underline;
+}
+
+/* Centered Container for Reviews */
+.review-container ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-container li {
+  width: 100%;
+  max-width: 70rem;
+}
+
+.review-content {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.05);
+}
+.all-user-container{
+  background-color: #E3D8F1;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 0.5rem;
+  border: solid 0.1rem #F1E4A3;
+  box-shadow: 0 2rem 2rem rgba(235, 195, 252, 0.06);
+
+}
