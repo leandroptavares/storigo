@@ -22,7 +22,7 @@ def fetch_and_save_books_from_api(search_term)
 end
 
   def save_book_to_database(book_data)
-    return if Book.exists?(title: book_data["title"])
+      return if Book.find_by(api_id: book_data["isbn13"].presence)
       Book.create(
       title: book_data["title"],
       author: book_data["authors"],
@@ -53,7 +53,7 @@ end
   def recommendation
     @user_survey = current_user.surveys.last
 
-    BookJob.perform_later(@user_survey)
+    BookJob.perform_later(@user_survey, current_user)
   end
 
   private

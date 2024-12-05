@@ -16,8 +16,7 @@
 
 .modal-2 {
   position: fixed;
-  // top: 0;
-  // left: 0;
+  top: 10rem;
   width: 100%;
   height: 65%;
   background: #1C042E;
@@ -26,7 +25,6 @@
   border-radius: 1rem; /* Reduce border radius */
   border: solid 0.2rem #f1a3a3;
   z-index: 1000; /* Ensure the modal appears above other content */
-
 }
 
 .modal-container {
@@ -134,6 +132,30 @@
   display: block; /* Shows the background overlay when the modal is active */
 }
 
+.modal-visible::before {
+  display: block; /* Shows the background overlay when the modal is active */
+}
+
+.modal.recommend-alt {
+  // background-color: black;
+  height: 60%;
+  background-color: #f1e4a3; /* Yellow background */
+  border-radius: 5rem;        /* Rounded corners */
+  border: solid 0.2rem black;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  max-width: 50rem;
+  width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 1.8rem;
+}
+
 .modal.yellow {
   // Existing modal styles
   height: 60%;
@@ -151,7 +173,52 @@
   transform: translate(-50%, -50%);
   box-shadow: 0 8px 20px rgba(113, 113, 113, 0.524), /* Soft primary shadow */
               0 4px 6px rgba(0, 0, 0, 0.1);  /* Additional subtle shadow for depth */
-              border: solid 0.2rem black;
+  border: solid 0.2rem black;
+
+
+  // color: black;
+
+  // Ensure links and buttons inside the modal are black
+  a,
+  button {
+    color: black; /* Black text color */
+    text-decoration: none; /* Remove underline for links */
+    background: none; /* Ensure buttons inherit background */
+    border: none; /* Optional: Removes borders from buttons */
+  }
+
+  // Optional: hidden state
+  &.hidden {
+    display: none;
+  }
+
+  // Responsive adjustments for mobile screens
+  @media (max-width: 600px) {
+    padding: 15px;
+    max-width: 90%;
+    border-radius: 5px;
+  }
+}
+
+.modal.my-bookshelf-form {
+  // Existing modal styles
+  height: 60%;
+  background-color: #f1e4a3; /* Yellow background */
+  border-radius: 5rem;        /* Rounded corners */
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  max-width: 50rem;
+  width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 20px rgba(113, 113, 113, 0.524), /* Soft primary shadow */
+              0 4px 6px rgba(0, 0, 0, 0.1);  /* Additional subtle shadow for depth */
+  border: solid 0.2rem black;
+
 
   // color: black;
 
