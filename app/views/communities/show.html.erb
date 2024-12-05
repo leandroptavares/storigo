@@ -18,7 +18,7 @@
     </div>
 
     <h1 class="community-name" style="opacity: 1;"><%= @community.name %></h1>
-    <p class="followers"> <%= @community.users.count %> followers</p>
+    <p class="followers"> <p><%= @community.users.count %> <%=@community.users.count == 1 ? "follower" : "followers" %></p>
     <p style="font-size: 16px ;">"<%= @community.description %>"</p>
     <% if current_user.communities.include?(@community) %>
       <p style="font-size: 14px ;">You're following this community</p>

@@ -4,7 +4,7 @@
   <% if current_user %>
     <% if @book.reviews.any? { |review| review.user_id == current_user.id } %>
       <p> We've got your review! Thanks for sharing</p>
-      </div>
+       <%# </div> %> 
     <% else %>
       <%= simple_form_for [@book, @review] do |f| %>
         <%= f.input :comment, class: "reviewbox", label: "Comment", placeholder: "Leave a review ✍🏻" %>

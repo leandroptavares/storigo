@@ -9,7 +9,9 @@ a img{
 }
 
 .com-thumbnail{
-  padding: 20px;
+  padding: 40px;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .background-img{
@@ -57,9 +59,10 @@ a img{
   margin-top: 4px;
 }
 
-.custom-container .unfollow-btn{
-  display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  margin-right: 40px;
+.explore-hover{
+  font-size: 20px;
+}
+
+.explore-hover:hover{
+  text-decoration: underline;
 }

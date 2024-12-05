@@ -1,4 +1,12 @@
 <div class="bookshelf">
+<div class="white-arrow">
+    <%= link_to my_profile_path do %>
+      <button class="return-arrow">
+        <%= image_tag "back_arrow.png"%>
+      </button>
+    <% end  %>
+  </div>
+  
   <div class="bookshelf-title text-center my-5 pb-3">
     <h1 class="pb-3">Recent recommendations</h1>
     <p>Check the past recommendations you liked</p>
