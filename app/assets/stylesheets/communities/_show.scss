@@ -162,6 +162,39 @@ p.followers{
   width: 100px;
 }
 
+.book-card{
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease-out;
+  padding: 20px;
+}
+
+.book-card:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.join-btn button{
+  background-color:#B9D9EC;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 14px;
+}
+
+.join-btn button:hover{
+  background-color: #63BDF2;
+}
+
+// .my-bookshelf-book{
+//   width: 200px;
+//   max-height: 600px;
+//   height: 100%;
+//   width: 100%;
+//   object-fit: cover;
+// }
+
 // .carousel-control-next-icon{
 //   color:
 // }
