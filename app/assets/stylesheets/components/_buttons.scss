@@ -251,6 +251,18 @@
   box-shadow: #00000087 0.1rem 0.1rem 0.2rem;
 }
 
+.unfollow-btn img{
+  height: 20px;
+  width: 20px;
+
+}
+
+.unfollow-btn img:hover{
+ text-decoration-line: underline ;
+}
+
+
+
 // .add_to_bookshelf_button text{
 //   width: 113.462px;
 //   height: 17px;

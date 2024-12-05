@@ -9,7 +9,11 @@
 
 <div class="custom-container" style="padding-bottom: 80px;">
   <% current_user.user_communities.each do |user_community| %>
-  <%= link_to "Unfollow", user_community_path(user_community), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to unfollow this community?" }, class: "unfollow-btn" %>
+  <%= link_to user_community_path(user_community),
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to unfollow this community?" },
+              class: "unfollow-btn" do%>
+      <%= image_tag "delete.png" %>
+    <% end %>
     <%= link_to community_path(user_community.community), class: "com-thumbnail-link" do %>
       <div class="com-thumbnail">
         <div class="background-img" style="background-image: url('<%= user_community.community.image %>'); width: 348px; height: 167px; background-size: cover; background-position: center;">

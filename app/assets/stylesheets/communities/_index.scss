@@ -56,3 +56,10 @@ a img{
   padding-bottom: 5px;
   margin-top: 4px;
 }
+
+.custom-container .unfollow-btn{
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  margin-right: 40px;
+}
