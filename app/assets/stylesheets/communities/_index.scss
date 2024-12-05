@@ -9,7 +9,9 @@ a img{
 }
 
 .com-thumbnail{
-  padding: 20px;
+  padding: 40px;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .background-img{
@@ -55,4 +57,12 @@ a img{
   padding-right: 5px;
   padding-bottom: 5px;
   margin-top: 4px;
+}
+
+.explore-hover{
+  font-size: 20px;
+}
+
+.explore-hover:hover{
+  text-decoration: underline;
 }

@@ -3,42 +3,9 @@
   align-items: center;
   flex-direction: column;
   padding-top: 50px;
-  padding-bottom: 60px;
+  padding-bottom: 40px;
   //background: linear-gradient(to bottom, #1C042E)
 }
-
-.white-arrow{
-  align-self: flex-start;
-  padding-left: 10px;
-}
-
-.return-arrow{
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-// .communities-banner::before {
-//   content: '';
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, #1C042E),
-//               url('<%= image_path(@community.image) %>');
-//   background-size: cover;
-//   background-position: center;
- // opacity: 0.6; /* Adjust opacity only for background */
- // z-index: -1; /* Ensures it stays behind the text */}
-
-// .banner-txt {
-//   position: relative;
-//   align-items: center;
-//   z-index: 1; /* Keeps the text above the background */
-//   color: white; /* Adjust text color for readability */
-//   padding: 20px; /* Optional padding for spacing */
-// }
 
 .community-name{
   font-size: 40px;
@@ -49,7 +16,10 @@
 .followers{
   display: flex;
   text-align: start;
-  padding-left: 15px;
+  // padding-left: 15px;
+  padding-top: 10px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .followers img{
@@ -162,6 +132,39 @@
 .suggested-author{
   width: 100px;
 }
+
+.book-card{
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease-out;
+  padding: 20px;
+}
+
+.book-card:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.join-btn button{
+  background-color:#B9D9EC;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 14px;
+}
+
+.join-btn button:hover{
+  background-color: #63BDF2;
+}
+
+// .my-bookshelf-book{
+//   width: 200px;
+//   max-height: 600px;
+//   height: 100%;
+//   width: 100%;
+//   object-fit: cover;
+// }
 
 // .carousel-control-next-icon{
 //   color:

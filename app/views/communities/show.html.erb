@@ -18,19 +18,19 @@
     </div>
 
     <h1 class="community-name" style="opacity: 1;"><%= @community.name %></h1>
-    <p class="followers"><%= image_tag "community-thumbnail.png"%><%= @community.users.count %> followers</p>
-    <p><%= @community.description %></p>
+    <p class="followers"> <p><%= @community.users.count %> <%=@community.users.count == 1 ? "follower" : "followers" %></p>
+    <p style="font-size: 16px ;">"<%= @community.description %>"</p>
     <% if current_user.communities.include?(@community) %>
-      <p>You're following this community</p>
+      <p style="font-size: 14px ;">You're following this community</p>
     <% else %>
-      <%= button_to "Join", user_communities_path(id: @community.id) %>
+      <div class= "join-btn"><%= button_to "Join", user_communities_path(id: @community.id) %></div>
     <% end %>
   </div>
 <!-- Messages -->
 
 
       <p class="community-title"><strong>Suggested books:</strong></p>
-      <div id="booksCarousel" class="carousel slide" style="padding-bottom:20px;" data-bs-ride="carousel">
+      <div id="booksCarousel" class="carousel slide" data-bs-ride="carousel">
 
         <div class="carousel-inner" style="padding-top: 40px; margin: auto;">
           <% @books.each_slice(3).with_index do |books_group, index| %>
