@@ -10,7 +10,7 @@
 
   <div class="book-txt">
     <h2><%= @book.title %></h2>
-    <p>by <%= @book.author %></p>
+    <p>by <%= @book.author.tr('[]', '').split(',').map(&:strip).join(', ') %></p>
   </div>
 
   <% if current_user.books.include?(@book) %>

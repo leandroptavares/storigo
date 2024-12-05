@@ -18,19 +18,19 @@
     </div>
 
     <h1 class="community-name" style="opacity: 1;"><%= @community.name %></h1>
-    <p class="followers"><%= image_tag "community-thumbnail.png"%><%= @community.users.count %> followers</p>
-    <p><%= @community.description %></p>
+    <p class="followers"> <p><%= @community.users.count %> <%=@community.users.count == 1 ? "follower" : "followers" %></p>
+    <p style="font-size: 16px ;">"<%= @community.description %>"</p>
     <% if current_user.communities.include?(@community) %>
-      <p>You're following this community</p>
+      <p style="font-size: 14px ;">You're following this community</p>
     <% else %>
-      <%= button_to "Join", user_communities_path(id: @community.id) %>
+      <div class= "join-btn"><%= button_to "Join", user_communities_path(id: @community.id) %></div>
     <% end %>
   </div>
 <!-- Messages -->
 
 
       <p class="community-title"><strong>Suggested books:</strong></p>
-      <div id="booksCarousel" class="carousel slide" style="padding-bottom:20px;" data-bs-ride="carousel">
+      <div id="booksCarousel" class="carousel slide" data-bs-ride="carousel">
 
         <div class="carousel-inner" style="padding-top: 40px; margin: auto;">
           <% @books.each_slice(3).with_index do |books_group, index| %>
@@ -66,7 +66,7 @@
     class= "community-title"style="display: inline-block; padding-left: 30px; padding-right: 30px; padding-top: 30px;"><strong>Comments</strong></h4>
     <div class="message-container" style="padding-left: 30px; padding-right: 30px; padding-top:30px; max-width: 600px; width: 100%; margin: 0 auto">
     <% if current_user.communities.include?(@community) %>
-       <div class="text-area-community">
+       <div class="text-area-community" data-controller="button">
               <%= simple_form_for [@community, @message],
                   html: {class: "d-flex",
                         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
@@ -75,11 +75,16 @@
               <%= f.input :content,
                 label: false,
                 placeholder: "Add a message",
-                input_html: {class: "no-resize"},
-                wrapper_html: {class: "flex-grow-1"}
+                input_html: {
+                  class: "no-resize",
+                  "data-button-target": "content",
+                  "data-action": "input->button#checkField"
+                },
+                wrapper_html: { class: "flex-grow-1" }
               %>
 
-              <button type="submit" class="btn btn-outline-secondary send">
+
+              <button type="submit" class="btn btn-outline-secondary send" data-button-target="sendButton">
                 <%= image_tag "send_message.png", alt: "Send" %>
               </button>
               <% end %>

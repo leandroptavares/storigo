@@ -1,4 +1,4 @@
-<div class="custom-container">
+<div class="custom-home-container">
   <div class="header-container">
     <div class="logo-container">
       <h2 class="logo">Storigo</h2>
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div data-controller="trending m-0">
+  <div data-controller="trending">
     <div class="trending-container">
       <div class="trend-container-2">
         <h2 class="trend">Trending</h2>
@@ -56,9 +56,10 @@
       </div>
     </div>
 
+    <div class="caro-trending-container">
           <div id="booksCarousel" class="carousel slide" style="padding-bottom:20px;" data-bs-ride="carousel">
 
-        <div class="carousel-inner" style="margin: auto;">
+    <div class="carousel-inner" style="margin: auto;">
           <% @books.each_slice(3).with_index do |books_group, index| %>
             <div class="carousel-item <%= 'active' if index == 0 %>">
               <div class="d-flex justify-content-center">
@@ -87,7 +88,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
+    </div>
    <!-- div data-trending-target="book">
       <div class="img-fluid pb-4 book visible" style="margin-top: -70px;">
         <%= image_tag "michelle.png", alt: "Trending-Image", class: "image-trend" %>
@@ -154,7 +155,7 @@
             <div class="background-img-carousel" style="background-image: url('<%= community.image %>'); width: 348px; height: 167px; background-size: cover; background-position: center;">
               <h1 class="com-title"><%= community.name %></h1>
               <div class="followers">
-                <%= image_tag "community-thumbnail.png"%> <p><%= community.users.count %> followers</p>
+                <%= image_tag "community-thumbnail.png"%> <p><%= community.users.count %> <%= community.users.count == 1? "follower" : "followers" %></p>
               </div>
             </div>
           </div>
