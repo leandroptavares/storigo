@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-<%= turbo_stream_from "recommendations_#{current_user.id}" %>
-<%# <div class="overwrite-container"> %>
-<%# <body class="custom-page"> %>
-<div class="book-container" id="recommendations" data-controller="quote-rotator">
-=======
 <%= turbo_stream_from "recommendations" %>
 
 <div class="loading-container" id="recommendations" data-controller="quote-rotator">
->>>>>>> 6b56942fc696ef3cf69b1a7cbbf3ad527183432d
   <p><h1>Almost ready! Your next read is coming soon.</h1></p>
   <div class="loader"></div> <!-- Replace spinner with custom loader -->
   <br>
