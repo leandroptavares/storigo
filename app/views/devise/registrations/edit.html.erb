@@ -35,6 +35,8 @@
 <%# <h3>Unhappy?</h3> %>
 
 <div class="cancel-container"> <%= button_to "Cancel my account", registration_path(resource_name), class: "cancel-button" ,data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<div class="pb-10">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+
 
 <%= link_to "Back", :back %>
 

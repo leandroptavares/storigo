@@ -2,8 +2,197 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 50px;
+  padding-bottom: 60px;
+  //background: linear-gradient(to bottom, #1C042E)
 }
 
+.white-arrow{
+  align-self: flex-start;
+  padding-left: 10px;
+}
 
+.return-arrow{
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+// .communities-banner::before {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, #1C042E),
+//               url('<%= image_path(@community.image) %>');
+//   background-size: cover;
+//   background-position: center;
+ // opacity: 0.6; /* Adjust opacity only for background */
+ // z-index: -1; /* Ensures it stays behind the text */}
+
+// .banner-txt {
+//   position: relative;
+//   align-items: center;
+//   z-index: 1; /* Keeps the text above the background */
+//   color: white; /* Adjust text color for readability */
+//   padding: 20px; /* Optional padding for spacing */
+// }
+
+.community-name{
+  font-size: 40px;
+  font-weight: 700;
+  color: #F1E4A3
+}
+
+.followers{
+  display: flex;
+  text-align: start;
+  padding-left: 15px;
+}
+
+.followers img{
+  object-fit: contain;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
+.followers p{
+  font-size: 18px;
+  font-weight: 700;
+  // margin-top: 5px;
+}
+
+.block-message{
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 20px;
+}
+
+.blocked{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+// .gradient-overlay{
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: linear-gradient(to bottom, #1C042E);
+//   pointer-events: none; /* Ensur
+// }
+
+#message_content.form-control.text.optional::placeholder{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+// .message-text{
+//   width: 100%;
+//   max-width: 400px;
+// }
+
+.send{
+  border-radius: 50%;
+  background-color: #4D4255;
+  margin: 5px;
+  border: none;
+}
+
+.send img{
+  width: 25px;
+  height: 25px;
+}
+
+.input-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+// .carousel-inner{
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-items: center;
+//   text-align: center;
+// }
+
+.text-center{
+  text-align: center;
+  padding-top: 10px;
+}
+
+.my-books-title{
+  width: 150px;
+  font-size: 11px;
+}
+
+.no-resize{
+  resize: none;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.community-title{
+  font-size: 18px;
+  color: #B9D9EC;
+  padding-top: 30px;
+  padding-left: 40px;
+}
+
+.carousel-inner{
+  width: 100%;
+  max-width: 800px;
+  align-items: center;
+  justify-content: center;
+}
+
+.suggested-author{
+  width: 100px;
+}
+
+// .carousel-control-next-icon{
+//   color:
+// }
+// .carousel-item a{
+//   text-decoration: none;
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+// }
+
+// .carousel-item{
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .carousel-inner .row{
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+// .input-icon{
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+// }
+
+// .message-input{
+//   padding-left: 80px;
+// }
+
+// .return-arrow{
+//   position: absolute;
+// }

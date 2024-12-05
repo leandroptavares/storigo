@@ -3,6 +3,11 @@
   height: 200px;
 }
 
+.my-bookshelf-book-trend {
+  width: 236px;
+  height: 360px;
+}
+
 .my-books-title {
   display: -webkit-box; /* Use the box model for multi-line text */
   -webkit-box-orient: vertical; /* Stack text vertically */
@@ -14,4 +19,19 @@
   text-align: center; /* Optional: Center-align the title */
   color: #B9D9EC;
   font-weight: bold;
+}
+
+.my-books-title-trend {
+  display: -webkit-box; /* Use the box model for multi-line text */
+  -webkit-box-orient: vertical; /* Stack text vertically */
+  overflow: hidden; /* Hide any overflowing text */
+  line-clamp: auto;
+  -webkit-line-clamp: 2; /* Limit the text to 2 lines */
+  text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
+  width: 205px; /* Ensure the title takes up the full width of its parent */
+  text-align: center; /* Optional: Center-align the title */
+  color: #B9D9EC;
+  font-weight: bold;
+  font-size: 1.5rem;
+
 }
