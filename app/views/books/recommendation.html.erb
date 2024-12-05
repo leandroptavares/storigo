@@ -1,4 +1,4 @@
-<%= turbo_stream_from "recommendations" %>
+<%= turbo_stream_from "recommendations_#{current_user.id}" %>
 
 <div class="loading-container" id="recommendations" data-controller="quote-rotator">
   <p><h1>Almost ready! Your next read is coming soon.</h1></p>
