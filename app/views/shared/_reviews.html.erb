@@ -16,34 +16,42 @@
   <% end %>
 
 <!-- Show Existing Reviews Section -->
-  <ul>
-    <% @reviews.each do |review| %>
-      <li>
-        <div>
-          <div>
-            <%= image_tag(review.user.photo, class: "profile-img") %>
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <div id="review-<%= review.id %>">
+        <div class="review-profile-info">
+          <div class="review-user-image">
+            <%= image_tag(review.user.photo, style: "width: 50px; height: 50px; border-radius: 50%; object-fit:cover;") %>
+          </div>
+          <strong class="review-current-user-name">
             <%= review.user.username if current_user.username == review.user.username %>
-            <%= link_to review.user.username, profile_path(user_id: review.user.id) if current_user.username != review.user.username%>
-          </div>
-          <div>
-            <% review.rating.times do %>
-              <i class="fa-solid fa-star"></i>
-            <% end %>
-            <% (5 - review.rating).times do %>
-              <i class="fa-regular fa-star"></i>
-            <% end %>
-          </div>
-          <div>
-            <p><%= review.comment %></p>
-          </div>
-          <p>Published on <%= review.created_at.strftime("%d/%m/%Y") %></p>
-          <% if current_user && review.user_id == current_user.id %>
-            <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete", style: "color:black" do %>
+          </strong>
+          <strong class="review-other-user-name">
+            <%= link_to review.user.username, profile_path(user_id: review.user.id) if current_user.username != review.user.username %>
+          </strong>
+          <i class="review-timestamp">• Published on <%= review.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </div>
+
+        <div class="review-content">
+          <% review.rating.times do %>
+            <i class="fa-solid fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="fa-regular fa-star"></i>
+          <% end %>
+          <p><%= review.comment %></p>
+        </div>
+
+        <% if current_user && review.user_id == current_user.id %>
+          <p>
+            <%= link_to review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "review-delete", style: "color:black" do %>
               <i class="fa-solid fa-trash"></i> Delete review
             <% end %>
-          <% end %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+          </p>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
 </div>
